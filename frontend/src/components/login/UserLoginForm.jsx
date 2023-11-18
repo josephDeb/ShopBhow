@@ -2,7 +2,7 @@
 import { useState,} from "react";
 import { useNavigate } from "react-router";
 import axios from 'axios';
-
+import './style.css'
 const UserLoginForm = () => {
 
     const navigate = useNavigate()
@@ -90,7 +90,7 @@ const UserLoginForm = () => {
      
                     <div className="mt-2">
                         <button type='submit' className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-500">
-                        {error ? <p>Loading</p> : <p>Submit</p>}
+                        {error ? <div className="lds-hourglass font-semibold">Loading</div> : <p>Submit</p>}
                         </button>
                     </div>
                 </form>

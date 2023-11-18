@@ -4,7 +4,7 @@ import User from '../models/userModels.js';
 
 const jwtpass = "abc123" || process.env.JWT_SECRET
 
-const protect = asyncHandler(async (req,res, next) => {
+const protect = (async (req,res, next) => {
 
     let token;
     token = req.cookies.jwt
@@ -26,7 +26,7 @@ const protect = asyncHandler(async (req,res, next) => {
 
 // admin check auth
 
-const authorizedAdmin = asyncHandler(async (req, res, next) => {
+const authorizedAdmin = (async (req, res, next) => {
     if(req.user && req.user.isAdmin) {
         next()
     } else {
