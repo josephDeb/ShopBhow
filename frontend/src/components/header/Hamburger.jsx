@@ -2,8 +2,6 @@
 import { BsArrowLeftCircleFill } from 'react-icons/bs'
 
 import Details from './details/Details'
-import { useNavigate } from 'react-router-dom'
-
 
 const Hamburger = ({isOpen,setIsOpen}) => {
 
@@ -16,6 +14,7 @@ const Hamburger = ({isOpen,setIsOpen}) => {
            </div>
 
            <Details />
+
        </div>
     </div>
   )

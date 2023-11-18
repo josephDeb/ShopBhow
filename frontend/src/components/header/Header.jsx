@@ -21,7 +21,7 @@ const Header = () => {
         <div className="mx-auto max-w-screen-xl h-full  flex justify-between items-center lg:max-w-screen-lg">
           <div className='h-full text-center w-[200px] flex justify-center items-center gap-1'>
                <HiShoppingCart className='text-2xl'/>
-              <h1 className='title text-[23px]'>Boss<span className='text-[#ed1d24]'>Pabile</span></h1>
+              <h1 className='title text-[23px]'>Shop<span className='text-[#ed1d24]'>Bu</span></h1>
           </div>
 
           {/*HAMBURGER NAV*/}

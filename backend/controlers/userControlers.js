@@ -23,7 +23,8 @@ const generateToken = (res, userId) => {
   return token;
 };
 
-const createUser = asyncHandler(async (req, res) => {
+
+const createUser = asyncHandler(async (req, res, next) => {
   const { username, email, password } = req.body;
 
   if(!username || !email || !password) {
@@ -51,6 +52,7 @@ const createUser = asyncHandler(async (req, res) => {
     });
   } catch (error) {
     res.status(400);
+    next()
     throw new Error("Invalid user data");
   }
 });
@@ -60,6 +62,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
   if(!email || !password) {
     res.status(400)
+    res.json({Status: false, Error:"Wrong credentials"})
     throw new Error("Please add email and password")
   }
 
@@ -86,10 +89,14 @@ const loginUser = asyncHandler(async (req, res) => {
       });
       return;
     } else {
-        res.status(404)
+        res.status(404).json({Status: false, Error: "Password wrong"})
         throw new Error("Password is wrong")
     }
+  } else {
+    res.status(404)
+    throw new Error("Something went wrong")
   }
+
 });
 
 const logoutCurrentUser = asyncHandler(async (req, res) => {
