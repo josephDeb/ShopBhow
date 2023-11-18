@@ -24,16 +24,16 @@ const generateToken = (res, userId) => {
 };
 
 
-const createUser = asyncHandler(async (req, res, next) => {
+const createUser = asyncHandler(async (req, res) => {
   const { username, email, password } = req.body;
 
-  if(!username || !email || !password) {
-      res.status(400)
-      throw new Error("Please fill up all fields")
+  if (!username || !email || !password) {
+    throw new Error("Please fill all the inputs.");
   }
- 
+
   const userExists = await User.findOne({ email });
   if (userExists) res.status(400).send("User already exists");
+  if (userExists) res.status(400).json("User already exists");
 
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);
@@ -48,21 +48,16 @@ const createUser = asyncHandler(async (req, res, next) => {
       username: newUser.username,
       email: newUser.email,
       isAdmin: newUser.isAdmin,
-      password: newUser.password
+      Status: true
     });
   } catch (error) {
-    res.status(404).json({Status: false, Error: "Invalid user data please put a valid credentials"})
+    res.status(400).json({Status: false, Error: "Invalid user data"})
+    throw new Error("Invalid user data");
   }
 });
 
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
-
-  if(!email || !password) {
-    res.status(400)
-    res.json({Status: false, Error:"Wrong credentials"})
-    throw new Error("Please add email and password")
-  }
 
   console.log(email);
   console.log(password);
@@ -83,20 +78,16 @@ const loginUser = asyncHandler(async (req, res) => {
         username: existingUser.username,
         email: existingUser.email,
         isAdmin: existingUser.isAdmin,
-        password: existingUser.password,
+        Status: true,
       });
       return;
-    } else {
-        res.status(404).json({Status: false, Error: "Password wrong"})
-        throw new Error("Password is wrong")
+    }else {
+      res.status(400).json({Status: false, Error: "Wrong credentials"})
     }
-  } else {
-    res.status(404)
-    throw new Error("Something went wrong")
+  }else {
+    res.status(400).json({Status: false, Error: "Wrong credentials"})
   }
-
 });
-
 const logoutCurrentUser = asyncHandler(async (req, res) => {
   res.cookie("jwt", "", {
     httpOnly: true,
@@ -121,7 +112,7 @@ const getCurrentProfile = asyncHandler(async (req,res) => {
       email: user.email,
     })
   }else {
-    res.status(404) 
+    res.status(404)
     throw new Error("User not found")
   }
 })

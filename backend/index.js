@@ -29,17 +29,10 @@ import userRoute from '../backend/routes/userRoute.js'
    res.send("BACKEND RUNNING")
  })
 
- app.use((err, req, res, next) => {
-    const statusCode =err.statusCode || 500;
-    const message = err.message || "Internal Server Error";
-    return res.status(statusCode).json({
-      success: false,
-      message,
-      statusCode
-    })
- })
+
 
  app.use("/api/users", userRoute)
+
 
  app.listen(port, () => {
     console.log("SERVER RUNNING ON PORT")

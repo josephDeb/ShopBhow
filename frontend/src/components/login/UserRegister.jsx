@@ -1,12 +1,12 @@
 
 
-import { data } from 'autoprefixer';
+
 import axios from 'axios';
 import { useEffect, useState} from 'react';
 import {  useNavigate} from 'react-router-dom';
-import { useDispatch } from 'react-redux'
-import { signInFailure, signInStart, signInSuccess } from '../../redux/user/userSlice';
-import { set } from 'mongoose';
+import { toast } from 'react-toastify';
+
+
 const UserRegister = () => {
     const navigate = useNavigate()
 
@@ -16,25 +16,41 @@ const UserRegister = () => {
       password: "",
     });
 
-    const dispatch = useDispatch()
     const [error, setError] = useState(false)
     const [irror, setIrror] = useState("")
 
+  
     const handleSubmit = async (e) => {
         e.preventDefault()
+        if(!values.username || !values.email ||  !values.password) {
+            alert("PLease fill up all fields")
+        }
         setError(true)
-        const res = await axios.post("/api/users/signup", values)
+        const res = await fetch("/api/users/test", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values)
+        });
         try {
-            if(res.status === 201) {
-                alert("Successfully created")
-            navigate("/")
+            const data = await res.json()
+            if(data.Status) {
+                setError(false)
+                navigate("/")
+                console.log(data)
             } else {
-                alert('error');
+                setIrror(data.Error)
+                toast.error(data.Error)
+                console.log(res.json())
+                setError(false)
             }
-        } catch (error) {
-            console.log(error)
+        } catch (err) {
+            console.log(err)
+            setError(false)
         }
     }
+
 
 
   return (
@@ -92,7 +108,7 @@ const UserRegister = () => {
                     >
                         Forget Password?
                     </a>
-                    <p className='text-yellow-600'>{irror && irror}</p>
+                    <p className='text-red-600 text-lg'>{irror && irror}</p>
                     <div className="mt-2">
                         <button type='submit' className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-500">
                             {error ? <p>Loading</p> : <p>Submit</p>}

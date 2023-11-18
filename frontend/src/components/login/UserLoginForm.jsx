@@ -3,9 +3,12 @@ import { useState,} from "react";
 import { useNavigate } from "react-router";
 import axios from 'axios';
 import './style.css'
+import { signInStart, signInSuccess, signInFailure } from "../../redux/user/userSlice";
+import { useDispatch, useSelector } from "react-redux";
 const UserLoginForm = () => {
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const [values, setValues] = useState({
       email: "",
@@ -20,7 +23,7 @@ const UserLoginForm = () => {
         if(!values.email ||  !values.password) {
             alert("PLease fill up all fields")
         }
-        setError(true)
+        dispatch(signInStart())
         const res = await fetch("/api/users/auth", {
             method: "POST",
             headers: {
@@ -29,14 +32,14 @@ const UserLoginForm = () => {
             body: JSON.stringify(values)
         });
         try {
-            if(res.status === 201) {
-                setError(false)
-            const data = await res.json();
-            navigate("/")
-            setIrror(data.message)
+            const data = await res.json()
+            dispatch(signInSuccess(data))
+            if(data.Status) {
+                navigate("/")
+                console.log(data)
             } else {
-                setIrror("Wrong credentails")
-                setError(false)
+                setIrror(data.Error)
+                dispatch(signInFailure)
             }
         } catch (err) {
             console.log(err)
