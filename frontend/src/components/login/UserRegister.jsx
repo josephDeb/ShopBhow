@@ -2,9 +2,11 @@
 
 import { data } from 'autoprefixer';
 import axios from 'axios';
-import { useState} from 'react';
+import { useEffect, useState} from 'react';
 import {  useNavigate} from 'react-router-dom';
-
+import { useDispatch } from 'react-redux'
+import { signInFailure, signInStart, signInSuccess } from '../../redux/user/userSlice';
+import { set } from 'mongoose';
 const UserRegister = () => {
     const navigate = useNavigate()
 
@@ -13,18 +15,22 @@ const UserRegister = () => {
       email: "",
       password: "",
     });
-    
+
+    const dispatch = useDispatch()
     const [error, setError] = useState(false)
     const [irror, setIrror] = useState("")
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         setError(true)
-        const res = await axios.post("/api/users/auth", values)
+        const res = await axios.post("/api/users/signup", values)
         try {
-            setError(false)
-            console.log(res)
+            if(res.status === 201) {
+                alert("Successfully created")
             navigate("/")
+            } else {
+                alert('error');
+            }
         } catch (error) {
             console.log(error)
         }

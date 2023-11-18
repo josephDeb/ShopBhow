@@ -29,14 +29,17 @@ const UserLoginForm = () => {
             body: JSON.stringify(values)
         });
         try {
-            setError(false)
+            if(res.status === 201) {
+                setError(false)
             const data = await res.json();
             navigate("/")
             setIrror(data.message)
-        } catch (err) {
-            if(error) {
-                alert("error")
+            } else {
+                setIrror("Wrong credentails")
+                setError(false)
             }
+        } catch (err) {
+            console.log(err)
         }
     }
 
@@ -70,6 +73,7 @@ const UserLoginForm = () => {
                             Password
                         </label>
                         <input
+                            minLength={6}
                             onChange={(e) => setValues({...values, password: e.target.value})}
                             type="password"
                             className="block w-full px-4 py-2 mt-2 text-black bg-white border rounded-md focus:border-red-700 focus:ring-red-800 focus:outline-none focus:ring focus:ring-opacity-40"
@@ -81,6 +85,8 @@ const UserLoginForm = () => {
                     >
                         Forget Password?
                     </a>
+
+                    <p>{irror && irror}</p>
      
                     <div className="mt-2">
                         <button type='submit' className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-500">

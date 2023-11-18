@@ -51,9 +51,7 @@ const createUser = asyncHandler(async (req, res, next) => {
       password: newUser.password
     });
   } catch (error) {
-    res.status(400);
-    next()
-    throw new Error("Invalid user data");
+    res.status(404).json({Status: false, Error: "Invalid user data please put a valid credentials"})
   }
 });
 
@@ -85,7 +83,7 @@ const loginUser = asyncHandler(async (req, res) => {
         username: existingUser.username,
         email: existingUser.email,
         isAdmin: existingUser.isAdmin,
-        password: existingUser.password
+        password: existingUser.password,
       });
       return;
     } else {
