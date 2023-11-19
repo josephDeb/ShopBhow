@@ -1,14 +1,12 @@
 
-
-
-import axios from 'axios';
-import { useEffect, useState} from 'react';
+import {  useState} from 'react';
 import {  useNavigate} from 'react-router-dom';
 import { toast } from 'react-toastify';
 
+import { useDispatch,  } from "react-redux";
+
 
 const UserRegister = () => {
-    const navigate = useNavigate()
 
     const [values, setValues] = useState({
       username: "",
@@ -18,7 +16,8 @@ const UserRegister = () => {
 
     const [error, setError] = useState(false)
     const [irror, setIrror] = useState("")
-
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
   
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -51,6 +50,7 @@ const UserRegister = () => {
         }
     }
 
+   
 
 
   return (

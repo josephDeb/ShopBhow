@@ -28,6 +28,11 @@ const userSchema = mongoose.Schema(
       required: true,
       default: false,
     },
+    profilePhoto: {
+      type: Boolean,
+      default: 'https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg',
+    },
+    
   },
   { timestamps: true }
 );

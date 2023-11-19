@@ -1,15 +1,18 @@
 /* eslint-disable no-undef */
 import { useState,} from "react";
 import { useNavigate } from "react-router";
-import axios from 'axios';
+
 import './style.css'
 import { signInStart, signInSuccess, signInFailure } from "../../redux/user/userSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import {GoogleAuthProvider, signInWithPopup, getAuth} from 'firebase/auth'
+import { app } from "../../../firebase";
 const UserLoginForm = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
+   
     const [values, setValues] = useState({
       email: "",
       password: "",
@@ -46,6 +49,32 @@ const UserLoginForm = () => {
         }
     }
 
+
+    const handleGoogleClick = async () => {
+        try {
+          const provider = new GoogleAuthProvider();
+          const auth = getAuth(app);
+    
+          const result = await signInWithPopup(auth, provider);
+          const res = await fetch('/api/users/google', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              name: result.user.displayName,
+              email: result.user.email,
+              photo: result.user.photoURL,
+            }),
+          });
+          const data = await res.json();
+          console.log(data);
+          dispatch(signInSuccess(data));
+          navigate('/');
+        } catch (error) {
+          console.log('could not login with google', error);
+        }
+      };
 
 
   return (
@@ -101,7 +130,7 @@ const UserLoginForm = () => {
                     <div className="absolute px-5 bg-white rounded-full">Or</div>
                 </div>
                 <div className="flex mt-4 gap-x-2">
-                    <button
+                    <button onClick={handleGoogleClick}
                         type="button"
                         className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600"
                     >

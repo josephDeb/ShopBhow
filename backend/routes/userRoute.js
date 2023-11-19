@@ -1,11 +1,14 @@
 import express from "express";
-import { createUser, loginUser, logoutCurrentUser, getAllUsers, getCurrentProfile, updateCurrentProfile, deleteUserById, getUserById, updateUserById } from '../controlers/userControlers.js'
+import { createUser, loginUser, logoutCurrentUser, getAllUsers, getCurrentProfile, updateCurrentProfile, deleteUserById, getUserById, updateUserById, google } from '../controlers/userControlers.js'
+
 const router = express.Router();
+
 
 import {protect, authorizedAdmin} from '../middlewares/authHandler.js'
 // user route
 router.post("/test", createUser)
 router.post("/signup", createUser)
+router.post("/google", google)
 // http://localhost:8088/api/users/auth
 router.post("/auth", loginUser)
 // http://localhost:8088/api/users/logoutCurrentUser

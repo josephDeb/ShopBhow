@@ -88,6 +88,9 @@ const loginUser = asyncHandler(async (req, res) => {
     res.status(400).json({Status: false, Error: "Wrong credentials"})
   }
 });
+
+
+
 const logoutCurrentUser = asyncHandler(async (req, res) => {
   res.cookie("jwt", "", {
     httpOnly: true,
@@ -197,4 +200,33 @@ const updateUserById = asyncHandler(async (req, res) => {
     }
 })
 
-export {createUser, loginUser, logoutCurrentUser, getAllUsers, getCurrentProfile, updateCurrentProfile, deleteUserById, getUserById, updateUserById}
+const google = async (req, res, next) => {
+  try {
+    const user = await User.findOne({ email: req.body.email });
+    if (user) {
+     const { password: hashedPassword, ...rest } = user._doc;
+      generateToken(res, user._id).status(200).json(rest);
+    } else {
+      const generatedPassword =Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8);
+      const hashedPassword = bcrypt.hashSync(generatedPassword, 10);
+      const newUser = new User({
+        username:
+          req.body.name.split(' ').join('').toLowerCase() +
+          Math.random().toString(36).slice(-8),
+        email: req.body.email,
+        password: hashedPassword,
+        profilePicture: req.body.photo,
+      });
+      await newUser.save();
+      const { password: hashedPassword2, ...rest } = newUser._doc;
+      generateToken(res, user._id).status(200).json(rest);
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+
+
+
+export {createUser, loginUser, logoutCurrentUser, getAllUsers, getCurrentProfile, updateCurrentProfile, deleteUserById, getUserById, updateUserById, google}
