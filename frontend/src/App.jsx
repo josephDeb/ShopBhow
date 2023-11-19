@@ -5,6 +5,7 @@ import ShopContextProvider from "./components/header/context/ShopContextProvider
 import Footer from "./components/footer/Footer"
 import UserLoginForm from "./components/login/UserLoginForm"
 import UserRegister from "./components/login/userRegister"
+import Private from "./components/priveRoute/private"
 
 function App() {
 
@@ -15,11 +16,12 @@ function App() {
         <Router>
           <Header />
             <Routes>
-              <Route path="/" element={<Homepage />}/>
               <Route path="/login" element={<UserLoginForm />}/>
               <Route path="/signup" element={<UserRegister />}/>
+              <Route element={<Private />}>
+                  <Route path="/home" element={<Homepage />}/>
+              </Route>
             </Routes>
-        
         </Router>
         </ShopContextProvider>
 

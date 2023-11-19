@@ -3,10 +3,9 @@ import { useState,} from "react";
 import { useNavigate } from "react-router";
 
 import './style.css'
-import { signInStart, signInSuccess, signInFailure } from "../../redux/user/userSlice";
+import {  signInSuccess} from "../../redux/user/userSlice";
 import { useDispatch } from "react-redux";
-import {GoogleAuthProvider, signInWithPopup, getAuth} from 'firebase/auth'
-import { app } from "../../../firebase";
+
 const UserLoginForm = () => {
 
     const navigate = useNavigate()
@@ -26,7 +25,7 @@ const UserLoginForm = () => {
         if(!values.email ||  !values.password) {
             alert("PLease fill up all fields")
         }
-        dispatch(signInStart())
+        setError(true)
         const res = await fetch("/api/users/auth", {
             method: "POST",
             headers: {
@@ -36,13 +35,14 @@ const UserLoginForm = () => {
         });
         try {
             const data = await res.json()
+            setError(false)
             dispatch(signInSuccess(data))
             if(data.Status) {
                 navigate("/")
                 console.log(data)
             } else {
                 setIrror(data.Error)
-                dispatch(signInFailure)
+                setError(false)
             }
         } catch (err) {
             console.log(err)
@@ -50,31 +50,7 @@ const UserLoginForm = () => {
     }
 
 
-    const handleGoogleClick = async () => {
-        try {
-          const provider = new GoogleAuthProvider();
-          const auth = getAuth(app);
-    
-          const result = await signInWithPopup(auth, provider);
-          const res = await fetch('/api/users/google', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              name: result.user.displayName,
-              email: result.user.email,
-              photo: result.user.photoURL,
-            }),
-          });
-          const data = await res.json();
-          console.log(data);
-          dispatch(signInSuccess(data));
-          navigate('/');
-        } catch (error) {
-          console.log('could not login with google', error);
-        }
-      };
+
 
 
   return (
@@ -118,7 +94,7 @@ const UserLoginForm = () => {
                         Forget Password?
                     </a>
 
-                    <p>{irror && irror}</p>
+                    <p className="text-red-600 ">{irror && irror}</p>
      
                     <div className="mt-2">
                         <button type='submit' className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-500">
@@ -130,7 +106,7 @@ const UserLoginForm = () => {
                     <div className="absolute px-5 bg-white rounded-full">Or</div>
                 </div>
                 <div className="flex mt-4 gap-x-2">
-                    <button onClick={handleGoogleClick}
+                    <button
                         type="button"
                         className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600"
                     >

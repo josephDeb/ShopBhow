@@ -16,7 +16,6 @@ const UserRegister = () => {
 
     const [error, setError] = useState(false)
     const [irror, setIrror] = useState("")
-    const dispatch = useDispatch();
     const navigate = useNavigate();
   
     const handleSubmit = async (e) => {
