@@ -63,7 +63,7 @@ const Homepage = () => {
             <Darkmode />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[120vh]'>
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[123vh]'>
             <TopProducts />
         </div>
 
@@ -79,7 +79,6 @@ const Homepage = () => {
             <Banner4 />
         </div>
 
-        
     </>
   )
 }

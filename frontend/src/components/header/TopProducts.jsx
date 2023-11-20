@@ -2,11 +2,12 @@ import { BsStarFill } from 'react-icons/bs'
 import phone from '../../assets/1.png'
 import sale from '../../assets/sale.gif'
 import heart from '../../assets/heart.gif'
+import top from '../../assets/top.gif'
 const TopProducts = () => {
   return (
-    <div className='w-full h-[120vh] bg-[#f1f2eb] centered flex-col gap-2'>
-      <div className='w-[90%] mx-auto'>
-          <h1 className='font-bold '>Top products</h1>
+    <div className='w-full h-[123vh] bg-[#f1f2eb] centered flex-col gap-2'>
+      <div className='w-[90%] mx-auto flex items-center'>
+         <img src={top} className='w-10'/> <h1 className='font-bold '>Top products</h1>
       </div>
 
          <div className="w-[90%] grid grid-cols-2 gap-3">
