@@ -4,13 +4,13 @@ import { useNavigate } from "react-router";
 
 import './style.css'
 import {  signInSuccess} from "../../redux/user/userSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const UserLoginForm = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
-
+    const {currentUser} = useSelector(state => state.user)
    
     const [values, setValues] = useState({
       email: "",
@@ -38,8 +38,10 @@ const UserLoginForm = () => {
             setError(false)
             dispatch(signInSuccess(data))
             if(data.Status) {
-                navigate("/")
-                console.log(data)
+                if(currentUser) {
+                    navigate("/home")
+                    setError(false)
+                }
             } else {
                 setIrror(data.Error)
                 setError(false)

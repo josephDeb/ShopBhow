@@ -5,29 +5,29 @@ import {HiShoppingCart} from 'react-icons/hi'
 import Hamburger from './Hamburger';
 import { ShopContext } from './context/ShopContextProvider';
 import { useNavigate } from 'react-router-dom';
-
+import { useSelector} from 'react-redux'
 
 
 
 const Header = () => {
   const navigate = useNavigate()
   const {setIsOpen,isOpen} = useContext(ShopContext)
-  
+  const {currentUser} = useSelector(state => state.user)
 
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-black transition ease transform duration-300`;
   
   return (
    <div className="w-full xl:h-[62px] h-[71px] bg-white">
         <div className="mx-auto max-w-screen-xl h-full  flex justify-between items-center lg:max-w-screen-lg">
-          <div className='h-full text-center w-[200px] flex justify-center items-center gap-1'>
-               <HiShoppingCart className='text-2xl'/>
-              <h1 className='title text-[23px]'>Shop<span className='text-[#ed1d24]'>Bu</span></h1>
+          <div className='h-full text-center xl:w-[200px] w-[152px] flex justify-center items-center gap-1'>
+               <HiShoppingCart className='text-2xl xl:mb-1 hidden xl:flex'/>
+              <h1 className='manjari text-[23px] mt-2 xl:mt-0'>Shop<span className='text-[#ed1d24]'>Bow</span></h1>
           </div>
 
-          {/*HAMBURGER NAV*/}
-        <div className='h-full flex justify-center items-center xl:hidden'>
+         
+        {currentUser ? <><div className='h-full flex justify-center items-center xl:hidden'>
            <button
-      className="flex flex-col h-12 w-12  border-black rounded justify-center items-center group mr-6 border-2 bg-[#ed1d24]/90"
+      className="flex flex-col h-12 w-12   border-black rounded justify-center items-center group mr-6 border-2 "
       onClick={() => setIsOpen(!isOpen)}
     >
       <div
@@ -53,7 +53,9 @@ const Header = () => {
       />
           </button>
         </div>
-        <Hamburger isOpen={isOpen} setIsOpen={setIsOpen}/>
+        <Hamburger isOpen={isOpen} setIsOpen={setIsOpen}/></>
+         : <></>}
+
 
       <div className='hidden xl:flex w-full h-full'>
       <div className='h-full w-full between '>

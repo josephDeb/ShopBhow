@@ -1,5 +1,7 @@
-import bg1 from '../../../../frontend/src/assets/laptop_12.jpg'
+import bg1 from '../../assets/laptop_12.jpg'
 import filter from '../../../../frontend/src/assets/filter.png'
+
+
 
 import { useState } from 'react'
 import {MdKeyboardVoice} from 'react-icons/md'
@@ -9,6 +11,7 @@ import CycloneOffer from './CycloneOffer'
 
 import Category from './Category'
 import Discount from './Discount'
+import Banner from './Banner'
 
 
 const Homepage = () => {
@@ -19,7 +22,7 @@ const Homepage = () => {
 
   return (
     <>
-    <div className='w-full xl:max-w-screen-lg xl:mx-auto   bg-[#e9eeff] relative'>
+    <div className='w-full xl:max-w-screen-lg xl:mx-auto bg-[#f1f2eb] relative'>
 
         <div className='h-[77px] flex justify-between items-center px-6 gap-2  relative '>
             <input className='border-2 w-full border-black/50 h-[44px] pl-4' placeholder='Search something...'></input>
@@ -36,16 +39,17 @@ const Homepage = () => {
             <></>    
         }
         </div>
-        {/*BACKGROUND IMAGE */}
-        <div className='w-full h-[220px] xl:w-full xl:h-[560px]'>
-            <img className='xl:w-[96%] xl:h-[500px] w-[350px] h-[200px] shadow-lg  mx-auto rounded-xl' src={bg1}/>
-        </div>
+        
 
         
     </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto'>
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto xl:flex xl:flex-col bg-[#f1f2eb]'>
             <Category />
+        </div>
+
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto xl:h-[350px] bg-[#f1f2eb] centered h-[350px]'>
+             <Banner />
         </div>
 
         <div className='w-full xl:max-w-screen-lg xl:mx-auto'>
