@@ -4,8 +4,6 @@ import galery from '../../assets/galery.gif'
 import microphone from '../../assets/microphone.gif'
 
 import { useState } from 'react'
-import {MdKeyboardVoice} from 'react-icons/md'
-import {BsImage} from 'react-icons/bs'
 import FooterBar from '../../pages/FooterBar'
 import CycloneOffer from './CycloneOffer'
 
@@ -15,6 +13,8 @@ import Banner from './Banner'
 import Darkmode from './darkmode/Darkmode'
 import TopProducts from './TopProducts'
 import Banner3 from './banner/Banner3'
+import WeeklySales from './WeeklySales'
+import Banner4 from './banner/Banner4'
 
 
 const Homepage = () => {
@@ -67,13 +67,19 @@ const Homepage = () => {
             <TopProducts />
         </div>
 
-        <div className='h-[440px]'>
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[230px]'>
             <Banner3 />
         </div>
 
-        <div className=' w-full h-[62px] bottom-0 fixed z-[88] xl:hidden'>
-            <FooterBar />
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[120vh]'>
+            <WeeklySales />
         </div>
+
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[230px]'>
+            <Banner4 />
+        </div>
+
+        
     </>
   )
 }

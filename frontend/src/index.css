@@ -4,28 +4,6 @@
 @import url('https://fonts.cdnfonts.com/css/kedondong');                      
 @import url('https://fonts.cdnfonts.com/css/adlam-display');  
 
-.truncate-overflow {
-  line-height: var(--lh);
-  --max-lines: 3;
-  position: relative;
-  max-height: calc(var(--lh) * var(--max-lines));
-  overflow: hidden;
-  padding-right: 1rem;
-}
-.truncate-overflow::before {
-  position: absolute;
-  content: "...";
-  bottom: 0;
-  right: 0;
-}
-.truncate-overflow::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  width: 1rem;
-  height: 1rem;
-  background: white;
-}
 
 body {
   background-color: #e9eeff ;

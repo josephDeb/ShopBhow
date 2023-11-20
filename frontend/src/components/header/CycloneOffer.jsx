@@ -20,13 +20,15 @@ const CycloneOffer = () => {
   const cartButton = 'absolute top-2 xl:top-1 right-2 bg-gradient-to-br from-red-700 to-rose-900 w-[44px] h-[28px] flex justify-center items-center gap-2 rounded-md xl:w-[62px] xl:h-[20px] cursor-pointer text-white'
 
   const [products, setProducts] = useState([])
-  
+
   useEffect(() => {
     axios.get('https://fakestoreapi.com/products')
-  .then(res=> {
-    setProducts(res.data)
-  })
-  .then(json=>console.log(json))
+    .then(res=> {
+      setProducts(res.data)
+      console.log(res.data)
+    })
+    .then(json=>console.log(json))
+    .catch(error => console.log(error))
   }, [])
 
   return (

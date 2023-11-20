@@ -2,15 +2,14 @@ import { BsStarFill } from 'react-icons/bs'
 import phone from '../../assets/1.png'
 import sale from '../../assets/sale.gif'
 import heart from '../../assets/heart.gif'
-const TopProducts = () => {
+const WeeklySales = () => {
   return (
     <div className='w-full h-[120vh] bg-[#f1f2eb] centered flex-col gap-2'>
       <div className='w-[90%] mx-auto'>
-          <h1 className='font-bold '>Top products</h1>
+          <h1 className='font-bold '>Weekly sales</h1>
       </div>
 
          <div className="w-[90%] grid grid-cols-2 gap-3">
-
              <div className="h-[280px] bg-white shadow-xl rounded-lg relative">
                 <div className='w-full h-[206px] end '>
                    <img className='w-full h-[170px]' src={phone}/>
@@ -179,4 +178,4 @@ const TopProducts = () => {
   )
 }
 
-export default TopProducts
+export default WeeklySales

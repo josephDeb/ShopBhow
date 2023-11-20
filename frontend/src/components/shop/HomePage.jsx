@@ -43,8 +43,7 @@ const {currentUser} = useSelector(state => state.user)
           <div onClick={() => handleShopNow()} className="w-full flex justify-center items-center xl:hidden mb-12 ">
                <button className=" text-w px-12 py-3 bg-yellow-800 text-white rounded-lg">SHOP NOW</button>
           </div>
-              
-           
+
         </div>
     </div>
   )
