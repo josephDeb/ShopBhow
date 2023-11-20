@@ -10,6 +10,7 @@ import 'swiper/css/pagination';
 import { FreeMode, Pagination } from 'swiper/modules';
 import { MdPointOfSale } from 'react-icons/md';
 import { HiShoppingCart } from 'react-icons/hi';
+import offer from '../../assets/offer.gif'
 
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -30,8 +31,8 @@ const CycloneOffer = () => {
 
   return (
     <div className='xl:max-w-screen-lg w-full h-[280px] xl:h-[400px] bg-[#f1f2ed]'>
-        <div className='xl:w-full w-[90%] mx-auto flex justify-start items-center h-[53px] gap-2'>
-               <MdPointOfSale/>
+        <div className='xl:w-full w-[90%] mx-auto flex justify-start items-center h-[53px] '>
+               <img src={offer} className='w-10'/>
             <h1 className='font-semibold'>Cyclone offer</h1>
         </div>
 
