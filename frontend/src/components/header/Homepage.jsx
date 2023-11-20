@@ -1,7 +1,7 @@
 import bg1 from '../../assets/laptop_12.jpg'
 import filter from '../../../../frontend/src/assets/filter.png'
-
-
+import galery from '../../assets/galery.gif'
+import microphone from '../../assets/microphone.gif'
 
 import { useState } from 'react'
 import {MdKeyboardVoice} from 'react-icons/md'
@@ -30,12 +30,12 @@ const Homepage = () => {
         <div className='h-[77px] flex justify-between items-center px-6 gap-2  relative '>
             <input className='border-2 w-full border-black/50 h-[44px] pl-4' placeholder='Search something...'></input>
             <button onClick={() => handleFilter()} className='bg-gray-500/70 w-[53px] h-[44px] rounded-lg centered'><img className='w-7' src={filter}/></button>
-            {isOpen ? <div className='absolute w-[135px] h-[71px] border border-black bg-white right-6 top-[67px] rounded-s-2xl centered flex-col gap-1'> 
+            {isOpen ? <div className='absolute w-[152px] h-[71px] border border-black bg-white right-6 top-[67px] rounded-s-2xl centered flex-col gap-1 z-[99]'> 
                     <div className='centered gap-1 border-b border-black '>
-                    <MdKeyboardVoice />  <h1>Voice Search</h1>
+                    <img src={microphone} className='w-6'/> <h1>Voice Search</h1>
                     </div>
                     <div className='centered gap-1'>
-                    <BsImage />  <h1>Image Search</h1>
+                    <img src={galery} className='w-6'/> <h1>Image Search</h1>
                     </div>
             </div>
             :
