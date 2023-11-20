@@ -1,0 +1,9 @@
+.bg {
+    background-image: radial-gradient( circle farthest-corner at 17.1% 22.8%,  rgba(226,24,24,1) 0%, rgba(160,6,6,1) 90% );
+}
+.ht {
+    line-height: 20px;
+}
+.ht2 {
+    line-height: 16px;
+}

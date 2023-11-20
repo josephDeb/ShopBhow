@@ -10,10 +10,11 @@ import FooterBar from '../../pages/FooterBar'
 import CycloneOffer from './CycloneOffer'
 
 import Category from './Category'
-import Discount from './Discount'
+
 import Banner from './Banner'
 import Darkmode from './darkmode/Darkmode'
 import TopProducts from './TopProducts'
+import Banner3 from './banner/Banner3'
 
 
 const Homepage = () => {
@@ -62,10 +63,13 @@ const Homepage = () => {
             <Darkmode />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[140vh]'>
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[120vh]'>
             <TopProducts />
         </div>
 
+        <div className='h-[440px]'>
+            <Banner3 />
+        </div>
 
         <div className=' w-full h-[62px] bottom-0 fixed z-[88] xl:hidden'>
             <FooterBar />
