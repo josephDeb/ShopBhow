@@ -1,16 +1,15 @@
-import banner3 from '../../../assets/coupon.png'
-import FooterBar from '../../../pages/FooterBar'
+import coupon from '../../../assets/coupon.png'
 import './styles.css'
 
 const Banner4 = () => {
   return (
-    <div className='w-full h-[230px] bg-[#f1f2eb] centered'>
+    <div className='w-full h-[240px] bg-[#f1f2eb] centered'>
         <div className='w-[90%] mx-auto h-[180px] bg-[#f1f2eb] banner4 rounded-lg relative'>
             <div className='absolute right-[44px] bottom-[44px]'>
-              <img src={banner3} className='w-[88px]'/>
+              <img src={coupon} className='w-[88px]'/>
             </div>
 
-            <div className='w-[72%] h-full centered flex-col gap-1'>
+            <div className='w-[68%] h-full centered flex-col gap-1'>
                 <div className='w-[160px]  text-white '>
                     <h1 className='text-xl font-bold ht'>Get more vouchers</h1>
                 </div>

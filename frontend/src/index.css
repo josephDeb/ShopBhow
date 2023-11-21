@@ -134,3 +134,8 @@ opacity: 0.8;
 background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 10px ), repeating-linear-gradient( #13608e55, #13608e );
 }
 
+
+
+.ht3 {
+  line-height: 12px;
+}

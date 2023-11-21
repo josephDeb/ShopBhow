@@ -15,6 +15,7 @@ import TopProducts from './TopProducts'
 import Banner3 from './banner/Banner3'
 import WeeklySales from './WeeklySales'
 import Banner4 from './banner/Banner4'
+import Featured from './Featured'
 
 
 const Homepage = () => {
@@ -30,7 +31,7 @@ const Homepage = () => {
         <div className='h-[77px] flex justify-between items-center px-6 gap-2  relative '>
             <input className='border-2 w-full border-black/50 h-[44px] pl-4' placeholder='Search something...'></input>
             <button onClick={() => handleFilter()} className='bg-gray-500/70 w-[53px] h-[44px] rounded-lg centered'><img className='w-7' src={filter}/></button>
-            {isOpen ? <div className='absolute w-[152px] h-[71px] border border-black bg-white right-6 top-[67px] rounded-s-2xl centered flex-col gap-1 z-[99]'> 
+            {isOpen ? <div className='absolute w-[152px] h-[71px] border border-black bg-white right-6 top-[67px] rounded-s-2xl centered flex-col gap-1 z-[99]'>
                     <div className='centered gap-1 border-b border-black '>
                     <img src={microphone} className='w-6'/> <h1>Voice Search</h1>
                     </div>
@@ -63,7 +64,7 @@ const Homepage = () => {
             <Darkmode />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[123vh]'>
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[940px]'>
             <TopProducts />
         </div>
 
@@ -71,12 +72,16 @@ const Homepage = () => {
             <Banner3 />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[120vh]'>
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[940px]'>
             <WeeklySales />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[230px]'>
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[240px]'>
             <Banner4 />
+        </div>
+
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[80vh]'>
+            <Featured />
         </div>
 
     </>
