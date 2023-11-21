@@ -48,6 +48,7 @@ const Homepage = () => {
         
     </div>
 
+    <div>
         <div className='w-full xl:max-w-screen-lg xl:mx-auto xl:flex xl:flex-col bg-[#f1f2eb]'>
             <Category />
         </div>
@@ -84,6 +85,7 @@ const Homepage = () => {
             <Featured />
         </div>
 
+    </div>
     </>
   )
 }

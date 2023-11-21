@@ -5,9 +5,15 @@ import chair from '../../assets/chair4.png'
 import ball from '../../assets/ball.png'
 import babychair from '../../assets/babychair.png'
 import bookmark from '../../assets/bookmark.gif'
+import check from '../../assets/check.gif'
 const Featured = () => {
   return (
     <div className="w-full  h-[440px] centered flex-col bg-[#f1f2eb]">
+        <div className='xl:w-full w-[90%] mx-auto flex justify-start items-center h-[53px] '>
+               <img src={check} className='w-10'/>
+            <h1 className='font-semibold'>Featured</h1>
+        </div>
+
         <div className='w-[90%] h-[400px]  grid grid-cols-3 gap-2'>
 
             <div className='w-full h-[180px] bg-white flex flex-col shadow-xl relative rounded-lg'>

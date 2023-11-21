@@ -27,7 +27,7 @@ const TopProducts = () => {
 
              <div className="h-[300px] bg-white shadow-xl rounded-lg relative">
                 <div className='w-full h-[197px] end '>
-                   <img className='w-full h-[170px]' src={phone}/>
+                   <img className='w-[170px] mx-auto h-[170px] ' src={phone}/>
                 </div>
 
                 <div className=' w-full px-2 '>
@@ -63,7 +63,7 @@ const TopProducts = () => {
 
              <div className="h-[300px] bg-white shadow-xl rounded-lg relative">
                 <div className='w-full h-[197px] end '>
-                   <img className='w-full h-[170px]' src={phone}/>
+                   <img className='w-[170px] mx-auto h-[170px]' src={phone}/>
                 </div>
 
                 <div className=' w-full px-2 '>
@@ -105,7 +105,7 @@ const TopProducts = () => {
                <></>
             }
                 <div className='w-full h-[197px] end '>
-                   <img className='w-full h-[170px]' src={phone}/>
+                   <img className='w-[170px] mx-auto h-[170px]' src={phone}/>
                 </div>
 
                 <div className=' w-full px-2 '>
@@ -142,7 +142,7 @@ const TopProducts = () => {
              <div className="h-[300px] bg-white shadow-xl rounded-lg relative">
                {/*Product image*/}
                 <div className='w-full h-[197px] end '>
-                   <img className='w-full h-[170px]' src={phone}/>
+                   <img className='w-[170px] mx-auto h-[170px]' src={phone}/>
                 </div>
                 {/*Product details*/}
                 <div className=' w-full px-2 '>
@@ -179,7 +179,7 @@ const TopProducts = () => {
              <div className="h-[300px] bg-white shadow-xl rounded-lg relative">
                 {/*Product image*/}
                 <div className='w-full h-[197px] end '>
-                   <img className='w-full h-[170px]' src={phone}/>
+                   <img className='w-[170px] mx-auto h-[170px]' src={phone}/>
                 </div>
                 {/*Product details*/}
                 <div className=' w-full px-2 '>
@@ -216,7 +216,7 @@ const TopProducts = () => {
              <div className="h-[300px] bg-white shadow-xl rounded-lg relative">
                   {/*Product image*/}
                 <div className='w-full h-[197px] end '>
-                   <img className='w-full h-[170px]' src={phone}/>
+                   <img className='w-[170px] mx-auto h-[170px]' src={phone}/>
                 </div>
                   {/*Product details*/}
                 <div className=' w-full px-2 '>
