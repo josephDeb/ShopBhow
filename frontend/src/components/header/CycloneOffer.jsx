@@ -8,16 +8,13 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 
 import { FreeMode, Pagination } from 'swiper/modules';
-import { MdPointOfSale } from 'react-icons/md';
-import { HiShoppingCart } from 'react-icons/hi';
+
 import offer from '../../assets/offer.gif'
 
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 axios
 const CycloneOffer = () => {
-
-  const cartButton = 'absolute top-2 xl:top-1 right-2 bg-gradient-to-br from-red-700 to-rose-900 w-[44px] h-[28px] flex justify-center items-center gap-2 rounded-md xl:w-[62px] xl:h-[20px] cursor-pointer text-white'
 
   const [products, setProducts] = useState([])
 
@@ -47,21 +44,26 @@ const CycloneOffer = () => {
         spaceBetween={8}
         autoplay={true}
         freeMode={true}
-        
         modules={[FreeMode, Pagination]}
         className="mySwiper w-[90%] xl:w-full"
       >
 
         {products.map((pr, i) => {
-          return <SwiperSlide key={i} className='h-[170px] w-[140px] bg-white rounded-lg shadow-xl'>
-            <div className='w-full h-full centered'>
-              <span className={cartButton}>
-                  <HiShoppingCart />
-              </span>
-              <img src={pr.image} className='w-[88px] h-[100px]'/>
+          return <SwiperSlide key={i} className='w-full h-[180px] bg-white flex flex-col shadow-xl relative rounded-lg'>
 
-            </div>
-        </SwiperSlide>
+          <div className='h-[92px] w-full end '>
+          <img src={pr.image} className='w-[80px] h-[80px] mx-auto '/>
+          </div>
+
+          <div className='w-full h-[80px] flex flex-col  justify-end px-1'>
+              <p className='text-[15px] ht4 font-semibold'>{pr.title}</p>
+              <h4 className='text-[13px]'>${pr.price}</h4>
+              <div className='flex items-center text-[13px] gap-1 text-gray-500'>
+                 <h3>Stocks</h3><span>(88)</span>
+              </div>
+              <i className='h-2 w-[71%] bg-green-500 rounded-full'></i>
+          </div>
+      </SwiperSlide>
         })}
         
       </Swiper>
