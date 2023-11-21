@@ -64,7 +64,7 @@ const Homepage = () => {
             <Darkmode />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[940px]'>
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[980px]'>
             <TopProducts />
         </div>
 
