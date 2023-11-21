@@ -1,4 +1,4 @@
-import bg1 from '../../assets/laptop_12.jpg'
+
 import filter from '../../../../frontend/src/assets/filter.png'
 import galery from '../../assets/galery.gif'
 import microphone from '../../assets/microphone.gif'
@@ -73,7 +73,7 @@ const Homepage = () => {
             <Banner3 />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[940px]'>
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[800px]'>
             <WeeklySales />
         </div>
 
@@ -81,10 +81,17 @@ const Homepage = () => {
             <Banner4 />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[80vh]'>
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[440px] border-2'>
             <Featured />
         </div>
 
+        <div className='h-[88px] w-full bg-[#f1f2eb]'>
+            {/*space */}
+        </div>
+
+        <div className='fixed z-[99] w-full -bottom-1 h-[62px] shadow-2xl '>
+             <FooterBar />
+        </div>
     </div>
     </>
   )

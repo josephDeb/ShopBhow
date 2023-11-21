@@ -4,6 +4,7 @@ import sale from '../../assets/sale.gif'
 import heart from '../../assets/heart.gif'
 import top from '../../assets/top.gif'
 import cart from '../../assets/shopping-cart.gif'
+import arrow from '../../assets/arrow-right.gif'
 import outofstock from '../../assets/out-of-stock.png'
 import './styles2.css'
 import { useEffect, useState } from 'react'
@@ -19,8 +20,16 @@ const TopProducts = () => {
    }, [])
   return (
     <div className='w-full h-[980px] bg-[#f1f2eb] centered flex-col gap-2'>
-      <div className='w-[90%] mx-auto flex items-center'>
-         <img src={top} className='w-10'/> <h1 className='font-bold '>Top products</h1>
+      <div className='w-[90%] mx-auto flex items-center justify-between'>
+         <div className='flex items-center'>
+             <img src={top} className='w-10'/>
+             <h1 className='font-bold '>Top products</h1>
+         </div>
+
+         <div className='flex items-center gap-1'>
+               <img src={arrow} className='w-10 h-10 '/>
+               <h1 className='font-bold '>View all</h1>
+         </div>
       </div>
 
          <div className="w-[90%] grid grid-cols-2 gap-3">
