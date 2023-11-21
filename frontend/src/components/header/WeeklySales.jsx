@@ -1,10 +1,22 @@
 import { BsStarFill } from 'react-icons/bs'
+import offer2 from '../../assets/offer2.gif'
 import phone from '../../assets/1.png'
 import sale from '../../assets/sale.gif'
 import heart from '../../assets/heart.gif'
-import offer2 from '../../assets/offer2.gif'
 import cart from '../../assets/shopping-cart.gif'
+import outofstock from '../../assets/out-of-stock.png'
+import './styles2.css'
+import { useEffect, useState } from 'react'
 const WeeklySales = () => {
+   const stocks = 0;
+   const [outOfStock, setOutOfStock] = useState(false)
+   useEffect(() => {
+      if(stocks === 0) {
+         setOutOfStock(true)
+      } else {
+         setOutOfStock(false)
+      }
+   }, [])
   return (
     <div className='w-full h-[940px] bg-[#f1f2eb] centered flex-col gap-2'>
       <div className='w-[90%] mx-auto flex items-center gap-1'>
@@ -13,40 +25,8 @@ const WeeklySales = () => {
 
 <div className="w-[90%] grid grid-cols-2 gap-3">
 
-   <div className="h-[280px] bg-white shadow-xl rounded-lg relative">
-      <div className='w-full h-[206px] end '>
-         <img className='w-full h-[170px]' src={phone}/>
-      </div>
-
-      <div className=' w-full px-2 '>
-         <h1 className='font-semibold elps text-[16px]'>Iphone 13 Pro Max </h1>
-         <div className='flex gap-2'>
-            <p className='text-[14px]'>$00.00</p> <p className='line-through text-[14px] text-red-500'>$00.00</p>
-         </div>
-         <div className='flex gap-1'>
-            <BsStarFill className='text-yellow-500'/>
-               <BsStarFill className='text-yellow-500'/>
-               <BsStarFill className='text-yellow-500'/>
-               <BsStarFill className='text-yellow-500'/>
-               <BsStarFill className='text-yellow-500'/>
-         </div>
-
-         <div className='absolute top-1'>
-            <img src={sale} className='w-[44px]'/>
-         </div>
-
-         <div className='absolute right-1 top-1'>
-            <img src={heart} className='w-[44px]'/>
-         </div>
-
-         <div className='absolute right-3 bottom-2'>
-            <img src={cart} className='w-[44px]'/>
-         </div>
-      </div>
-   </div>
-
-   <div className="h-[280px] bg-white shadow-xl rounded-lg relative">
-      <div className='w-full h-[206px] end '>
+   <div className="h-[300px] bg-white shadow-xl rounded-lg relative">
+      <div className='w-full h-[197px] end '>
          <img className='w-full h-[170px]' src={phone}/>
       </div>
 
@@ -55,6 +35,10 @@ const WeeklySales = () => {
          <div className='flex gap-2'>
             <p className='text-[14px]'>$00.00</p> <p className='line-through text-[14px] text-red-500 '>$00.00</p>
          </div>
+         <div className='flex items-center gap-1'>
+            <h4 className='text-[14px]'>Stocks</h4> <span className='text-[14px]'>(44)</span>
+         </div>
+         <div className='h-2 w-[35%] bg-orange-500 rounded-full border border-black'></div>
          <div className='flex gap-1'>
             <BsStarFill className='text-yellow-500'/>
                <BsStarFill className='text-yellow-500'/>
@@ -77,16 +61,20 @@ const WeeklySales = () => {
       </div>
    </div>
 
-   <div className="h-[280px] bg-white shadow-xl rounded-lg relative">
-      <div className='w-full h-[206px] end '>
+   <div className="h-[300px] bg-white shadow-xl rounded-lg relative">
+      <div className='w-full h-[197px] end '>
          <img className='w-full h-[170px]' src={phone}/>
       </div>
 
       <div className=' w-full px-2 '>
-         <h1 className='text-[16px]  font-semibold elps'>Iphone 13 Pro Max </h1>
+         <h1 className='font-semibold elps text-[16px]'>Iphone 13 Pro Max </h1>
          <div className='flex gap-2'>
-            <p className='text-[14px]'>$00.00</p> <p className='line-through text-[14px] text-red-500'>$00.00</p>
+            <p className='text-[14px]'>$00.00</p> <p className='line-through text-[14px] text-red-500 '>$00.00</p>
          </div>
+         <div className='flex items-center gap-1'>
+            <h4 className='text-[14px]'>Stocks</h4> <span className='text-[14px]'>(422)</span>
+         </div>
+         <div className='h-2 w-[71%] bg-green-500 rounded-full border border-black'></div>
          <div className='flex gap-1'>
             <BsStarFill className='text-yellow-500'/>
                <BsStarFill className='text-yellow-500'/>
@@ -104,21 +92,31 @@ const WeeklySales = () => {
          </div>
 
          <div className='absolute right-3 bottom-2'>
-               <img src={cart} className='w-[44px]'/>
-            </div>
+            <img src={cart} className='w-[44px]'/>
+         </div>
       </div>
    </div>
 
-   <div className="h-[280px] bg-white shadow-xl rounded-lg relative">
-      <div className='w-full h-[206px] end '>
+   <div className="h-[300px] bg-white shadow-xl rounded-lg relative">
+   {outOfStock ? <div className='absolute h-full w-full bg-black/80 rounded-lg z-[99] centered'>
+      <img src={outofstock} className='w-[71%]'/>
+   </div>
+   :
+   <></>
+   }
+      <div className='w-full h-[197px] end '>
          <img className='w-full h-[170px]' src={phone}/>
       </div>
 
       <div className=' w-full px-2 '>
-         <h1 className='text-[16px] font-semibold elps '>Iphone 13 Pro Max </h1>
+         <h1 className='font-semibold elps text-[16px]'>Iphone 13 Pro Max </h1>
          <div className='flex gap-2'>
-            <p className='text-[14px]'>$00.00</p> <p className='line-through text-[14px] text-red-500'>$00.00</p>
+            <p className='text-[14px]'>$00.00</p> <p className='line-through text-[14px] text-red-500 '>$00.00</p>
          </div>
+         <div className='flex items-center gap-1'>
+            <h4 className='text-[14px]'>Stocks</h4> <span className='text-[14px]'>(0)</span>
+         </div>
+         <div className='h-2 w-[3%] bg-red-500 rounded-full border border-black'></div>
          <div className='flex gap-1'>
             <BsStarFill className='text-yellow-500'/>
                <BsStarFill className='text-yellow-500'/>
@@ -136,21 +134,26 @@ const WeeklySales = () => {
          </div>
 
          <div className='absolute right-3 bottom-2'>
-               <img src={cart} className='w-[44px]'/>
-            </div>
+            <img src={cart} className='w-[44px]'/>
+         </div>
       </div>
    </div>
 
-   <div className="h-[280px] bg-white shadow-xl rounded-lg relative">
-      <div className='w-full h-[206px] end '>
+   <div className="h-[300px] bg-white shadow-xl rounded-lg relative">
+   {/*Product image*/}
+      <div className='w-full h-[197px] end '>
          <img className='w-full h-[170px]' src={phone}/>
       </div>
-
+      {/*Product details*/}
       <div className=' w-full px-2 '>
-         <h1 className='text-[16px]  font-semibold elps'>Iphone 13 Pro Max </h1>
+         <h1 className='font-semibold elps text-[16px]'>Iphone 13 Pro Max </h1>
          <div className='flex gap-2'>
-            <p className='text-[14px]'>$00.00</p> <p className='line-through text-[14px] text-red-500'>$00.00</p>
+            <p className='text-[14px]'>$00.00</p> <p className='line-through text-[14px] text-red-500 '>$00.00</p>
          </div>
+         <div className='flex items-center gap-1'>
+            <h4 className='text-[14px]'>Stocks</h4> <span className='text-[14px]'>(152)</span>
+         </div>
+         <div className='h-2 w-[44%] bg-orange-500 rounded-full border border-black'></div>
          <div className='flex gap-1'>
             <BsStarFill className='text-yellow-500'/>
                <BsStarFill className='text-yellow-500'/>
@@ -168,21 +171,26 @@ const WeeklySales = () => {
          </div>
 
          <div className='absolute right-3 bottom-2'>
-               <img src={cart} className='w-[44px]'/>
-            </div>
+            <img src={cart} className='w-[44px]'/>
+         </div>
       </div>
    </div>
 
-   <div className="h-[280px] bg-white shadow-xl rounded-lg relative">
-      <div className='w-full h-[206px] end '>
+   <div className="h-[300px] bg-white shadow-xl rounded-lg relative">
+      {/*Product image*/}
+      <div className='w-full h-[197px] end '>
          <img className='w-full h-[170px]' src={phone}/>
       </div>
-
+      {/*Product details*/}
       <div className=' w-full px-2 '>
-         <h1 className='text-[16px] font-semibold elps '>Iphone 13 Pro Max </h1>
+         <h1 className='font-semibold elps text-[16px]'>Iphone 13 Pro Max </h1>
          <div className='flex gap-2'>
-            <p className='text-[14px]'>$00.00</p> <p className='line-through text-[14px] text-red-500'>$00.00</p>
+            <p className='text-[14px]'>$00.00</p> <p className='line-through text-[14px] text-red-500 border'>$00.00</p>
          </div>
+         <div className='flex items-center gap-1'>
+            <h4 className='text-[14px]'>Stocks</h4> <span className='text-[14px]'>(8)</span>
+         </div>
+         <div className='h-2 w-[8%] bg-red-500 rounded-full border border-black'></div>
          <div className='flex gap-1'>
             <BsStarFill className='text-yellow-500'/>
                <BsStarFill className='text-yellow-500'/>
@@ -200,11 +208,47 @@ const WeeklySales = () => {
          </div>
 
          <div className='absolute right-3 bottom-2'>
-               <img src={cart} className='w-[44px]'/>
-            </div>
+            <img src={cart} className='w-[44px]'/>
+         </div>
       </div>
    </div>
 
+   <div className="h-[300px] bg-white shadow-xl rounded-lg relative">
+      {/*Product image*/}
+      <div className='w-full h-[197px] end '>
+         <img className='w-full h-[170px]' src={phone}/>
+      </div>
+      {/*Product details*/}
+      <div className=' w-full px-2 '>
+         <h1 className='font-semibold elps text-[16px]'>Iphone 13 Pro Max </h1>
+         <div className='flex gap-2'>
+            <p className='text-[14px]'>$00.00</p> <p className='line-through text-[14px] text-red-500 '>$00.00</p>
+         </div>
+         <div className='flex items-center gap-1'>
+            <h4 className='text-[14px]'>Stocks</h4> <span className='text-[14px]'>(28)</span>
+         </div>
+         <div className='h-2 w-[28%] bg-red-500 rounded-full border border-black'></div>
+         <div className='flex gap-1'>
+            <BsStarFill className='text-yellow-500'/>
+               <BsStarFill className='text-yellow-500'/>
+               <BsStarFill className='text-yellow-500'/>
+               <BsStarFill className='text-yellow-500'/>
+               <BsStarFill className='text-yellow-500'/>
+         </div>
+
+         <div className='absolute top-1'>
+            <img src={sale} className='w-[44px]'/>
+         </div>
+
+         <div className='absolute right-1 top-1'>
+            <img src={heart} className='w-[44px]'/>
+         </div>
+
+         <div className='absolute right-3 bottom-2'>
+            <img src={cart} className='w-[44px]'/>
+         </div>
+      </div>
+   </div>
 </div>
     </div>
   )
