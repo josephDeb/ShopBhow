@@ -30,7 +30,7 @@ const WeeklySales = () => {
 
    <div className='h-[140px] w-full bg-white shadow-xl flex rounded-lg relative'>
 
-      <div className='absolute'></div>
+      <div className='absolute'>
          <img src={shining}/>
       </div>
 
