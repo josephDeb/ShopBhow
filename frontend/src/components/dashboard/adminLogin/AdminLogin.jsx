@@ -25,7 +25,6 @@ const AdminLogin = () => {
         if(!values.email ||  !values.password) {
             alert("PLease fill up all fields")
         }
-        setError(true)
         const res = await fetch("/api/users/auth", {
             method: "POST",
             headers: {
@@ -33,19 +32,16 @@ const AdminLogin = () => {
             },
             body: JSON.stringify(values)
         });
+        setError(true)
         try {
             const data = await res.json()
             setError(false)
             dispatch(signInSuccess(data))
-            if(data.Status) {
-                if(currentUser) {
-                    navigate("/home/admin-dashboard")
-                    setError(false)
-                }
+            if(currentUser.isAdmin) {
+                navigate("/home/admin-dashboard")
             } else {
-                navigate("/admin-login")
-                setIrror(data.Error)
-                setError(false)
+                alert('Not authorized admin');
+                navigate("/")
             }
         } catch (err) {
             console.log(err)

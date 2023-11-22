@@ -1,9 +1,11 @@
 
 
-const Admin = () => {
+const AdminDashboard
+ = () => {
   return (
-    <div className="h-screen w-full bg-red-500">Admin</div>
+    <div className="h-screen w-full bg-red-500">AdminDasboard
+    </div>
   )
 }
 
-export default Admin
+export default AdminDashboard

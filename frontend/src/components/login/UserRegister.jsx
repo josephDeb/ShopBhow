@@ -3,7 +3,6 @@ import {  useState} from 'react';
 import {  useNavigate} from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import { useDispatch,  } from "react-redux";
 
 
 const UserRegister = () => {
@@ -24,7 +23,7 @@ const UserRegister = () => {
             alert("PLease fill up all fields")
         }
         setError(true)
-        const res = await fetch("/api/users/test", {
+        const res = await fetch("/api/users/createUser", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

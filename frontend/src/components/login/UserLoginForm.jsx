@@ -5,6 +5,8 @@ import { useNavigate } from "react-router";
 import './style.css'
 import {  signInSuccess} from "../../../../user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { set } from "mongoose";
+import axios from 'axios'
 
 const UserLoginForm = () => {
 
@@ -23,9 +25,8 @@ const UserLoginForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         if(!values.email ||  !values.password) {
-            alert("PLease fill up all fields")
+            setIrror("Please fill out the fields")
         }
-        setError(true)
         const res = await fetch("/api/users/auth", {
             method: "POST",
             headers: {
@@ -33,21 +34,23 @@ const UserLoginForm = () => {
             },
             body: JSON.stringify(values)
         });
+        setError(true)
         try {
-            const data = await res.json()
             setError(false)
+            const data = await res.json()
             dispatch(signInSuccess(data))
             if(data.Status) {
                 if(currentUser) {
-                    navigate("/home")
                     setError(false)
+                    navigate("/home")
                 }
             } else {
-                setIrror(data.Error)
                 setError(false)
+                setIrror(data.Error)
             }
         } catch (err) {
             console.log(err)
+            setError(false)
         }
     }
 

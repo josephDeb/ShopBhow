@@ -16,8 +16,8 @@ body {
 }
 .end {
   display: flex;
-  justify-content: center;
-  align-items: end;
+  justify-content: end;
+  align-items: center;
 }
 .between {
     display: flex;

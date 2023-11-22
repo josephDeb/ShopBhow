@@ -37,7 +37,7 @@ const CycloneOffer = () => {
 
         <Swiper
         breakpoints={{
-          320: {slidesPerView: 3, spaceBetween: 18},
+          320: {slidesPerView: 3, spaceBetween: 8},
           640:{slidesPerView: 4, spaceBetween: 32},
           1260:{slidesPerView:5, spaceBetween: 32},
         }}

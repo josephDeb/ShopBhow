@@ -49,7 +49,7 @@ const Details = ({setIsOpen, isOpen}) => {
 
         <div className='flex flex-col w-full justify-center items-start '>
         <Link className='h-12 w-full  flex justify-start items-center hover:bg-gray-300/60 text-[14px] hover:text-[#ed1d24] manjari pl-3' to={'/home'}>Profile</Link>
-        {isAdmin ? <Link  className='h-12 w-full  flex justify-start items-center hover:bg-gray-300/60 text-[14px] hover:text-[#ed1d24] manjari pl-3' to={'/admin-login'}>Dashboard</Link>
+        {isAdmin ? <Link  className='h-12 w-full  flex justify-start items-center hover:bg-gray-300/60 text-[14px] hover:text-[#ed1d24] manjari pl-3' to={'/home/admin-dashboard'}>Dashboard</Link>
           :
           <></>
          }
