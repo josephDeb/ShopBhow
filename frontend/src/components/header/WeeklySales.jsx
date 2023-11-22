@@ -39,7 +39,7 @@ const WeeklySales = () => {
          <img src={camera} className='h-[120px] w-[120px] '/>
       </div>
 
-      <div className='w-[190px] flex flex-col h-[120px] my-auto gap-1'>
+      <div className='w-[190px] flex flex-col h-[120px] my-auto gap-1 bg-blue-200'>
             <h1 className='font-semibold text-[17px]'>Canon camera Pro HD</h1>
             <div className='flex w-full gap-1 items-center'>
                <img src={dollar} className='w-5 h-5'/>

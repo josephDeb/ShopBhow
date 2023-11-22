@@ -16,6 +16,7 @@ import Banner3 from './banner/Banner3'
 import WeeklySales from './WeeklySales'
 import Banner4 from './banner/Banner4'
 import Featured from './Featured'
+import Collections from './Collections'
 
 
 const Homepage = () => {
@@ -57,7 +58,7 @@ const Homepage = () => {
              <Banner />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[240px]'>
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[260px]'>
             <CycloneOffer />
         </div>
 
@@ -81,15 +82,19 @@ const Homepage = () => {
             <Banner4 />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[440px] border-2'>
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[440px]'>
             <Featured />
+        </div>
+
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[260px]'>
+            <Collections />
         </div>
 
         <div className='h-[88px] w-full bg-[#f1f2eb]'>
             {/*space */}
         </div>
 
-        <div className='fixed z-[99] w-full -bottom-1 h-[62px] shadow-2xl '>
+        <div className='fixed z-[88] w-full -bottom-1 h-[62px] shadow-2xl '>
              <FooterBar />
         </div>
     </div>

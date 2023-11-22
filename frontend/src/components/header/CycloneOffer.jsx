@@ -59,13 +59,13 @@ const CycloneOffer = () => {
               <p className='text-[15px] ht4 font-semibold'>{pr.title}</p>
               <h4 className='text-[13px]'>${pr.price}</h4>
               <div className='flex items-center text-[13px] gap-1 text-gray-500'>
-                 <h3>Stocks</h3><span>(88)</span>
+                 <h3>Stocks</h3><span>({pr.rating.count})</span>
               </div>
-              <i className='h-2 w-[71%] bg-green-500 rounded-full'></i>
+              <i className='h-2 w-[71%] bg-green-500 rounded-full border border-black'></i>
           </div>
       </SwiperSlide>
         })}
-        
+
       </Swiper>
 
     </div>

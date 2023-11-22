@@ -4,7 +4,7 @@ import '../Styles/btn.css'
 const Banner = () => {
   return (
     <div className='w-full h-[287px] centered bg-[#f1f2eb] relative manjari xl:h-[480px]'>
-          <img className='w-[90%] h-[280px] xl:h-[480px] rounded-md xl:w-full' src={piggy}/>
+          <img className='w-[90%] h-[280px] xl:h-[480px] rounded-md xl:w-full shadow-xl' src={piggy}/>
 
           <div className='absolute right-[35px] top-[90px] flex flex-col gap-2 xl:right-[126px] xl:top-[35%]'>
               <div className='text-xl w-[200px] xl:text-4xl xl:w-[350px]'>

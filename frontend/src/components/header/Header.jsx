@@ -4,8 +4,9 @@ import {MdPerson} from 'react-icons/md'
 import {HiShoppingCart} from 'react-icons/hi'
 import Hamburger from './Hamburger';
 import { ShopContext } from './context/ShopContextProvider';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { useSelector} from 'react-redux'
+
 
 
 
@@ -13,18 +14,19 @@ const Header = () => {
   const navigate = useNavigate()
   const {setIsOpen,isOpen} = useContext(ShopContext)
   const {currentUser} = useSelector(state => state.user)
+  
 
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-black transition ease transform duration-300`;
   
   return (
-   <div className="w-full xl:h-[62px] h-[71px] bg-white">
+   <>
+      <div className="w-full xl:h-[62px] h-[71px] bg-white">
         <div className="mx-auto max-w-screen-xl h-full  flex justify-between items-center lg:max-w-screen-lg">
           <div className='h-full text-center xl:w-[200px] w-[152px] flex justify-center items-center gap-1'>
                <HiShoppingCart className='text-2xl xl:mb-1 hidden xl:flex'/>
               <h1 className='manjari text-[23px] mt-2 xl:mt-0'>Shop<span className='text-[#ed1d24]'>Bow</span></h1>
           </div>
 
-         
         {currentUser ? <><div className='h-full flex justify-center items-center xl:hidden'>
            <button
       className="flex flex-col h-12 w-12   border-black rounded justify-center items-center group mr-6 border-2 "
@@ -78,7 +80,10 @@ const Header = () => {
         
       </div>
         </div>
-   </div>
+      </div>
+
+      <Outlet />
+   </>
   )
 }
 

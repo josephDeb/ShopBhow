@@ -5,10 +5,13 @@ import img2 from '../../../assets/voucher.png'
 import { Link } from 'react-router-dom'
 import { useSelector } from "react-redux";
 import { BsArrowBarLeft } from 'react-icons/bs';
-import { HiOutlineLocationMarker, HiShoppingCart } from 'react-icons/hi';
-import { MdLocationPin } from 'react-icons/md';
+import MenuDashboard from '../../dashboard/menuDashboard/MenuDashboard';
+
 
 const Details = ({setIsOpen, isOpen}) => {
+
+  const isAdmin = true;
+
   const {currentUser} = useSelector((state) => state.user)
   return (
     <div className="w-[240px] h-full bg-[#f3f4ef] flex flex-col justify-center items-center relative">
@@ -17,9 +20,9 @@ const Details = ({setIsOpen, isOpen}) => {
           <BsArrowBarLeft  onClick={() => setIsOpen(!isOpen)}   className='text-3xl hover:scale-125'/>
       </div>
 
-        {currentUser ? <div className='h-full w-full flex flex-col justify-start items-center '>
+        {currentUser ? <div className='h-full w-full flex flex-col justify-between items-center '>
 
-          <div className=' h-[230px] w-full flex flex-col justify-center items-center px-2 gap-4 manjari'>
+          <div className=' h-[170px] w-full flex flex-col justify-center items-center px-2 gap-4 manjari'>
               <div className='w-full px-2 flex justify-start items-center gap-3 '>
                  <div className='w-[71px] h-[71px]  rounded-full border-[#ed1d24]'>
                     <img src={img3} className='w-full h-full rounded-full'/>
@@ -41,23 +44,27 @@ const Details = ({setIsOpen, isOpen}) => {
 
               <div className='w-full centered flex-col gap-1'>
                   <h1 className='text-[12px] manjari font-semibold text-center'>Welcome, Joseph louise de Leon!</h1>
-                  <div><MdLocationPin className='text-red-600 text-xl' /></div>
-                  <p className='text-[11px] text-gray-600 text-center'>#32 Kalayaan st. Gulod Novaliches Quezon City</p>
               </div>
           </div>
 
         <div className='flex flex-col w-full justify-center items-start '>
         <Link className='h-12 w-full  flex justify-start items-center hover:bg-gray-300/60 text-[14px] hover:text-[#ed1d24] manjari pl-3' to={'/home'}>Profile</Link>
+        {isAdmin ? <Link  className='h-12 w-full  flex justify-start items-center hover:bg-gray-300/60 text-[14px] hover:text-[#ed1d24] manjari pl-3' to={'/admin-login'}>Dashboard</Link>
+          :
+          <></>
+         }
         <Link className='h-12 w-full  flex justify-start items-center hover:bg-gray-300/60 text-[14px] hover:text-[#ed1d24]  manjari pl-3' to={'/home'}>My Orders</Link>
         <Link className='h-12 w-full  flex justify-start items-center hover:bg-gray-300/60 text-[14px] hover:text-[#ed1d24]  manjari pl-3' to={'/home'}>My Wishlist</Link>
+        <Link className='h-12 w-full  flex justify-start items-center hover:bg-gray-300/60 text-[14px] hover:text-[#ed1d24]  manjari pl-3' to={'/home'}>Notification</Link>
+        <Link className='h-12 w-full  flex justify-start items-center hover:bg-gray-300/60 text-[14px] hover:text-[#ed1d24]  manjari pl-3' to={'/home'}>Shop Pages</Link>
         <Link className='h-12 w-full  flex justify-start items-center hover:bg-gray-300/60 text-[14px] hover:text-[#ed1d24]  manjari pl-3' to={'/home'}>Settings</Link>
         <Link className='h-12 w-full  flex justify-start items-center hover:bg-gray-300/60 text-[14px] hover:text-[#ed1d24]  manjari pl-3' to={'/home'}>Sign out</Link>
-        <Link className='h-12 w-full  flex justify-start items-center hover:bg-gray-300/60 text-[14px] hover:text-[#ed1d24]  manjari pl-3' to={'/home'}>About</Link>
+
         </div>
 
         <div className='h-[150px] w-full flex justify-center items-center  gap-1  manjari flex-col'>
           <div className='w-full centered font-extrabold text-3xl'>
-            <h1>Shop<span className='text-[#ed1d24]'>Bow</span></h1>
+            <h1>Shop<span className='text-[#ed1d24]'>Bhow</span></h1>
           </div>
 
           <p className='text-[11px]'>@ created by Joseph louise de Leon</p>

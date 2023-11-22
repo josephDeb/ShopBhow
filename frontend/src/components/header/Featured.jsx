@@ -1,18 +1,26 @@
 import camera from '../../assets/3.png'
 import jacket from '../../assets/4.png'
 import skincare from '../../assets/skincare1.png'
-import chair from '../../assets/chair4.png'
+import chair from '../../assets/11.png'
 import ball from '../../assets/ball.png'
 import babychair from '../../assets/babychair.png'
 import bookmark from '../../assets/bookmark.gif'
 import check from '../../assets/check.gif'
+import arrow from '../../assets/arrow-right.gif'
 const Featured = () => {
   return (
     <div className="w-full  h-[440px] centered flex-col bg-[#f1f2eb]">
-        <div className='xl:w-full w-[90%] mx-auto flex justify-start items-center h-[53px] '>
-               <img src={check} className='w-10'/>
-            <h1 className='font-semibold'>Featured</h1>
-        </div>
+        <div className='w-[90%] mx-auto flex items-center justify-between'>
+         <div className='flex items-center'>
+             <img src={check} className='w-10'/>
+             <h1 className='font-bold '>Featured</h1>
+         </div>
+
+         <div className='flex items-center gap-1'>
+               <img src={arrow} className='w-10 h-10 '/>
+               <h1 className='font-bold '>View all</h1>
+         </div>
+      </div>
 
         <div className='w-[90%] h-[400px]  grid grid-cols-3 gap-2'>
 
