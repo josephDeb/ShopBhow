@@ -38,10 +38,10 @@ const AdminLogin = () => {
             setError(false)
             dispatch(signInSuccess(data))
             if(currentUser.isAdmin) {
-                navigate("/home/admin-dashboard")
+                navigate("/admin-dashboard")
             } else {
                 alert('Not authorized admin');
-                navigate("/")
+                navigate("/admin-login")
             }
         } catch (err) {
             console.log(err)

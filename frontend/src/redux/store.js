@@ -1,25 +1,18 @@
-import {combineReducers, configureStore} from '@reduxjs/toolkit'
-import userReducer from '../../../user/userSlice'
-
-import storage from 'redux-persist/lib/storage'
-import { persistReducer, persistStore } from 'redux-persist'
+import { configureStore } from "@reduxjs/toolkit";
+import { setupListeners } from "@reduxjs/toolkit/query/react";
+import { apiSlice } from "./api/apiSlice";
 
 
-const rootReducer = combineReducers({user: userReducer})
+const store = configureStore({
+  reducer: {
+    [apiSlice.reducerPath]: apiSlice.reducer,
 
-const persistConfig = {
-    key: "root",
-    version: 1,
-    storage,
-}
+  },
 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(apiSlice.middleware),
+  devTools: true,
+});
 
-export const store = configureStore({
-    reducer: persistedReducer ,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-        serializableCheck: false,
-    })
-})
-
-export const persistor = persistStore(store)
+setupListeners(store.dispatch);
+export default store;

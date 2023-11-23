@@ -5,7 +5,7 @@ import img2 from '../../../assets/voucher.png'
 import { Link } from 'react-router-dom'
 import { useSelector } from "react-redux";
 import { BsArrowBarLeft } from 'react-icons/bs';
-import MenuDashboard from '../../dashboard/menuDashboard/MenuDashboard';
+
 
 
 const Details = ({setIsOpen, isOpen}) => {
@@ -49,7 +49,7 @@ const Details = ({setIsOpen, isOpen}) => {
 
         <div className='flex flex-col w-full justify-center items-start '>
         <Link className='h-12 w-full  flex justify-start items-center hover:bg-gray-300/60 text-[14px] hover:text-[#ed1d24] manjari pl-3' to={'/home'}>Profile</Link>
-        {isAdmin ? <Link  className='h-12 w-full  flex justify-start items-center hover:bg-gray-300/60 text-[14px] hover:text-[#ed1d24] manjari pl-3' to={'/home/admin-dashboard'}>Dashboard</Link>
+        {isAdmin ? <Link  className='h-12 w-full  flex justify-start items-center hover:bg-gray-300/60 text-[14px] hover:text-[#ed1d24] manjari pl-3' to={'/admin-dashboard'} >Dashboard</Link>
           :
           <></>
          }

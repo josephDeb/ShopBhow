@@ -17,7 +17,10 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-
+    profileImage: {
+      type: String,
+      default: "https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg"
+    },
     isAdmin: {
       type: Boolean,
       required: true,

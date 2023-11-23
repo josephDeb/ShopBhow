@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import HomePage from './HomePage.jsx'
 import CircleLoader	 from "react-spinners/CircleLoader";
 
-const Home = () => {
+const HomeP = () => {
 
   const [loading, setLoading] = useState(false)
   
@@ -40,4 +40,4 @@ const Home = () => {
     
   )
 }
-export default Home
+export default HomeP

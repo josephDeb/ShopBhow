@@ -11,7 +11,7 @@ router.post("/create", createUser)
 // http://localhost:8088/api/users/auth
 router.post("/auth", loginUser)
 // http://localhost:8088/api/users/logoutCurrentUser
-router.post("/logoutCurrentUser", logoutCurrentUser)
+router.post("/logout", logoutCurrentUser)
 
 // admin route
 router.route("/").get(protect, authorizedAdmin, getAllUsers)

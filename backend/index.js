@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import cookieParser from "cookie-parser";
 import cors from 'cors'
 import userRoute from '../backend/routes/userRoute.js'
+import categoryRoute from '../backend/routes/categoryRoute.js'
  //utils
  import connectDB from './config/db.js'
 
@@ -30,9 +31,9 @@ import userRoute from '../backend/routes/userRoute.js'
  })
 
 
-
+ 
  app.use("/api/users", userRoute)
-
+ app.use("/api/category", categoryRoute)
 
  app.listen(port, () => {
     console.log("SERVER RUNNING ON PORT")

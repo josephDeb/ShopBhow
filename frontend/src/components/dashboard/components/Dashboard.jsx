@@ -1,8 +1,28 @@
-import React from 'react'
+
+import { useState } from 'react'
+import './App.css'
+import Header from './HeaderD'
+import Sidebar from './Sidebars'
+import { Outlet } from 'react-router-dom'
+import HomeD from './HomeD'
 
 const Dashboard = () => {
+  const [openSidebarToggle, setOpenSidebarToggle] = useState(false)
+
+  const OpenSidebar = () => {
+    setOpenSidebarToggle(!openSidebarToggle)
+  }
   return (
-    <div className='w-full xl:max-w-screen-lg'>Dashboard</div>
+    <>
+    <div className='grid-container'>
+      <Header OpenSidebar={OpenSidebar}/>
+      <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar}/>
+      <div className='w-full h-full'>
+          <Outlet/>
+      </div>
+    </div>
+    
+    </>
   )
 }
 
