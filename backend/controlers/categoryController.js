@@ -3,19 +3,20 @@ import asyncHandler from '../middlewares/asyncHandler.js'
 import { json } from 'express'
 
 
+
 const createCategory = asyncHandler(async (req, res) => {
     try {
         const {title} = req.body;
-        
+
         if(!title) {
-            return res.json({ Error: "Name is required"})
+            return res.json({ Error: "Enter a category name"})
         }
         const existingCategory = await Category.findOne({title})
         if(existingCategory) {
             return res.json({Error: "Already exists"})
         }
         const category = await new Category({title}).save()
-        return res.json(category)
+        return res.json({Status: true,category})
 
     } catch (error) {
         console.log(error)
