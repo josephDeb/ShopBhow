@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-
+import './App.css'
 import 
 {BsCart3, BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, 
   BsListCheck, BsMenuButtonWideFill, BsFillGearFill, BsArchiveFill}
@@ -18,7 +18,7 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
 
         <ul className='sidebar-list'>
             <li className='sidebar-list-item'>
-                <Link className='flex items-center'>
+                <Link to={'/admin-dashboard'} className='flex items-center'>
                     <BsGrid1X2Fill className='icon'/>
                     <h4>Dashboard</h4>
                 </Link>

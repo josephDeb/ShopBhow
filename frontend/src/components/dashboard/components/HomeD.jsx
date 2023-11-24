@@ -1,11 +1,19 @@
-import React from 'react'
+
+import { useEffect, useState } from 'react';
 import 
 { BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsFillBellFill}
  from 'react-icons/bs'
  import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line }
  from 'recharts';
-
+import axios from 'axios'
 function HomeD() {
+  const [categories, setCategories] = useState([])
+  useEffect(() => {
+      axios.get("/api/category/categories")
+      .then(res => {
+        setCategories(res.data.Result.length)
+      })
+  }, [])
 
     const data = [
         {
@@ -51,6 +59,8 @@ function HomeD() {
           amt: 2100,
         },
       ];
+
+      
      
 
   return (
@@ -72,7 +82,7 @@ function HomeD() {
                     <h3>CATEGORIES</h3>
                     <BsFillGrid3X3GapFill className='card_icon'/>
                 </div>
-                <h1>12</h1>
+                <h1>{categories}</h1>
             </div>
             <div className='card'>
                 <div className='card-inner'>

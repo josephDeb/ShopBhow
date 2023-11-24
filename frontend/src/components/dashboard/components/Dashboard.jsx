@@ -4,7 +4,6 @@ import './App.css'
 import Header from './HeaderD'
 import Sidebar from './Sidebars'
 import { Outlet } from 'react-router-dom'
-import HomeD from './HomeD'
 
 const Dashboard = () => {
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false)
@@ -14,14 +13,17 @@ const Dashboard = () => {
   }
   return (
     <>
-    <div className='grid-container'>
+    <div className='flex max-w-screen-2xl h-screen'>
+
+      <div className='xl:w-[260px]'>
+         <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar}/>
+      </div>
+      <div className='flex flex-col w-full'>
       <Header OpenSidebar={OpenSidebar}/>
-      <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar}/>
-      <div className='w-full h-full'>
-          <Outlet/>
+      <Outlet/>
       </div>
     </div>
-    
+
     </>
   )
 }
