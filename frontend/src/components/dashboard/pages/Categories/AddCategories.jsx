@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import axios from 'axios'
+import { BsBoxArrowLeft } from 'react-icons/bs'
+import { HiArrowLeft } from 'react-icons/hi'
 
 
    //   allow read;
@@ -33,7 +35,10 @@ const handleAdd = async (e) => {
     <div className="w-full bg-[#1d2634] h-[440px] mt-4">
   
     <form onSubmit={handleAdd} className="max-w-sm mx-auto centered  h-full flex-col">
-      <Link to={"/admin-dashboard/categories"} className='text-black font-semibold text-xl'>Back</Link>
+      <Link to={"/admin-dashboard/categories"} className='centered gap-1 text-black font-semibold text-xl'>
+          <HiArrowLeft className='text-xl'/>
+          <h1>Go back</h1>
+      </Link>
       <div className='w-full text-center mb-8'>
           <h1 className='text-4xl font-bold text-white'>Add Category</h1>
       </div>

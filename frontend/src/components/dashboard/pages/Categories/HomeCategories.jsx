@@ -1,35 +1,34 @@
 import { useEffect, useState } from 'react'
 
 import axios from 'axios'
-import { Link, Outlet } from 'react-router-dom'
-import AddCategories from './AddCategories'
 
+import AddCategories from './AddCategories'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import {MdEditNote, MdDelete} from 'react-icons/md'
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+// import required modules
+import { Pagination } from 'swiper/modules';
+import { Link, Outlet } from 'react-router-dom';
+import UpdateCategory from './UpdateCategory';
 
 const HomeCategories =  () => {
 
-  const [title, setTitle] = useState("")
-  const [listCt, setListCt] =  useState([])
-  useEffect(() => {
-  axios.get("/api/category/categories")
-  .then(res => {
-      setListCt(res.data.Result)
-  })
-  .catch(err => console.log(err))
-  }, [])
-  
-  const [isOpen, setIsOpen] = useState(true)
-
+ 
 
   return (
-    <div className="w-full h-full bg-[#1d2634]">
-        <Link onClick={() => setIsOpen(!isOpen)} to={'/admin-dashboard/categories/add'}>add categoriy</Link>
 
-        <div  className={` ${isOpen ? "-top-[107%] transition-all duration-300" : "top-0 transition-all duration-300"} flex justify-center items-center w-full xl:max-w-screen-xl h-[102vh] fixed z-[99] bg-black/80 transition-all duration-300 top-[0px] border-2`}>
+<div className='mx-auto max-w-screen-lg flex flex-col  justify-center relative h-full'>
 
-                <AddCategories isOpen={isOpen} setIsOpen={setIsOpen}/>
+<div className='h-full w-full'>
+<Outlet />
+</div>
 
-    </div>
-    </div>
+
+
+</div>
   )
 }
 

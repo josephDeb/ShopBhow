@@ -12,7 +12,7 @@ import 'swiper/css/pagination';
 // import required modules
 import { Pagination } from 'swiper/modules';
 import { Link, Outlet } from 'react-router-dom';
-import UpdateCategory from './UpdateCategory';
+import Swal from 'sweetalert2';
 
 const ListCategory = () => {
 
@@ -26,10 +26,21 @@ const ListCategory = () => {
     }, [])
     
     const handleDelete = async (id) => {
+        const result = await Swal.fire({
+            title: "Do you really want to delete?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#ed1d24",
+            confirmButtonText: "Yes, delete it!",
+            
+          })
          await axios.delete("/api/category/"+id)
         .then(res => {
-            window.location.reload()
-            console.log(res)
+            if(result.isConfirmed) {
+                window.location.reload()
+                console.log(res)
+              }
         }).catch(err=> console.log(err))
     } 
   
@@ -55,7 +66,7 @@ direction={'vertical'}
 modules={[Pagination]}
 className='mySwiper w-[100%] h-[250px] bg-white'>
     {listCt.map((ct, i) => {
-      return <SwiperSlide key={i} className='centered border-2 bg-gray-400 flex items-center'>
+      return <SwiperSlide key={i} className='centered  bg-gray-400 flex items-center'>
           <div className='w-[88%] flex items-center justify-between'>
             <h1 className='text-lg font-semibold'>{ct.title}</h1>
 
@@ -64,7 +75,7 @@ className='mySwiper w-[100%] h-[250px] bg-white'>
               <MdEditNote className='cursor-pointer text-xl text-green-800'/>
               </Link>
 
-                <MdDelete onClick={() => handleDelete(ct._id)} className='text-xl'/>
+                <MdDelete onClick={() => handleDelete(ct._id)} className='text-xl text-red-800 cursor-pointer'/>
             </div>
           </div>
       </SwiperSlide>
