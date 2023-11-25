@@ -5,22 +5,22 @@ const productSchema = mongoose.Schema(
   {
     name: {
         type: String,
-        required: [true, "Please add product name"],
+        required: true,
         trim: true
     },
     description: {
         type: String,
-        required: [true, "Please add product description"],
+        required: true,
         trim: true
     },
     category: {
         type: String,
-        required: [true, "Please add product category"],
+        required: true,
         trim: true
     },
     price: {
         type: Number,
-        required: [true, "Please add product price"],
+        required: true,
         trim: true
     },
     stocks: {
@@ -28,7 +28,7 @@ const productSchema = mongoose.Schema(
         default: 0
     },
     image: {
-        type: [String],
+        type: String,
     }
 
   },

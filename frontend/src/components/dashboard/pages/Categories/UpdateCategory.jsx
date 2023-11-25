@@ -1,39 +1,45 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react'
-import {Link, useParams} from 'react-router-dom'
+import {Link, useNavigate, useParams} from 'react-router-dom'
 import axios from 'axios'
-
+import Swal from 'sweetalert2'
 
    //   allow read;
    //   allow write: if
   //  request.resource.size < 2 * 1024 * 1024 &&
   //  request.resource.contentType.matches('image/.*')
 
-const UpdateCategory =  ({isOpen, setIsOpen, title, setTitle,}) => {
-
-
-const handleAdd = async (e) => {
-  e.preventDefault()
-
-   await axios.put("/api/category/")
-   .then(res => {
-    alert("Updated Successfully")
-    window.location.reload()
-    setIsOpen(!isOpen)
-    console.log(res)
-    console.log(res)
-   }).catch(err => console.log(err))
-}
+const UpdateCategory =  () => {
+  const {id} = useParams()
+  const navigate = useNavigate()
+  const [title, setTitle] = useState("")
+  const [cId, setCID] = useState("")
+  useEffect(() => {
+      axios.get("/api/category/"+id)
+      .then(res => {
+          setTitle(res.data.single.title)
+          setCID(res.data.single._id)
+          console.log(res.data.single._id)
+      }).catch(err => console.log(err))
+  }, [])
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    axios.put("/api/category/"+id, title)
+    .then(res => {
+      console.log(res)
+      alert("upaded")
+    }).catch(error => console.log(error))
+  }
   return (
     <div className="w-full bg-[#1d2634] h-[440px] mt-4 ">
   
-    <form onSubmit={handleAdd} className="max-w-sm mx-auto centered  h-full flex-col">
+    <form onSubmit={handleSubmit} className="max-w-sm mx-auto centered  h-full flex-col">
       <Link to={'/admin-dashboard/categories'} className='text-black font-semibold text-xl'>Back</Link>
       <div className='w-full text-center mb-8'>
           <h1 className='text-4xl font-bold text-white'>Update Category</h1>
       </div>
   <div className="mb-5 w-full">
-    <input name='title' value={title} onChange={(e) => setTitle({title: e.target.value})} type="text" id="title" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="example: Clothes" required></input>
+    <input name='title' value={title} onChange={(e) => setTitle(e.target.value)} type="text" id="title" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="example: Clothes" required></input>
   </div>
 
 
