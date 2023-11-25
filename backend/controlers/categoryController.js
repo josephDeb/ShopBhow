@@ -30,7 +30,7 @@ const updateCategory = asyncHandler(async (req, res) => {
         const {title} = req.body;
         const {categoryId} = req.params
 
-        const category = await Category.findOne({_id: categoryId})
+        const category = await Category.findByIdAndUpdate({_id: categoryId})
 
         if(!category) {
             return res.status(404).json({Status: false, Error: "Category not found"})

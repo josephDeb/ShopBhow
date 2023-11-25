@@ -1,4 +1,5 @@
 import express from "express";
+import asyncHandler from "../middlewares/asyncHandler.js";
 import { allCategories, createCategory, removeCategory, singleCategory, updateCategory } from "../controlers/categoryController.js";
 import { authorizedAdmin, protect } from "../middlewares/authHandler.js";
 import multer from "multer";
@@ -7,7 +8,7 @@ const router = express.Router();
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'backend/Public/Images')
+        cb(null, 'frontend/images')
     },
     filename: (req, file, cb) => {
         cb(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname))
@@ -19,7 +20,7 @@ const upload = multer({
 // end i
 
 
-router.post("/", protect, authorizedAdmin, createCategory)
+router.post("/", protect, authorizedAdmin,upload.single("file"), createCategory)
 
 router.route("/:categoryId").put(protect, authorizedAdmin, updateCategory)
 router.route("/:categoryId").delete(protect, authorizedAdmin, removeCategory)
