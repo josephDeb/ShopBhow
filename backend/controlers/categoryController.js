@@ -1,28 +1,29 @@
 import Category from '../models/categoryModel.js'
 import asyncHandler from '../middlewares/asyncHandler.js'
-import { json } from 'express'
 
 
 
 const createCategory = asyncHandler(async (req, res) => {
     try {
-        const {title} = req.body;
-
-        if(!title) {
-            return res.json({ Error: "Enter a category name"})
-        }
-        const existingCategory = await Category.findOne({title})
-        if(existingCategory) {
-            return res.json({Error: "Already exists"})
-        }
-        const category = await new Category({title}).save()
-        return res.json({Status: true,category})
-
+      const { title } = req.body;
+  
+      if (!title) {
+        return res.json({ error: "Name is required" });
+      }
+  
+      const existingCategory = await Category.findOne({ title });
+  
+      if (existingCategory) {
+        return res.json({ error: "Already exists" });
+      }
+  
+      const category = await new Category({ title, image: req.file.filename }).save();
+      res.json(category);
     } catch (error) {
-        console.log(error)
-        return res.status(400),json(error)
+      console.log(error);
+      return res.status(400).json(error);
     }
-})
+  });
 
 const updateCategory = asyncHandler(async (req, res) => {
     try {
