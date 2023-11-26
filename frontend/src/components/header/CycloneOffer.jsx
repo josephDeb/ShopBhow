@@ -22,9 +22,8 @@ const CycloneOffer = () => {
     axios.get('https://fakestoreapi.com/products')
     .then(res=> {
       setProducts(res.data)
-      console.log(res.data)
+
     })
-    .then(json=>console.log(json))
     .catch(error => console.log(error))
   }, [])
 

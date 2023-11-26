@@ -15,28 +15,18 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 
 import { FreeMode, Pagination } from 'swiper/modules';
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
-const collections = [
-  {
-  title: "Sports",
-  image: sports,
-  },
-  {
-    title: "Gadget",
-    image: gadget,
-  },
-  {
-    title: "Women",
-    image: women,
-  },
-  {
-    title: "Men",
-    image: men,
-  },
-
-]
-console.log(collections[0].image)
 const Collections = () => {
+  const [datas, setDatas] = useState([])
+
+  useEffect(() => {
+      axios.get("/api/category/categories")
+      .then(res => {
+          setDatas(res.data.Result)
+      })
+  }, [])
   return (
     <div className='w-full h-[260px] bg-[#f1f2eb] centered flex flex-col gap-2'>
 
@@ -64,13 +54,13 @@ const Collections = () => {
     modules={[FreeMode, Pagination]}
     className="mySwiper w-[90%] xl:w-full"
     >
-        {collections.map((cl, i) => {
+        {datas.map((cl, i) => {
           return <SwiperSlide key={i} className='w-[100px] h-[180px] bg-white flex flex-col shadow-xl relative rounded-lg'>
 
-          <img src={collections[i].image} className='h-full w-full rounded-lg'/>
-      
+          <img src={'../../../images/'+cl.image} className='h-full w-full rounded-lg'/>
+
           <div className='absolute w-full h-[53px] bg-black/80 bottom-0 rounded-lg centered px-1'>
-              <h1 className='text-white font-bold manjari'>{collections[i].title}</h1>
+              <h1 className='text-white font-bold manjari'>{cl.title}</h1>
           </div>
          </SwiperSlide>
         })}

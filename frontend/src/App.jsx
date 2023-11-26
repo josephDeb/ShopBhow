@@ -30,7 +30,7 @@ function App() {
   return (
     <>
 
-      <ShopContextProvider>
+        <ShopContextProvider>
         <Router>
 
             <Routes>
@@ -70,7 +70,6 @@ function App() {
             </Routes>
         </Router>
         </ShopContextProvider>
-
     </>
   )
 }

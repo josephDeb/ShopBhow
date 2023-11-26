@@ -36,13 +36,14 @@ const Product = () => {
           cancelButtonColor: "#ed1d24",
           confirmButtonText: "Yes, delete it!",
         })
-       await axios.delete("/api/products/"+id)
-      .then(res => {
-          if(result.isConfirmed) {
-              window.location.reload()
-              console.log(res)
-            }
+        if(result.isConfirmed) {
+          await axios.delete("/api/products/"+id)
+          .then(res => {
+           window.location.reload()
+           console.log(res)
       }).catch(err=> console.log(err))
+        }
+       
   }
 
   return (

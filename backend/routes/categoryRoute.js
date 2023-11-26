@@ -1,5 +1,4 @@
 import express from "express";
-import asyncHandler from "../middlewares/asyncHandler.js";
 import { allCategories, createCategory, removeCategory, singleCategory, updateCategory } from "../controlers/categoryController.js";
 import { authorizedAdmin, protect } from "../middlewares/authHandler.js";
 import multer from "multer";

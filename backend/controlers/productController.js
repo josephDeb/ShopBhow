@@ -5,10 +5,10 @@ import asyncHandler from "../middlewares/asyncHandler.js";
 
 const createProduct = asyncHandler(async (req, res) => {
     try {
-        const { name, description, category, stocks, price, image } = req.body;
+        const { name, description, category, stocks, price } = req.body;
         const {id} = req.params
 
-         if (!name || !description || !category || !stocks || !price || !image) {
+         if (!name || !description || !category || !stocks || !price) {
         return res.status(400).json({Status: false, Error: "Please fill all the fields"})
        }
 
@@ -17,7 +17,7 @@ const createProduct = asyncHandler(async (req, res) => {
          return res.status(401).json({Status: false, Error: "Product already exist"})
         }
    
-       const product = new Product({  name, description, category, stocks, price, image});
+       const product = new Product({  name, description, category, stocks, price, image: req.file.filename});
        await product.save();
       return res.status(201).json({Status: true, product})
     } catch (error) {

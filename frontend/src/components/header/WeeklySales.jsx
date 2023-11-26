@@ -1,4 +1,4 @@
-import { BsStarFill } from 'react-icons/bs'
+
 import offer2 from '../../assets/offer2.gif'
 import camera from '../../assets/3.png'
 import chair from '../../assets/chair2.jpg'
@@ -39,7 +39,7 @@ const WeeklySales = () => {
          <img src={camera} className='h-[120px] w-[120px] '/>
       </div>
 
-      <div className='w-[190px] flex flex-col h-[120px] my-auto gap-1 bg-blue-200'>
+      <div className='w-[190px] flex flex-col h-[120px] my-auto gap-1 '>
             <h1 className='font-semibold text-[17px]'>Canon camera Pro HD</h1>
             <div className='flex w-full gap-1 items-center'>
                <img src={dollar} className='w-5 h-5'/>
@@ -53,7 +53,7 @@ const WeeklySales = () => {
             </div>
             <div className='w-full flex flex-col'>
                <h4>Stocks <span>(28)</span></h4>
-               <i className='w-[44%] border-2 h-2 bg-red-500 border-black rounded'></i>
+               <i className='w-[44%] border h-2 bg-red-500 border-black rounded'></i>
             </div>
       </div>
    </div>
@@ -82,7 +82,7 @@ const WeeklySales = () => {
             </div>
             <div className='w-full flex flex-col'>
                <h4>Stocks <span>(28)</span></h4>
-               <i className='w-[44%] border-2 h-2 bg-red-500 border-black rounded'></i>
+               <i className='w-[44%] border h-2 bg-red-500 border-black rounded'></i>
             </div>
       </div>
    </div>
@@ -111,7 +111,7 @@ const WeeklySales = () => {
             </div>
             <div className='w-full flex flex-col'>
                <h4>Stocks <span>(28)</span></h4>
-               <i className='w-[44%] border-2 h-2 bg-red-500 border-black rounded'></i>
+               <i className='w-[44%] border h-2 bg-red-500 border-black rounded'></i>
             </div>
       </div>
    </div>
@@ -140,7 +140,7 @@ const WeeklySales = () => {
             </div>
             <div className='w-full flex flex-col'>
                <h4>Stocks <span>(28)</span></h4>
-               <i className='w-[44%] border-2 h-2 bg-red-500 border-black rounded'></i>
+               <i className='w-[44%] border h-2 bg-red-500 border-black rounded'></i>
             </div>
       </div>
    </div>
@@ -169,7 +169,7 @@ const WeeklySales = () => {
             </div>
             <div className='w-full flex flex-col'>
                <h4>Stocks <span>(28)</span></h4>
-               <i className='w-[44%] border-2 h-2 bg-red-500 border-black rounded'></i>
+               <i className='w-[44%] border h-2 bg-red-500 border-black rounded'></i>
             </div>
       </div>
    </div>

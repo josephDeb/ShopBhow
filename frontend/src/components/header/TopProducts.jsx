@@ -8,7 +8,10 @@ import arrow from '../../assets/arrow-right.gif'
 import outofstock from '../../assets/out-of-stock.png'
 import './styles2.css'
 import { useEffect, useState } from 'react'
+
 const TopProducts = () => {
+
+
    const stocks = 0;
    const [outOfStock, setOutOfStock] = useState(false)
    useEffect(() => {
@@ -107,7 +110,7 @@ const TopProducts = () => {
              </div>
 
              <div className="h-[300px] bg-white shadow-xl rounded-lg relative">
-             {outOfStock ? <div className='absolute h-full w-full bg-black/80 rounded-lg z-[99] centered'>
+             {outOfStock ? <div className='absolute h-full w-full bg-black/80 rounded-lg z-[20] centered'>
                   <img src={outofstock} className='w-[71%]'/>
                </div>
                :
