@@ -12,23 +12,28 @@ import Swal from 'sweetalert2'
 const UpdateCategory =  () => {
   const {id} = useParams()
   const navigate = useNavigate()
-  const [title, setTitle] = useState("")
-  const [cId, setCID] = useState("")
+  const [title, setTitle] = useState(String)
   useEffect(() => {
       axios.get("/api/category/"+id)
       .then(res => {
           setTitle(res.data.single.title)
-          setCID(res.data.single._id)
-          console.log(res.data.single._id)
+          console.log(res.data.single.title)
       }).catch(err => console.log(err))
   }, [])
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    axios.put("/api/category/"+id, title)
-    .then(res => {
-      console.log(res)
-      alert("upaded")
-    }).catch(error => console.log(error))
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await axios.put("/api/category/"+id, title)
+    .then(result => {
+      if(result.data.Status) {
+        alert("updated")
+        navigate("/admin-dashboard/products")
+        console.log(result.data)
+    } else{
+        alert(result.data.Error)
+    }
+    })
+    .catch(err => console.log(err))
   }
   return (
     <div className="w-full bg-[#1d2634] h-[440px] mt-4 ">

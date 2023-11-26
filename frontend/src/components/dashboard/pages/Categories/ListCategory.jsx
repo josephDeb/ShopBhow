@@ -1,17 +1,18 @@
 import { useEffect, useState } from 'react'
+import trash from '../../../../assets/trash.png'
 
 import axios from 'axios'
 
-import AddCategories from './AddCategories'
+
 import { Swiper, SwiperSlide } from 'swiper/react';
-import {MdEditNote, MdDelete, MdOutlineNoteAdd} from 'react-icons/md'
+import {MdOutlineNoteAdd} from 'react-icons/md'
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 // import required modules
 import {FreeMode, Pagination, Autoplay} from 'swiper/modules';
-import { Link, Outlet } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const ListCategory = () => {
@@ -27,7 +28,6 @@ const ListCategory = () => {
     .catch(err => console.log(err))
     }, [])
 
-    
     const handleDelete = async (id) => {
         const result = await Swal.fire({
             title: "Do you really want to delete?",
@@ -38,6 +38,7 @@ const ListCategory = () => {
             confirmButtonText: "Yes, delete it!",
             
           })
+          console.log("clciked")
          await axios.delete("/api/category/"+id)
         .then(res => {
             if(result.isConfirmed) {
@@ -45,10 +46,10 @@ const ListCategory = () => {
                 console.log(res)
               }
         }).catch(err=> console.log(err))
-    } 
-  
+    }
+
   return (
-  <div className='max-w-screen-xl flex flex-col text-[#F1EBFF]'>
+  <div className='max-w-screen-xl flex flex-col text-[#F1EBFF] manjari'>
       <div className='w-full centered flex-col'>
       <div className='w-[800px] h-[130px] centered '>
         <h1 className='text-4xl text-[#F4F7FF] font-bold'>Category list</h1>
@@ -58,7 +59,9 @@ const ListCategory = () => {
       </div>
       </div>
 
-      <div className='w-[71%] mx-auto h-[350px] mt-[71px]'>
+
+
+      <div className='w-[80%] mx-auto h-[350px] mt-[71px]'>
       <Swiper
         breakpoints={{
           320: {slidesPerView: 3, spaceBetween: 8},
@@ -76,12 +79,18 @@ const ListCategory = () => {
         navigation={true}
         freeMode={true}
         modules={[FreeMode,Autoplay, Pagination]}
-        className="mySwiper w-[90%] xl:w-full"
+        className="mySwiper w-[80%] xl:w-full "
       >
 
         {listCt.map((pr, i) => {
-          return <SwiperSlide key={i} className='w-full h-[180px] bg-white flex flex-col shadow-xl relative rounded-lg '>
+          return <SwiperSlide key={i} className='w-full h-[180px] bg-white flex flex-col shadow-xl relative rounded-lg'>
               <img src={"../../../../../images/"+pr.image} className='a object-cover  h-full rounded-lg '/>
+              <div className='w-full h-[53px] absolute bottom-0 bg-black/80 centered rounded-md'>
+                    <h1>{pr.title}</h1>
+              </div>
+              <div className='w-full h-full absolute right-[17px] top-1  hover:opacity-100 opacity-0 hover:-right-[8px] transition-all duration-300'>
+                  <img src={trash} onClick={() => handleDelete(pr._id)}   className='w-6 cursor-pointer shadow-xl'/>
+              </div>
       </SwiperSlide>
         })}
 

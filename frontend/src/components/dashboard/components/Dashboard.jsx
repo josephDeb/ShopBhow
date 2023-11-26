@@ -13,15 +13,10 @@ const Dashboard = () => {
   }
   return (
     <>
-    <div className='flex max-w-screen-2xl h-screen'>
+    <div className='flex max-w-screen-2xl h-screen bg-[#1d2634]'>
 
-      <div className='xl:w-[260px]'>
-         <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar}/>
-      </div>
-      <div className='flex flex-col w-full'>
-      <Header OpenSidebar={OpenSidebar}/>
+   
       <Outlet/>
-      </div>
     </div>
 
     </>

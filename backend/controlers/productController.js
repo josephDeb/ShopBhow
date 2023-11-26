@@ -5,10 +5,10 @@ import asyncHandler from "../middlewares/asyncHandler.js";
 
 const createProduct = asyncHandler(async (req, res) => {
     try {
-        const { name, description, category, stocks, price } = req.body;
+        const { name, description, category, stocks, price, image } = req.body;
         const {id} = req.params
 
-         if (!name || !description || !category || !stocks || !price) {
+         if (!name || !description || !category || !stocks || !price || !image) {
         return res.status(400).json({Status: false, Error: "Please fill all the fields"})
        }
 
@@ -17,7 +17,7 @@ const createProduct = asyncHandler(async (req, res) => {
          return res.status(401).json({Status: false, Error: "Product already exist"})
         }
    
-       const product = new Product({  name, description, category, stocks, price, image: req.file.filename});
+       const product = new Product({  name, description, category, stocks, price, image});
        await product.save();
       return res.status(201).json({Status: true, product})
     } catch (error) {
@@ -27,27 +27,18 @@ const createProduct = asyncHandler(async (req, res) => {
 
 
 const updateProduct = asyncHandler(async (req, res) => {
+    const product = await Product.findById(req.params.id);
+    const { name, description, category, stocks, price } = req.body;
     try {
-        const {id} = req.params
-
-       const productExist = await Product.findByIdAndUpdate({_id: id})
-
-        if(productExist) {
-            const { name, description, category, stocks, price, image } = req.body;
-
-            productExist.name = req.body.username || productExist.name;
-            productExist.description = req.body.description || productExist.description;
-            productExist.category = req.body.category || productExist.category;
-            productExist.stocks = req.body.stocks || productExist.stocks;
-            productExist.price = req.body.price || productExist.price;
-            productExist.image = req.body.image || productExist.image;
-
-            const productUpdated = await productExist.save()
-            return res.status(201).json({Status: true, productUpdated})
-        }
-
+        product.name = name;
+        product.description = description;
+        product.category = category;
+        product.stocks = stocks;
+        product.price = price;
+        const updated = await product.save();
+        return res.status(201).json({Status: true, updated})
     } catch (error) {
-       return res.status(500).json({Status: false, Error: "Something went wrong "})
+        return res.status(500).json({Status: false, Error: "Something went wrong "})
     }
 })
 

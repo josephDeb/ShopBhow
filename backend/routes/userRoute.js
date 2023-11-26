@@ -7,7 +7,7 @@ const router = express.Router();
 import {protect, authorizedAdmin} from '../middlewares/authHandler.js'
 
 // user route
-router.post("/create", createUser)
+router.post("/create",createUser)
 
 router.post("/google", google)
 // http://localhost:8088/api/users/auth

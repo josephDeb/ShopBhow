@@ -22,7 +22,7 @@ const upload = multer({
 
 router.post("/", protect, authorizedAdmin,upload.single("file"), createCategory)
 
-router.route("/:categoryId").put(protect, authorizedAdmin, updateCategory)
+router.put('/:id',protect, authorizedAdmin,  updateCategory)
 router.route("/:categoryId").delete(protect, authorizedAdmin, removeCategory)
 router.route("/categories").get(protect, authorizedAdmin, allCategories)
 router.route("/:id").get(protect, authorizedAdmin, singleCategory)

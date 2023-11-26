@@ -25,25 +25,18 @@ const createCategory = asyncHandler(async (req, res) => {
     }
   });
 
-const updateCategory = asyncHandler(async (req, res) => {
+  const updateCategory = asyncHandler(async (req, res) => {
+    const category = await Category.findById(req.params.id);
+    const { title } = req.body;
     try {
-        const {title} = req.body;
-        const {categoryId} = req.params
-
-        const category = await Category.findByIdAndUpdate({_id: categoryId})
-
-        if(!category) {
-            return res.status(404).json({Status: false, Error: "Category not found"})
-        }
-
         category.title = title;
-        const updatedCategory = await category.save()
-        return res.status(201).json({Status: true, updatedCategory})
+
+        const updated = await category.save();
+        return res.status(201).json({Status: true, updated})
     } catch (error) {
-        return res.status(404).json({Status: false, Error: "Something went wrong"})
+        return res.status(500).json({Status: false, Error: "Something went wrong "})
     }
 })
-
 const removeCategory = asyncHandler(async (req, res) => {
     try {
         const removed = await Category.findByIdAndDelete(req.params.categoryId)
