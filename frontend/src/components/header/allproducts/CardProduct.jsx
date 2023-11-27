@@ -32,7 +32,7 @@ const CardProduct = ({products}) => {
             <div className=' w-full px-2 pb-4'>
                 <h1 className='font-semibold elps text-[16px]'>{prd.name} </h1>
                 <div className='flex gap-2'>
-                   <p className='text-[14px]'>$00.00</p> <p className='line-through text-[14px] text-red-500 '>$00.00</p>
+                   <p className='text-[14px]'>${prd.price}</p> <p className='line-through text-[14px] text-red-500 '>${prd.price}</p>
                 </div>
                 <div className='flex items-center gap-1'>
                     <h4 className='text-[14px]'>Stocks</h4> <span className='text-[14px]'>({prd.stocks})</span>

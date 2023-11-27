@@ -1,5 +1,6 @@
 import { BsStarFill } from 'react-icons/bs'
 import phone from '../../assets/1.png'
+import lamp from '../../assets/6.png'
 import sale from '../../assets/sale.gif'
 import heart from '../../assets/heart.gif'
 import top from '../../assets/top.gif'
@@ -40,7 +41,7 @@ const TopProducts = () => {
 
              <div className="h-[300px] bg-white shadow-xl rounded-lg relative">
                 <div className='w-full h-[197px] end '>
-                   <img className='w-[170px] mx-auto h-[170px] ' src={phone}/>
+                   <img className='w-[170px] mx-auto h-[170px] ' src={lamp}/>
                 </div>
 
                 <div className=' w-full px-2 '>
