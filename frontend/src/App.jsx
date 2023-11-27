@@ -23,6 +23,7 @@ import Product from "./components/dashboard/pages/Products/Product"
 import AddProducts from "./components/dashboard/pages/Products/AddProducts"
 import AdminDashboard from "./components/dashboard/components/AdminDashboard"
 import UpdateProduct from "./components/dashboard/pages/Products/UpdateProduct"
+import AllProducts from "./components/header/allproducts/AllProducts"
 
 
 function App() {
@@ -38,16 +39,18 @@ function App() {
               <Route path="/login" element={<UserLoginForm />}/>
               <Route path="/signup" element={<UserRegister />}/>
               <Route path="/admin-login" element={<AdminLogin />}/>
+
               <Route element={<Private />}>
 
                 <Route path="/home" element={<Header />}>
                       <Route path="/home" element={<Homepage />}/>
+                      <Route path="/home/all-products" element={<AllProducts />}/>
                 </Route>
 
                 <Route element={<PrivateRouteAdmin />}>
                       <Route path="/admin-dashboard" element={<Dashboard />}>
                         <Route path="/admin-dashboard" element={<AdminDashboard />}/>
-                         
+
 
                          <Route path="/admin-dashboard/products" element={<ProductDashboard />}>
 

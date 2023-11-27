@@ -4,7 +4,7 @@ import axios from 'axios'
 import moment from 'moment'
 import AdminMenu from '../../AdminMenu'
 import './styles.css'
-import dlt from '../../../../assets/delete.png'
+import dlt from '../../../../assets/trash.png'
 import Swal from 'sweetalert2';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';

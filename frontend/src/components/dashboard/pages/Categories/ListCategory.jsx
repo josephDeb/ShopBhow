@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import trash from '../../../../assets/tra'
+import trash from '../../../../assets/delete.png'
 
 import axios from 'axios'
 
@@ -85,7 +85,7 @@ const ListCategory = () => {
               <div className='w-full h-[53px] absolute bottom-0 bg-black/80 centered rounded-md'>
                     <h1>{pr.title}</h1>
               </div>
-              <div className='w-full h-full absolute right-[17px] top-1  hover:opacity-100 opacity-0 hover:-right-[8px] transition-all duration-300'>
+              <div className='w-full h-full absolute right-[17px] top-1  hover:opacity-100 opacity-0 hover:-right-[8px] transition-all duration-200'>
                   <img src={trash} onClick={() => handleDelete(pr._id)}   className='w-6 cursor-pointer shadow-xl'/>
               </div>
       </SwiperSlide>

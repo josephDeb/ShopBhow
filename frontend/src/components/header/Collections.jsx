@@ -1,10 +1,5 @@
 import check from '../../assets/firework.gif'
 import arrow from '../../assets/arrow-right.gif'
-import sports from '../../assets/24.jpg'
-import gadget from '../../assets/gadget.jpg'
-import women from '../../assets/17.jpg'
-import men from '../../assets/19.jpg'
-
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -58,7 +53,7 @@ const Collections = () => {
         {datas.map((cl, i) => {
           return <SwiperSlide key={i} className='w-[100px] h-[180px] bg-white flex flex-col shadow-xl relative rounded-lg'>
 
-          <img src={'../../../images/'+cl.image} className='h-full w-full rounded-lg'/>
+          <img src={'../../../images/'+cl.image} className='h-full w-full rounded-lg object-cover'/>
 
           <div className='absolute w-full h-[53px] bg-black/80 bottom-0 rounded-lg centered px-1'>
               <h1 className='text-white font-bold manjari'>{cl.title}</h1>

@@ -8,6 +8,7 @@ import arrow from '../../assets/arrow-right.gif'
 import outofstock from '../../assets/out-of-stock.png'
 import './styles2.css'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const TopProducts = () => {
 
@@ -31,7 +32,7 @@ const TopProducts = () => {
 
          <div className='flex items-center gap-1'>
                <img src={arrow} className='w-10 h-10 '/>
-               <h1 className='font-bold '>View all</h1>
+               <Link to={'/home/all-products'} className='font-bold '>View all</Link>
          </div>
       </div>
 
