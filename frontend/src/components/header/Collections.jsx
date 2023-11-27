@@ -18,6 +18,7 @@ import { FreeMode, Pagination } from 'swiper/modules';
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
+
 const Collections = () => {
   const [datas, setDatas] = useState([])
 

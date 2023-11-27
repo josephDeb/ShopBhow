@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import trash from '../../../../assets/trash.png'
+import trash from '../../../../assets/tra'
 
 import axios from 'axios'
 
