@@ -60,7 +60,7 @@ const UserLoginForm = () => {
 
 
   return (
-    <div className="relative flex flex-col justify-center max-w-screen-xl mx-auto min-h-screen overflow-hidden">
+    <div className="relative flex flex-col justify-center max-w-screen-xl mx-auto min-h-screen overflow-hidden manjari">
             <div className="w-[88%] p-6 m-auto bg-white/50 rounded-md shadow-xl lg:max-w-sm">
                 <h1 className="text-3xl font-semibold text-center text-red-700 uppercase">
                     Sign in

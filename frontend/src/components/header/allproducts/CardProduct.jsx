@@ -37,7 +37,7 @@ const CardProduct = ({products}) => {
                 <div className='flex items-center gap-1'>
                     <h4 className='text-[14px]'>Stocks</h4> <span className='text-[14px]'>({prd.stocks})</span>
                 </div>
-                <div className={`h-2 w-[${prd.stocks}%] ${prd.stocks <= 44 ? "bg-orange-500 rounded-full" : "bg-green-500"} rounded-full border border-black`}></div>
+                <div className={`h-2 w-[${prd.stocks}] ${prd.stocks <= 44 ? "bg-orange-500 rounded-full" : "bg-green-500"} rounded-full border border-black`}></div>
 
                 <div className='flex items-end gap-2 mt-1'>
                     <img src={rate} className='w-8'/>

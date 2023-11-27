@@ -21,8 +21,8 @@ const Header = () => {
   return (
    <>
       <div className="w-full xl:h-[62px] h-[71px] bg-white">
-        <div className="mx-auto max-w-screen-xl h-full  flex justify-between items-center lg:max-w-screen-lg">
-          <div className='h-full text-center xl:w-[200px] w-[152px] flex justify-center items-center gap-1'>
+        <div className="mx-auto max-w-screen-xl h-full  flex justify-between items-center lg:max-w-screen-lg ">
+          <div className='h-full text-center w-[152px] flex justify-center items-center gap-1'>
                <HiShoppingCart className='text-2xl xl:mb-1 hidden xl:flex'/>
               <h1 className='manjari text-[23px] mt-2 xl:mt-0'>Shop<span className='text-[#ed1d24]'>Bow</span></h1>
           </div>
@@ -69,7 +69,7 @@ const Header = () => {
               <h1 className='font-semibold'>Contact</h1>
             </div>
 
-            <div className='w-[44%] h-full centered  gap-6'>
+            <div className='h-full centered  gap-6'>
                 <div className='centered gap-4'>
                   <HiShoppingCart className='text-xl'/>
                   <MdPerson onClick={() => navigate('/login')} className='text-xl'/>
