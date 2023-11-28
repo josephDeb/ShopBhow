@@ -8,14 +8,14 @@ import rate from '../../../assets/rate.png'
 import outofstock from '../../../assets/out-of-stock.png'
 
 const CardProduct = ({products}) => {
-
+   
   return (
     <>
-      <div className="w-[90%] grid grid-cols-2 gap-3 mx-auto mt-4  mb-[88px] manjari" >
+   
+          <div className="w-[90%] grid grid-cols-2 xl:grid-cols-6 gap-3 mx-auto mt-4  mb-[88px] manjari xl:w-full" >
           {products.map((prd, i) => {
 
-
-
+            console.log(prd)
             return <div key={i} className="h-[300px] bg-white shadow-xl rounded-lg relative flex flex-col justify-between">
 
             {prd.stocks === 0 ? <div className='absolute h-full w-full bg-black/80 rounded-lg z-[20] centered'>
@@ -37,11 +37,14 @@ const CardProduct = ({products}) => {
                 <div className='flex items-center gap-1'>
                     <h4 className='text-[14px]'>Stocks</h4> <span className='text-[14px]'>({prd.stocks})</span>
                 </div>
-                <div className={`h-2 w-[${prd.stocks}] ${prd.stocks <= 44 ? "bg-orange-500 rounded-full" : "bg-green-500"} rounded-full border border-black`}></div>
+                <div className={`h-2 ${prd.stocks === 0 && "w-[0px]"} ${prd.stocks === 0 ? "bg-red-500 rounded-full" : "bg-green-500"} rounded-full border border-black w-[80%]`}></div>
 
-                <div className='flex items-end gap-2 mt-1'>
+                <div className='flex items-end gap-2 mt-1 text-[11px]'>
                     <img src={rate} className='w-8'/>
-                  <h1 className=''>({prd.stocks})</h1>
+                    <div>
+                     <span>(143 reviews)</span>
+                      <h4>4.88</h4>
+                    </div>
                 </div>
 
                 <div className='absolute top-1'>
@@ -53,12 +56,13 @@ const CardProduct = ({products}) => {
                 </div>
 
                 <div className='absolute right-3 bottom-2'>
-                   <img src={cart} className='w-[44px]'/>
+                   <img src={cart} className='w-[28px]'/>
                 </div>
             </div>
          </div>
           })}
-      </div>
+          </div>
+
     </>
   )
 }

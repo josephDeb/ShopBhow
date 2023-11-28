@@ -77,23 +77,23 @@ const Homepage = () => {
             <Banner3 />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[800px]'>
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[940px] xl:h-[520px]'>
             <WeeklySales />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[240px]'>
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[240px] xl:h-[280px]'>
             <Banner4 />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[440px]'>
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[440px] xl:h-[250px]'>
             <Featured />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[260px]'>
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[260px] xl:h-[280px]'>
             <Collections />
         </div>
 
-        <div className='h-[88px] w-full bg-[#f1f2eb]'>
+        <div className='h-[88px] w-full bg-[#f1f2eb] xl:h-[44px]'>
             {/*space */}
         </div>
 

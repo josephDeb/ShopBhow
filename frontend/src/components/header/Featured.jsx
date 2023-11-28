@@ -48,8 +48,8 @@ const featured = [
 ]
 const Featured = () => {
   return (
-    <div className="w-full  h-[440px] centered flex-col bg-[#f1f2eb] ga">
-        <div className='w-[90%] mx-auto flex items-center justify-between'>
+    <div className="w-full  h-[440px] centered flex-col bg-[#f1f2eb] xl:h-[240px] xl:gap-3">
+        <div className='w-[90%] mx-auto flex items-center justify-between xl:w-full '>
          <div className='flex items-center'>
              <img src={check} className='w-10'/>
              <h1 className='font-bold '>Featured</h1>
@@ -61,7 +61,7 @@ const Featured = () => {
          </div>
       </div>
 
-        <div className='w-[90%] h-[400px]  grid grid-cols-3 gap-2'>
+        <div className='w-[90%] h-[400px]  grid grid-cols-3 gap-2 xl:w-full xl:grid-cols-6'>
 
             {featured.map((fr, i) => {
                 return <div key={i} className='w-full h-[180px] bg-white flex flex-col shadow-xl relative rounded-lg'>
@@ -72,8 +72,8 @@ const Featured = () => {
                 <img src={fr.image} className='w-[88px] h-[88px] mx-auto '/>
                 </div>
 
-                <div className='w-full h-[80px] flex flex-col px-1'>
-                    <p className='text-[17px] ht4 '>{fr.title}</p>
+                <div className='w-full h-[80px] flex flex-col px-2'>
+                    <p className='text-[17px] ht4 elpsText xl:w-[152px] w-[88px]'>{fr.title}</p>
                     <h4 className='text-[13px]'>${fr.price}</h4>
                     <div className='flex items-center text-[13px] gap-1 text-gray-500'>
                        <h3>Stocks</h3><span>({fr.stocks})</span>

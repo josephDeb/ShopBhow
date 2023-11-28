@@ -24,6 +24,8 @@ import AddProducts from "./components/dashboard/pages/Products/AddProducts"
 import AdminDashboard from "./components/dashboard/components/AdminDashboard"
 import UpdateProduct from "./components/dashboard/pages/Products/UpdateProduct"
 import AllProducts from "./components/header/allproducts/AllProducts"
+import Footer from "./components/footer/Footer"
+import Footers from "./components/footer/Footer"
 
 
 function App() {
@@ -71,6 +73,7 @@ function App() {
               </Route>
 
             </Routes>
+            <Footers />
         </Router>
         </ShopContextProvider>
     </>

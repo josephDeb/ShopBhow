@@ -24,9 +24,9 @@ const Collections = () => {
       })
   }, [])
   return (
-    <div className='w-full h-[260px] bg-[#f1f2eb] centered flex flex-col gap-2'>
+    <div className='w-full h-[260px] bg-[#f1f2eb] centered flex flex-col gap-2 xl:h-[260px] xl:gap-3'>
 
-<div className='w-[90%] mx-auto flex items-center justify-between'>
+<div className='w-[90%] mx-auto flex items-center justify-between xl:w-full'>
          <div className='flex items-center'>
              <img src={check} className='w-10'/>
              <h1 className='font-bold '>Collections</h1>

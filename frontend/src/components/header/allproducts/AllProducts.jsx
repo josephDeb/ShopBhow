@@ -27,7 +27,7 @@ const AllProducts = () => {
   
   return (
     <>
-    <div className='max-w-screen-xl bg-[#f1f2eb] h-[107px] manjari'>
+    <div className='xl:max-w-screen-lg bg-[#f1f2eb] h-[107px] manjari mx-auto'>
         <div className='w-full centered h-[44px]'>
 
         </div>
@@ -35,7 +35,7 @@ const AllProducts = () => {
         <FilterCategory category={category}/>
     </div>
 
-    <div className='max-w-screen-xl bg-[#f1f2eb] '>
+    <div className='xl:max-w-screen-lg bg-[#f1f2eb] mx-auto'>
          <CardProduct products={products}/>
     </div>
     
