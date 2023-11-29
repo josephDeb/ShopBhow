@@ -2,15 +2,24 @@
 import img3 from '../../../assets/16.jpg'
 import img1 from '../../../assets/wallet.png'
 import img2 from '../../../assets/voucher.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from "react-redux";
 import { BsArrowBarLeft } from 'react-icons/bs';
-
+import axios from 'axios'
 
 
 const Details = ({setIsOpen, isOpen}) => {
 
   const isAdmin = true;
+  const navigate = useNavigate()
+
+  const handleLogout = async () => {
+    await axios.post("/api/users/logout")
+    .then(res => {
+      console.log(res.data)
+      navigate("/login")
+    }).catch(err => console.log(err))
+  } 
 
   const {currentUser} = useSelector((state) => state.user)
   return (
@@ -58,7 +67,7 @@ const Details = ({setIsOpen, isOpen}) => {
         <Link className='h-12 w-full  flex justify-start items-center hover:bg-gray-300/60 text-[14px] hover:text-[#ed1d24]  manjari pl-3' to={'/home'}>Notification</Link>
         <Link className='h-12 w-full  flex justify-start items-center hover:bg-gray-300/60 text-[14px] hover:text-[#ed1d24]  manjari pl-3' to={'/home'}>Shop Pages</Link>
         <Link className='h-12 w-full  flex justify-start items-center hover:bg-gray-300/60 text-[14px] hover:text-[#ed1d24]  manjari pl-3' to={'/home'}>Settings</Link>
-        <Link className='h-12 w-full  flex justify-start items-center hover:bg-gray-300/60 text-[14px] hover:text-[#ed1d24]  manjari pl-3' to={'/home'}>Sign out</Link>
+        <Link onClick={() => handleLogout()} className='h-12 w-full  flex justify-start items-center hover:bg-gray-300/60 text-[14px] hover:text-[#ed1d24]  manjari pl-3' to={'/home'}>Sign out</Link>
 
         </div>
 

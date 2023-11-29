@@ -20,7 +20,7 @@ const Header = () => {
   
   return (
    <>
-      <div className="w-full xl:h-[62px] h-[71px] bg-white">
+      <div className="w-full xl:h-[62px] h-[71px] bg-white/80">
         <div className="mx-auto max-w-screen-xl h-full  flex justify-between items-center lg:max-w-screen-lg ">
           <div className='h-full text-center w-[152px] flex justify-center items-center gap-1'>
                <HiShoppingCart className='text-2xl xl:mb-1 hidden xl:flex'/>

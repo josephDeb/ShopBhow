@@ -25,6 +25,7 @@ import AdminDashboard from "./components/dashboard/components/AdminDashboard"
 import UpdateProduct from "./components/dashboard/pages/Products/UpdateProduct"
 import AllProducts from "./components/header/allproducts/AllProducts"
 import Footers from "./components/footer/Footer"
+import ForgetPassword from "./components/login/ForgetPassword"
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
               <Route path="/" element={<HomeP />}/>
               <Route path="/login" element={<UserLoginForm />}/>
               <Route path="/signup" element={<UserRegister />}/>
+              <Route path="/forget-password" element={<ForgetPassword />}/>
               <Route path="/admin-login" element={<AdminLogin />}/>
 
               <Route element={<Private />}>

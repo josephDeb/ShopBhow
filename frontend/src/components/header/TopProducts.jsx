@@ -1,6 +1,7 @@
-import { BsStarFill } from 'react-icons/bs'
+import bag from '../../assets/product7.jpg'
 import phone from '../../assets/1.png'
 import tshirt from '../../assets/123.png'
+import shoes from '../../assets/nike2.png'
 import cream from '../../assets/cream.webp'
 import lamp from '../../assets/6.png'
 import sale from '../../assets/sale.gif'
@@ -29,16 +30,6 @@ import { FreeMode, Pagination } from 'swiper/modules';
 const TopProducts = () => {
 
 
-   const stocks = 0;
-   const [outOfStock, setOutOfStock] = useState(false)
-   useEffect(() => {
-      if(stocks === 0) {
-         setOutOfStock(true)
-      } else {
-         setOutOfStock(false)
-      }
-   }, [])
-
    const topProducts = [
       {
          image: cream,
@@ -65,15 +56,23 @@ const TopProducts = () => {
          review: 215,
       },
       {
-         image: tshirt,
+         image: bag,
          name: "I Phone 14 Pro Max",
          oldPrice: 2222.22,
          latestPrice: 1111.11,
-         stocks: 0,
+         stocks: 305,
          review: 215,
       },
       {
          image: tshirt,
+         name: "I Phone 14 Pro Max",
+         oldPrice: 2222.22,
+         latestPrice: 1111.11,
+         stocks: 557,
+         review: 215,
+      },
+      {
+         image: shoes,
          name: "I Phone 14 Pro Max",
          oldPrice: 2222.22,
          latestPrice: 1111.11,

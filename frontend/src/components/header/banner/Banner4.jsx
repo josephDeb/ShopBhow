@@ -10,7 +10,7 @@ const Banner4 = () => {
               <img src={coupon} className='w-[88px] xl:w-[180px]'/>
             </div>
 
-            <div className='w-[68%] h-full centered flex-col gap-1 xl:w-[58%] xl:flex xl:justify-center xl:items-end'>
+            <div className='w-[62%] h-full centered flex-col gap-1 xl:w-[58%] xl:flex xl:justify-center xl:items-end'>
                 <div className='w-[160px]  text-white xl:w-[400px] xl:text-start'>
                     <h1 className='text-xl font-bold ht xl:text-4xl'>Get more vouchers</h1>
                 </div>

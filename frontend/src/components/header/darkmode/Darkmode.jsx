@@ -4,12 +4,12 @@ import {IoMdMoon, IoMdSunny} from 'react-icons/io'
 
 const Darkmode = () => {
   return (
-    <div className='w-full h-[210px]  flex relative centered xl:hidden'>
-        <img src={darkmode} className='w-[90%] mx-auto rounded-md h-[200px] shadow-xl xl:w-full'/>
+    <div className='w-full h-[220px]  flex centered xl:hidden relative'>
+        <img src={darkmode} className='w-[90%] mx-auto rounded-md h-[220px] shadow-xl xl:w-full '/>
 
-        <p className='absolute w-[350px] text-white font-semibold left-[35px] top-[145px] manjari'>You can change your display to a dark background using a dark mode</p>
+        <p className='absolute w-[300px] bottom-12 text-white font-semibold  manjari '>You can change your display to a dark background using a dark mode</p>
         {/*dark mode btn */}
-      <div className='absolute right-[35px] bottom-[35px]'>
+      <div className='absolute w-[80%] bottom-4 flex  justify-end'>
         <input type='checkbox' className='checkbox' id='checkbox'></input>
         <label htmlFor="checkbox" className="checkbox-label">
           <i className="fas fa-moon"><IoMdMoon /></i>

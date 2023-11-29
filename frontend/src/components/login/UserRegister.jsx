@@ -41,6 +41,11 @@ const UserRegister = () => {
                 if(data.Status) {
                     if(currentUser) {
                         setError(false)
+                        Swal.fire({
+                            title: "Successfully created!",
+                            text: "Login now!",
+                            icon: "success"
+                          });
                         navigate("/login")
                     }
                 } else {
@@ -105,7 +110,7 @@ const UserRegister = () => {
                         />
                     </div>
                     <a
-                        onClick={() => navigate("/login/forget_password")}
+                        onClick={() => navigate("/forget-password")}
                         className="text-[15px] text-red-700 hover:underline"
                     >
                         Forget Password?

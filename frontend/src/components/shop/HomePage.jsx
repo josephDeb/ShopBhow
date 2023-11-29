@@ -21,7 +21,7 @@ const {currentUser} = useSelector(state => state.user)
   return (
     <div className='w-full xl:max-w-screen-xl xl:mx-auto h-screen manjari'>
         {/*Mobile responsive*/}
-        <div className="w-full h-[100%] my-auto border-2 centered flex-col xl:hidden">
+        <div className="w-full h-[100%] my-auto centered flex-col xl:hidden">
            <div className="w-full h-[350px] centered relative xl:flex">
               <img src={img} className="w-[200px] h-[200px]"/>
               <div className="centered flex-col absolute bottom-0 ">
