@@ -16,7 +16,6 @@ import axios from 'axios'
 
 const Collections = () => {
   const [datas, setDatas] = useState([])
-
   useEffect(() => {
       axios.get("/api/category/categories")
       .then(res => {

@@ -4,13 +4,16 @@ import { createContext,useEffect,useState } from "react"
 const defaultVal = {}
 export const ShopContext = createContext(defaultVal)
 import axios from 'axios'
+
 const ShopContextProvider = (props) => {
 
   const [isOpen, setIsOpen] = useState(true);
   const [values, setValue] = useState()
   const [products, setProducts] = useState([])
+  const [singleProduct, setSingleProduct] = useState([])
   const [category, setCategory] = useState([])
   const [search, setSearch] = useState(products)
+
   useEffect(() => {
       axios.get("/api/category/categories")
       .then(res => {
@@ -22,7 +25,6 @@ const ShopContextProvider = (props) => {
           setProducts(res.data.Result)
           setSearch(res.data.Result)
       }).catch(err => console.log(err))
-
    }, [])
 
 
@@ -49,7 +51,8 @@ const ShopContextProvider = (props) => {
     search,
     setSearch,
     values,
-    setValue
+    setValue,
+    singleProduct
   }
 
 
