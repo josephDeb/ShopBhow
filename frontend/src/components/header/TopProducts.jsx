@@ -4,7 +4,7 @@ import tshirt from '../../assets/123.png'
 import shoes from '../../assets/nike2.png'
 import cream from '../../assets/cream.webp'
 import lamp from '../../assets/6.png'
-import sale from '../../assets/sale.gif'
+import sale from '../../assets/premium.gif'
 import rate from '../../assets/rate.png'
 import heart from '../../assets/heart.gif'
 import top from '../../assets/top.gif'
@@ -110,7 +110,7 @@ const TopProducts = () => {
 
              {topProducts.map((tp, i) => {
 
-               return <div key={i} className="h-[300px] bg-white shadow-xl rounded-lg relative flex flex-col justify-between">
+               return <Link to={'/home'} key={i} className="h-[300px] bg-white shadow-xl rounded-lg relative flex flex-col justify-between">
 
                {tp.stocks === 0 ? <div className='absolute h-full w-full bg-black/80 rounded-lg z-[20] centered'>
                      <img src={outofstock} className='w-[71%]'/>
@@ -150,7 +150,7 @@ const TopProducts = () => {
                       <img src={cart} className='w-[44px]'/>
                    </div>
                </div>
-            </div>
+            </Link>
              })}
 
          </div>
@@ -171,7 +171,7 @@ const TopProducts = () => {
 
             {xlTopProducts.map((tp, i) => {
                return <SwiperSlide key={i} className="h-[320px] bg-white  rounded-lg relative">
-               <Link to={`/home/:${tp._id}`} className='w-full h-[197px] end '>
+               <Link to={`/home/${tp._id}`} className='w-full h-[197px] end '>
                   <img className='w-[170px] mx-auto h-[170px] ' src={'../../../images/'+tp.image}/>
                </Link>
 

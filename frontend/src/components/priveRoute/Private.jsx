@@ -17,6 +17,7 @@ const Private = () => {
         }, 1500)
       }
     }, [currentUser])
+    console.log(currentUser)
   return currentUser ? <Outlet/> : <Navigate to={'/login'}/>
 
 }

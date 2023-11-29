@@ -70,6 +70,12 @@
 
 
 
+.ht4WK {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 320px;
+  white-space: nowrap;
+}
 
 
 

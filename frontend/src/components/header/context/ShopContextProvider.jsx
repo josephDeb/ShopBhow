@@ -10,7 +10,6 @@ const ShopContextProvider = (props) => {
   const [isOpen, setIsOpen] = useState(true);
   const [values, setValue] = useState()
   const [products, setProducts] = useState([])
-  const [singleProduct, setSingleProduct] = useState([])
   const [category, setCategory] = useState([])
   const [search, setSearch] = useState(products)
 
@@ -52,7 +51,6 @@ const ShopContextProvider = (props) => {
     setSearch,
     values,
     setValue,
-    singleProduct
   }
 
 

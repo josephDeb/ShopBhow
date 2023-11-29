@@ -11,7 +11,7 @@ import MbSearchBar from './MbSearchBar';
 
 const AllProducts = () => {
 
-    const {category, products, search, values, filterItems, fillT} = useContext(ShopContext)
+    const {category, products, search, values, filterItems, } = useContext(ShopContext)
     console.log(values)
 
     useEffect(() => {
@@ -19,7 +19,7 @@ const AllProducts = () => {
       }, [AllProducts]);
     
   return (
-    <div className='h-screen xl:max-w-screen-lg mx-auto'>
+    <div className=' xl:max-w-screen-lg mx-auto'>
     
     <div className='mx-auto w-full'>
         <MbSearchBar />
@@ -29,8 +29,8 @@ const AllProducts = () => {
      <FilterCategory category={category} filterItems={filterItems} products={products}/>
     </div>
 
-    <div className='w-[100%] mx-auto'>
-      <Link to={'/home'} className='flex items-center border border-black xl:w-[220px] xl:h-[44px] mt-4 gap-2'>
+    <div className='w-[90%] xl:w-full mx-auto'>
+      <Link to={'/home'} className='flex items-center xl:w-[220px] xl:h-[44px] mt-4 gap-2'>
         <img src={arrow} className='a rotate-180 w-8'/>
         <h1>Back to homepage</h1>
       </Link>
@@ -39,6 +39,11 @@ const AllProducts = () => {
     <div className='xl:max-w-screen-lg mx-auto'>
          <CardProduct search={search} />
     </div>
+
+    <div className='h-[62px] w-full'>
+
+    </div>
+
     
     <div className='fixed z-[88] w-full -bottom-1 h-[62px] shadow-2xl '>
              <FooterBar />

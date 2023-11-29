@@ -39,7 +39,7 @@ const UserRegister = () => {
             const data = await res.json()
             dispatch(signInSuccess(data))
                 if(data.Status) {
-                    if(currentUser) {
+
                         setError(false)
                         Swal.fire({
                             title: "Successfully created!",
@@ -47,7 +47,6 @@ const UserRegister = () => {
                             icon: "success"
                           });
                         navigate("/login")
-                    }
                 } else {
                     setError(false)
                     setIrror(data.Error)
