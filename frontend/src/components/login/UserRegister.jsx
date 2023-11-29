@@ -2,11 +2,14 @@
 import {  useState} from 'react';
 import {  useNavigate} from 'react-router-dom';
 import { toast } from 'react-toastify';
-
-
+import {useDispatch, useSelector} from 'react-redux'
+import { signInSuccess } from '../../../../user/userSlice';
+import Swal from 'sweetalert2'
 
 const UserRegister = () => {
-
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const {currentUser} = useSelector(state => state.user)
     const [values, setValues] = useState({
       username: "",
       email: "",
@@ -15,39 +18,40 @@ const UserRegister = () => {
 
     const [error, setError] = useState(false)
     const [irror, setIrror] = useState("")
-    const navigate = useNavigate();
-  
+
     const handleSubmit = async (e) => {
         e.preventDefault()
+
         if(!values.username || !values.email ||  !values.password) {
-            alert("PLease fill up all fields")
+            setIrror("Please fill out the fields")
         }
         setError(true)
-        const res = await fetch("/api/users/createUser", {
+        const res = await fetch("/api/users/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(values)
         });
+        
         try {
+            setError(false)
             const data = await res.json()
-            if(data.Status) {
-                setError(false)
-                navigate("/")
-                console.log(data)
-            } else {
-                setIrror(data.Error)
-                toast.error(data.Error)
-                console.log(res.json())
-                setError(false)
-            }
+            dispatch(signInSuccess(data))
+                if(data.Status) {
+                    if(currentUser) {
+                        setError(false)
+                        navigate("/login")
+                    }
+                } else {
+                    setError(false)
+                    setIrror(data.Error)
+                }
         } catch (err) {
             console.log(err)
             setError(false)
         }
     }
-
    
 
 
@@ -108,8 +112,8 @@ const UserRegister = () => {
                     </a>
                     <p className='text-red-600 text-lg'>{irror && irror}</p>
                     <div className="mt-2">
-                        <button type='submit' className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-500">
-                            {error ? <p>Loading</p> : <p>Submit</p>}
+                    <button type='submit' className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-500">
+                        {error ? <div className="lds-hourglass font-semibold">Loading</div> : <p>Submit</p>}
                         </button>
                     </div>
                 </form>

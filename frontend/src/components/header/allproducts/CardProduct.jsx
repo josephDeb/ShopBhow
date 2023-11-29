@@ -7,15 +7,13 @@ import cart from '../../../assets/shopping-cart.gif'
 import rate from '../../../assets/rate.png'
 import outofstock from '../../../assets/out-of-stock.png'
 
-const CardProduct = ({products}) => {
+const CardProduct = ({search}) => {
    
   return (
     <>
    
           <div className="w-[90%] grid grid-cols-2 xl:grid-cols-6 gap-3 mx-auto mt-4  mb-[88px] manjari xl:w-full" >
-          {products.map((prd, i) => {
-
-            console.log(prd)
+          {search.map((prd, i) => {
             return <div key={i} className="h-[300px] bg-white shadow-xl rounded-lg relative flex flex-col justify-between">
 
             {prd.stocks === 0 ? <div className='absolute h-full w-full bg-black/80 rounded-lg z-[20] centered'>

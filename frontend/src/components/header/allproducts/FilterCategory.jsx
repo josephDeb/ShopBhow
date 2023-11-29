@@ -9,7 +9,8 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 
 import {FreeMode, Pagination, Autoplay} from 'swiper/modules';
-const FilterCategory = ({category}) => {
+const FilterCategory = ({category, filterItems}) => {
+
   return (
     <>
         <Swiper
@@ -29,9 +30,10 @@ const FilterCategory = ({category}) => {
         className='mySwiper w-[92%] xl:w-full '
         >
             {category.map((ct, i) => {
+
                 return <SwiperSlide key={i} className=' text-center h-[53px] w-full mx-auto centered gap-2 rounded-lg bg-[#ffffff] px-2'>
                     <img src={'../../../../images/'+ct.image} className='w-10 h-10 rounded-xl object-cover'/>
-                    <button className=' h-full ht4 w-[100px] text-start'>{ct.title}</button>
+                    <button key={i} onClick={() => filterItems(ct.title)} className=' h-full ht4 w-[100px] text-start'>{ct.title}</button>
                 </SwiperSlide>
             })}
         </Swiper>

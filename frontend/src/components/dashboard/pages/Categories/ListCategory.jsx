@@ -38,7 +38,6 @@ const ListCategory = () => {
             confirmButtonText: "Yes, delete it!",
             
           })
-          console.log("clciked")
          await axios.delete("/api/category/"+id)
         .then(res => {
             if(result.isConfirmed) {
