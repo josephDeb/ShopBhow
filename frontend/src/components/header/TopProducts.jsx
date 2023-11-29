@@ -171,9 +171,9 @@ const TopProducts = () => {
 
             {xlTopProducts.map((tp, i) => {
                return <SwiperSlide key={i} className="h-[320px] bg-white  rounded-lg relative">
-               <div className='w-full h-[197px] end '>
+               <Link to={`/home/:${tp._id}`} className='w-full h-[197px] end '>
                   <img className='w-[170px] mx-auto h-[170px] ' src={'../../../images/'+tp.image}/>
-               </div>
+               </Link>
 
                <div className=' w-full px-2 '>
                    <h1 className='font-semibold elps text-[16px]'>{tp.name}</h1>

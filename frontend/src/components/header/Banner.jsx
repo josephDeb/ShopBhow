@@ -2,9 +2,8 @@ import { BsArrowRightShort } from 'react-icons/bs'
 import img from '../../assets/5.png'
 import btnshopnow from '../../assets/btnshopnow.png'
 import '../Styles/btn.css'
-import { useEffect, useState } from 'react'
+
 const Banner = () => {
-  const [time, setTime] = useState("")
 
   return (
      <div className='w-full h-[220px] centered xl:h-[300px]'>
@@ -32,7 +31,7 @@ const Banner = () => {
 
 
         {/*Desktop Laptop devices responsive Banner*/}
-     <div className='xl:h-[300px] w-full bg-gradient-to-br from-green-600 to-green-800 hidden xl:flex rounded-lg xl:justify-center xl:items-center'>
+     <div className='xl:h-[300px] w-full bg-gradient-to-br from-green-600 to-green-800 hidden xl:flex rounded-lg xl:justify-center xl:items-center shadow-xl'>
           <div className='w-[71%] mx-auto centered '>
                 <div className='flex flex-col'>
                   <h1 className='text-4xl font-bold text-white'>Habitat Remi Fabric Armchair</h1>

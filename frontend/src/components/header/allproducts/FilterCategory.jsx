@@ -27,7 +27,7 @@ const FilterCategory = ({category, filterItems}) => {
           spaceBetween={8}
           freeMode={true}
           modules={[FreeMode, Pagination, Autoplay]}
-        className='mySwiper w-[92%] xl:w-full '
+        className='mySwiper w-[90%] xl:w-full '
         >
             {category.map((ct, i) => {
 
