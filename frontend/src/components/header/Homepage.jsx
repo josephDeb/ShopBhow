@@ -65,7 +65,7 @@ const Homepage = () => {
             <CycloneOffer />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[260px] xl:hidden'>
+        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[230px] xl:hidden'>
             <Darkmode />
         </div>
 

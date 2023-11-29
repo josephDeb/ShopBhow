@@ -43,40 +43,40 @@ const TopProducts = () => {
       {
          image: cream,
          name: "Men's Facial Cream",
-         oldPrice: 0,
-         latestPrice: 1,
+         oldPrice: 2222.22,
+         latestPrice: 1111.11,
          stocks: 0,
          review: 215,
       },
       {
          image: phone,
          name: "I Phone 14 Pro Max",
-         oldPrice: 0,
-         latestPrice: 1,
+         oldPrice: 2222.22,
+         latestPrice: 1111.11,
          stocks: 44,
          review: 215,
       },
       {
          image: lamp,
          name: "I Phone 14 Pro Max",
-         oldPrice: 0,
-         latestPrice: 1,
+         oldPrice: 2222.22,
+         latestPrice: 1111.11,
          stocks: 88,
          review: 215,
       },
       {
          image: tshirt,
          name: "I Phone 14 Pro Max",
-         oldPrice: 0,
-         latestPrice: 1,
+         oldPrice: 2222.22,
+         latestPrice: 1111.11,
          stocks: 0,
          review: 215,
       },
       {
          image: tshirt,
          name: "I Phone 14 Pro Max",
-         oldPrice: 0,
-         latestPrice: 1,
+         oldPrice: 2222.22,
+         latestPrice: 1111.11,
          stocks: 0,
          review: 215,
       }
@@ -106,7 +106,7 @@ const TopProducts = () => {
          </div>
       </div>
          
-         {/*Hidden for XL LG Devices */}
+         {/*for Mobile Devices */}
          <div className="w-[90%] grid grid-cols-2 gap-3 xl:w-full xl:grid-cols-5 xl:hidden mx-auto">
 
              {topProducts.map((tp, i) => {
@@ -127,7 +127,7 @@ const TopProducts = () => {
                <div className=' w-full px-2 pb-4'>
                    <h1 className='font-semibold elps text-[16px]'>{tp.name} </h1>
                    <div className='flex gap-2'>
-                      <p className='text-[14px]'>${tp.price}</p> <p className='line-through text-[14px] text-red-500 '>${tp.price}</p>
+                      <p className='text-[14px]'>${tp.latestPrice}</p> <p className='line-through text-[14px] text-red-500 '>${tp.oldPrice}</p>
                    </div>
                    <div className='flex items-center gap-1'>
                        <h4 className='text-[14px]'>Stocks</h4> <span className='text-[14px]'>({tp.stocks})</span>

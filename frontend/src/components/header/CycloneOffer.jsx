@@ -47,7 +47,7 @@ const CycloneOffer = () => {
       >
 
         {products.map((pr, i) => {
-          return <SwiperSlide key={i} className='w-full h-[190px] bg-white flex flex-col shadow-xl relative rounded-lg justify-between py-2'>
+          return <SwiperSlide key={i} className='w-full h-[190px] bg-white flex flex-col relative rounded-lg justify-between py-2'>
 
             <div className='absolute top-1'>
                 <img src={sale} className='w-[35px]'/>
@@ -58,7 +58,7 @@ const CycloneOffer = () => {
           </div>
 
           <div className='w-full h-[71px] flex flex-col  justify-end px-2'>
-              <p className='text-[15px] ht4 font-semibold xl:w-[144px] w-[130px]'>{pr.title}</p>
+              <p className='text-[15px] ht4 font-semibold xl:w-[144px] w-[88px]'>{pr.title}</p>
               <h4 className='text-[13px]'>${pr.price}</h4>
               <div className='flex items-center text-[13px] gap-1 text-gray-500'>
                  <h3>Stocks</h3><span>({pr.rating.count})</span>
