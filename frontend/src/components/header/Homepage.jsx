@@ -17,8 +17,6 @@ import WeeklySales from './WeeklySales'
 import Banner4 from './banner/Banner4'
 import Featured from './Featured'
 import Collections from './Collections'
-import { ShopContext } from './context/ShopContextProvider'
-import { Link } from 'react-router-dom'
 import SearchBar from './SearchBar'
 
 
@@ -28,14 +26,12 @@ const Homepage = () => {
         setIsOpen(!isOpen)
     }
 
-    const {fillT} = useContext(ShopContext)
-
   return (
     <>
-    <div className='w-full xl:max-w-screen-lg xl:mx-auto bg-[#f1f2eb] relative'>
+    <div className='w-full xl:max-w-screen-lg xl:mx-auto relative'>
 
-        <div className='h-[77px] flex justify-between items-center gap-2  relative w-[90%] mx-auto xl:w-full border-2'>
-            <div className='flex w-full border-2'>
+        <div className='h-[77px] flex justify-between items-center gap-2  relative w-[90%] mx-auto xl:w-full'>
+            <div className='flex w-full'>
             <SearchBar />
             </div>
             <button onClick={() => handleFilter()} className='bg-gray-500/70 w-[53px] h-[44px] rounded-lg centered'><img className='w-7' src={filter}/></button>
@@ -48,22 +44,20 @@ const Homepage = () => {
                     </div>
             </div>
             :
-            <></>    
+            <></>
         }
         </div>
-        
 
-        
     </div>
 
     <div className='w-full'>
         
         <div className=''>
-          <div className='w-full xl:max-w-screen-lg xl:mx-auto xl:flex-col bg-[#f1f2eb] xl:h-[140px]'>
+          <div className='w-full xl:max-w-screen-lg xl:mx-auto xl:flex-col xl:h-[140px]'>
             <Category />
           </div>
 
-          <div className='w-full xl:max-w-screen-lg xl:mx-auto xl:h-[320px] bg-[#f1f2eb] centered h-[220px]'>
+          <div className='w-full xl:max-w-screen-lg xl:mx-auto xl:h-[320px] centered h-[220px]'>
                <Banner />
           </div>
         </div>
@@ -100,7 +94,7 @@ const Homepage = () => {
             <Collections />
         </div>
 
-        <div className='h-[88px] w-full bg-[#f1f2eb] xl:h-[44px]'>
+        <div className='h-[88px] w-full xl:h-[44px]'>
             {/*space */}
         </div>
 

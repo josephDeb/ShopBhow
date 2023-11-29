@@ -16,7 +16,7 @@ const AllProducts = () => {
 
   return (
     <>
-    <div className='xl:max-w-screen-lg bg-[#f1f2eb] h-[107px] manjari mx-auto'>
+    <div className='xl:max-w-screen-lg h-[107px] manjari mx-auto'>
         <div className='w-[62%] flex justify-start items-center h-[62px] relative'>
         <div className=' flex bg-white border border-black w-80 sm:w-[800px] rounded-md  relative py-1'>
                 <AiOutlineSearch className='ml-2 text-2xl' />
@@ -41,7 +41,7 @@ const AllProducts = () => {
         <FilterCategory category={category} filterItems={filterItems} products={products}/>
     </div>
 
-    <div className='xl:max-w-screen-lg bg-[#f1f2eb] mx-auto'>
+    <div className='xl:max-w-screen-lg mx-auto'>
          <CardProduct search={search} />
     </div>
     

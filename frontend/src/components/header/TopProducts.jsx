@@ -93,7 +93,7 @@ const TopProducts = () => {
    }, [])
 
   return (
-    <div className='w-full h-[980px] bg-[#f1f2eb] flex flex-col gap-2 xl:h-[400px]'>
+    <div className='w-full h-[980px] flex flex-col gap-2 xl:h-[400px]'>
       <div className='w-[90%] mx-auto flex items-center justify-between xl:w-full'>
          <div className='flex items-center'>
              <img src={top} className='w-10'/>

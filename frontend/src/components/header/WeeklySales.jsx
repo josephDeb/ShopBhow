@@ -64,7 +64,7 @@ const WeeklySales = () => {
    ]
 
   return (
-    <div className='w-full h-[940px] bg-[#f1f2eb] centered flex-col gap-2 xl:h-[510px]'>
+    <div className='w-full h-[940px] centered flex-col gap-2 xl:h-[510px]'>
 
       <div className='w-[90%] mx-auto flex items-center justify-between xl:w-full'>
          <div className='flex items-center'>

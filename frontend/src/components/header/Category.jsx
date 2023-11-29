@@ -9,10 +9,10 @@ import price from '../../../../frontend/src/assets/price-tag.png'
 
 const Category = () => {
 
-   const cardCategory = "h-[120px] centered flex-col text-center bg-white shadow-lg rounded-lg hover:bg-[#c2d4f8]"
+   const cardCategory = "h-[120px] centered flex-col text-center bg-white/80 shadow-lg rounded-lg hover:bg-[#c2d4f8]"
 
   return (
-    <div className='xl:grid-cols-8 xl:h-[140px] xl:w-full xl:px-0 xl:gap-6  grid grid-cols-4 w-[90%] mx-auto gap-2 bg-[#f1f2eb]'>
+    <div className='xl:grid-cols-8 xl:h-[140px] xl:w-full xl:px-0 xl:gap-6  grid grid-cols-4 w-[90%] mx-auto gap-2 '>
         <div className={`${cardCategory} px-1 hover:scale-105 transition-all duration-200`}>
             <img className='w-[62px]' src={woman}/>
             <p className='text-[12px]'>Women & Fasion</p>

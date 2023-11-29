@@ -48,7 +48,7 @@ const featured = [
 ]
 const Featured = () => {
   return (
-    <div className="w-full  h-[440px] centered flex-col bg-[#f1f2eb] xl:h-[240px] xl:gap-3">
+    <div className="w-full  h-[440px] centered flex-col xl:h-[240px] xl:gap-3">
         <div className='w-[90%] mx-auto flex items-center justify-between xl:w-full '>
          <div className='flex items-center'>
              <img src={check} className='w-10'/>

@@ -17,7 +17,7 @@ const HomeP = () => {
   return (
     <>
       {loading ? 
-      <div className="flex justify-center items-center h-screen flex-col bg-[#F1F2eb]">
+      <div className="flex justify-center items-center h-screen flex-col ">
       <CircleLoader	
         loading={loading}
         color={"#ed1d24"}

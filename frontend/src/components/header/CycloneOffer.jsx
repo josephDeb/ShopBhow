@@ -43,11 +43,11 @@ const CycloneOffer = () => {
         autoplay={true}
         freeMode={true}
         modules={[FreeMode, Pagination]}
-        className="mySwiper w-[90%] xl:w-full bg-[#f1f2eb]"
+        className="mySwiper w-[90%] xl:w-full"
       >
 
         {products.map((pr, i) => {
-          return <SwiperSlide key={i} className='w-full h-[190px] bg-white flex flex-col relative rounded-lg justify-between py-2'>
+          return <SwiperSlide key={i} className='w-full h-[190px] bg-white flex flex-col relative rounded-lg justify-between py-2 shadow-xl'>
 
             <div className='absolute top-1'>
                 <img src={sale} className='w-[35px]'/>

@@ -5,9 +5,15 @@
 @import url('https://fonts.cdnfonts.com/css/adlam-display');  
 
 
-body {
-  background-color: #f1f2eb ;
+html{ 
+  background: 
+    linear-gradient(180deg, rgba(255,0,102,0) 20%, rgba(255,0,102,.1) 20%, rgba(255,0,102,.1) 40%, rgba(255,0,102,.2) 40%, rgba(255,0,102,.2) 60%, rgba(255,0,102,.4) 60%, rgba(255,0,102,.4) 80%, rgba(255,0,102,.6) 80%),
+    linear-gradient(-90deg, rgba(255,0,102,0) 20%, rgba(255,0,102,.1) 20%, rgba(255,0,102,.1) 40%, rgba(255,0,102,.2) 40%, rgba(255,0,102,.2) 60%, rgba(255,0,102,.4) 60%, rgba(255,0,102,.4) 80%, rgba(255,0,102,.6) 80%);
+  background-color: #fc0;
+  background-size: 100% 100%;
+  min-height: 100%;
 }
+
 
 .centered {
     display: flex;

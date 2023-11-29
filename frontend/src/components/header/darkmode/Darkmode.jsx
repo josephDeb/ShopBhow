@@ -4,7 +4,7 @@ import {IoMdMoon, IoMdSunny} from 'react-icons/io'
 
 const Darkmode = () => {
   return (
-    <div className='w-full h-[210px] bg-[#f1f2eb] flex relative centered xl:hidden'>
+    <div className='w-full h-[210px]  flex relative centered xl:hidden'>
         <img src={darkmode} className='w-[90%] mx-auto rounded-md h-[200px] shadow-xl xl:w-full'/>
 
         <p className='absolute w-[350px] text-white font-semibold left-[35px] top-[145px] manjari'>You can change your display to a dark background using a dark mode</p>

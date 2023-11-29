@@ -3,7 +3,7 @@ import './styles.css'
 
 const Banner3 = () => {
   return (
-    <div className='w-full h-[200px] bg-[#f1f2eb] flex justify-end items-end border-2 xl:h-[260px]'>
+    <div className='w-full h-[200px] flex justify-end items-end xl:h-[260px]'>
         <div className='w-[90%] mx-auto h-[180px] bg-red-500 bg rounded-lg relative xl:w-full xl:h-[260px]'>
 
             <div className='w-[72%] h-full centered flex-col gap-1 xl:w-[80%]'>

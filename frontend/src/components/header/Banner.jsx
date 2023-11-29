@@ -7,7 +7,7 @@ const Banner = () => {
   const [time, setTime] = useState("")
 
   return (
-     <div className='w-full h-[220px] bg-[#f1f2eb] centered xl:h-[300px]'>
+     <div className='w-full h-[220px] centered xl:h-[300px]'>
 
         {/*Mobile responsive Banner*/}
      <div className='w-[90%] mx-auto h-[180px] bg-gradient-to-br from-green-600 to-green-800 rounded-lg relative  xl:hidden lg:hidden '>
