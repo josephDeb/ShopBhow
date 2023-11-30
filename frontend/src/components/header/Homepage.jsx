@@ -30,7 +30,7 @@ const Homepage = () => {
     <>
     <div className='w-full xl:max-w-screen-lg xl:mx-auto relative'>
 
-        <div className='h-[77px] flex justify-between items-center gap-2  relative w-[90%] mx-auto xl:w-full'>
+        <div className='xl:h-[80px] h-[77px] flex justify-between items-center gap-2  relative w-[90%] mx-auto xl:w-[90%] '>
             <div className='flex w-full'>
             <SearchBar />
             </div>
@@ -50,19 +50,19 @@ const Homepage = () => {
 
     </div>
 
-    <div className='w-full'>
+    <div className='xl:max-w-screen-lg mx-auto '>
         
         <div className=''>
-          <div className='w-full xl:max-w-screen-lg xl:mx-auto xl:flex-col xl:h-[140px]'>
+          <div className='w-full xl:w-[90%] xl:mx-auto xl:flex-col xl:h-[140px] xl:pt-2 '>
             <Category />
           </div>
 
-          <div className='w-full xl:max-w-screen-lg xl:mx-auto xl:h-[320px] centered h-[220px]'>
+          <div className='w-full xl:w-[90%] xl:mx-auto xl:h-[320px] centered h-[220px]'>
                <Banner />
           </div>
         </div>
 
-        <div className='rounded-lg w-full xl:max-w-screen-lg xl:mx-auto h-[260px] xl:h-[260px]'>
+        <div className='rounded-lg w-full xl:w-[90%]  xl:mx-auto h-[260px] xl:h-[260px]'>
             <CycloneOffer />
         </div>
 
@@ -70,27 +70,27 @@ const Homepage = () => {
             <Darkmode />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[1000px] xl:h-[400px] '>
+        <div className='w-full xl:w-[90%]  xl:mx-auto h-[1000px] xl:h-[400px] '>
             <TopProducts />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[220px] xl:h-[280px] '>
+        <div className='w-full xl:w-[90%]  xl:mx-auto h-[220px] xl:h-[280px] '>
             <Banner3 />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[940px] xl:h-[520px]'>
+        <div className='w-full xl:w-[90%]  xl:mx-auto h-[940px] xl:h-[520px]'>
             <WeeklySales />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[240px] xl:h-[280px]'>
+        <div className='w-full xl:w-[90%]  xl:mx-auto h-[240px] xl:h-[280px]'>
             <Banner4 />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[440px] xl:h-[250px]'>
+        <div className='w-full xl:w-[90%]  xl:mx-auto h-[440px] xl:h-[250px]'>
             <Featured />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[260px] xl:h-[280px]'>
+        <div className='w-full xl:w-[90%]  xl:mx-auto h-[260px] xl:h-[280px]'>
             <Collections />
         </div>
 

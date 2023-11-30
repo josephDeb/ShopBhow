@@ -6,12 +6,12 @@ export const ShopContext = createContext(defaultVal)
 import axios from 'axios'
 
 const ShopContextProvider = (props) => {
-
   const [isOpen, setIsOpen] = useState(true);
   const [values, setValue] = useState()
   const [products, setProducts] = useState([])
   const [category, setCategory] = useState([])
   const [search, setSearch] = useState(products)
+  const [cartProducts, setCartProducts] = useState([])
 
   useEffect(() => {
       axios.get("/api/category/categories")
@@ -38,6 +38,12 @@ const ShopContextProvider = (props) => {
   }
 
 
+  const addCart = (id) => {
+    setCartProducts(prev => [...prev, id])
+}
+
+
+
   const value = {
     setIsOpen,
     isOpen,
@@ -51,6 +57,9 @@ const ShopContextProvider = (props) => {
     setSearch,
     values,
     setValue,
+    setCartProducts,
+    cartProducts,
+    addCart
   }
 
 

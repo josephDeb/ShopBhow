@@ -12,8 +12,8 @@ import cart from '../../assets/shopping-cart.gif'
 import arrow from '../../assets/arrow-right.gif'
 import outofstock from '../../assets/out-of-stock.png'
 import './styles2.css'
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useContext, useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 
@@ -26,9 +26,18 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 
 import { FreeMode, Pagination } from 'swiper/modules';
+import { ShopContext } from './context/ShopContextProvider'
+import { set } from 'mongoose'
 
 const TopProducts = () => {
+   const {products} = useContext(ShopContext)
 
+   useEffect(() => {
+      axios.get("/api/products/"+id)
+      .then(res => {
+          setSingleProduct(res.data.single)
+      })
+  }, [])
 
    const topProducts = [
       {
@@ -81,15 +90,16 @@ const TopProducts = () => {
       }
    ]
 
-   const [xlTopProducts, setXlTopProducts] = useState([])
+   
+   const [singleProduct, setSingleProduct] = useState([])
+   console.log(singleProduct)
+   const {addCart} = useContext(ShopContext)
+    const {id} = useParams()
+  
 
-   useEffect(() => {
-      axios.get("/api/products")
-      .then(res => {
-         setXlTopProducts(res.data.Result)
-         console.log(xlTopProducts)
-      }).catch(err => console.log(err))
-   }, [])
+    const addFeaturedToCart = (id) => {
+         addCart(id + 1)
+    }
 
   return (
     <div className='w-full h-[980px] flex flex-col gap-2 xl:h-[400px]'>
@@ -169,7 +179,7 @@ const TopProducts = () => {
           className="mySwiper w-[90%] xl:w-full xl:h-[330px] hidden xl:block"
          >
 
-            {xlTopProducts.map((tp, i) => {
+            {products.map((tp, i) => {
                return <SwiperSlide key={i} className="h-[320px] bg-white  rounded-lg relative">
                <Link to={`/home/${tp._id}`} className='w-full h-[197px] end '>
                   <img className='w-[170px] mx-auto h-[170px] ' src={'../../../images/'+tp.image}/>
@@ -198,7 +208,7 @@ const TopProducts = () => {
                       <img src={heart} className='w-[44px]'/>
                    </div>
 
-                   <div className='absolute right-3 bottom-2'>
+                   <div onClick={() => addFeaturedToCart(tp._id)} className='absolute right-3 bottom-2'>
                       <img src={cart} className='w-[44px]'/>
                    </div>
                </div>

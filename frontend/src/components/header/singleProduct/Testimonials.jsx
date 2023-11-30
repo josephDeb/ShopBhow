@@ -15,21 +15,26 @@ const Testimonials = () => {
       message: 'My expectations ahhhhhm ok lang',
       avatar: profile,
       name: 'Joseph De leon',
-      job: 'Front end Developer & Cute'
+      job: 'Front end Developer & Cute',
+      star: 4
     },
     {
       message: 'Abay grabe sulit talaga mag rent sa CARENTALS kasyang kasya yung mga chix ko dito',
       avatar: profile2,
       name: 'Jerome Apduhan',
-      job: 'Photographer & Manyak '
+      job: 'Photographer & Manyak ',
+      star: 5
     },
     {
       message: 'No Comment',
       avatar: profile3,
       name: 'Jan Patrick Abayon',
-      job: 'Guitarist & Pogiii'
+      job: 'Guitarist & Pogiii',
+      star: 1
     }
   ]
+
+
   return (
     <div className='h-[350px] w-[90%] mx-auto manjari gap-8 '>
 
