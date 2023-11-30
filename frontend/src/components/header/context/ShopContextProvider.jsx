@@ -11,6 +11,9 @@ const ShopContextProvider = (props) => {
   const [products, setProducts] = useState([])
   const [category, setCategory] = useState([])
   const [search, setSearch] = useState(products)
+  const [cart, setCart] = useState([])
+
+  const ls = typeof window !== "undefined" ? window.localStorage : null;
   const [cartProducts, setCartProducts] = useState([])
 
   useEffect(() => {
@@ -26,6 +29,18 @@ const ShopContextProvider = (props) => {
       }).catch(err => console.log(err))
    }, [])
 
+  useEffect(() => {
+      if (cartProducts?.length > 0) {
+        localStorage.setItem('cart', JSON.stringify(cartProducts))
+      }
+  }, [cartProducts])
+
+  useEffect(() => {
+    if (ls && ls.getItem('cart')) {
+      setCartProducts(JSON.parse(ls.getItem("cart")))
+    }
+  }, [])
+
 
   const filterItems = (cat) => {
       const newItems = products.filter((newval) => newval.category === cat)
@@ -38,11 +53,12 @@ const ShopContextProvider = (props) => {
   }
 
 
-  const addCart = (id) => {
-    setCartProducts(prev => [...prev, id])
-}
-
-
+  const addCart = (data,id) => {
+    const itemId = parseInt(id)
+    const newItem = {data, amount: 1}
+    setCart(newItem)
+ }
+ console.log(cart)
 
   const value = {
     setIsOpen,
