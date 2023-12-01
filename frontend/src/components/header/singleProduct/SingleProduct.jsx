@@ -1,18 +1,17 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import './zigzag.css'
 
 import { ShopContext } from "../context/ShopContextProvider";
-import ArrowBack from "./ArrowBack";
+
 import ProductSingle from "./ProductSingle";
 import Testimonials from "./Testimonials";
-import FilterCategory from "../allproducts/FilterCategory";
 import SuggestCategory from "./SuggestCategory";
 import FooterBar from "../../../pages/FooterBar";
-import Ratings from "./Ratings";
+
 import AddTestimonial from "./AddTestimonial";
 const SingleProduct = () => {
 
-      const {category, products, search, values, filterItems, } = useContext(ShopContext)
+      const {products,  } = useContext(ShopContext)
 
   return (
     <div className='max-w-screen-lg mx-auto manjari'>

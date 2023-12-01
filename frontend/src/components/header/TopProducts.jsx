@@ -30,58 +30,6 @@ import { ShopContext } from './context/ShopContextProvider'
 
 const TopProducts = () => {
    const {products} = useContext(ShopContext)
-
-   const topProducts = [
-      {
-         image: cream,
-         name: "Men's Facial Cream",
-         oldPrice: 2222.22,
-         latestPrice: 1111.11,
-         stocks: 0,
-         review: 215,
-      },
-      {
-         image: phone,
-         name: "I Phone 14 Pro Max",
-         oldPrice: 2222.22,
-         latestPrice: 1111.11,
-         stocks: 44,
-         review: 215,
-      },
-      {
-         image: lamp,
-         name: "I Phone 14 Pro Max",
-         oldPrice: 2222.22,
-         latestPrice: 1111.11,
-         stocks: 88,
-         review: 215,
-      },
-      {
-         image: bag,
-         name: "I Phone 14 Pro Max",
-         oldPrice: 2222.22,
-         latestPrice: 1111.11,
-         stocks: 305,
-         review: 215,
-      },
-      {
-         image: tshirt,
-         name: "I Phone 14 Pro Max",
-         oldPrice: 2222.22,
-         latestPrice: 1111.11,
-         stocks: 557,
-         review: 215,
-      },
-      {
-         image: shoes,
-         name: "I Phone 14 Pro Max",
-         oldPrice: 2222.22,
-         latestPrice: 1111.11,
-         stocks: 0,
-         review: 215,
-      }
-   ]
-
    
    const {addCart} = useContext(ShopContext)
 
