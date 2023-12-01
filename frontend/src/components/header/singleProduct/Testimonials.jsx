@@ -36,9 +36,9 @@ const Testimonials = () => {
 
 
   return (
-    <div className='h-[350px] w-[90%] mx-auto manjari gap-8 '>
+    <div className='xl:h-[530px] xl:flex xl:flex-col xl:justify-center xl:items-center h-[350px] w-[90%] mx-auto manjari gap-8'>
 
-      <div className='w-full h-[62px] xl:text-center'>
+      <div className='w-full h-[62px] xl:text-center text-center'>
           <h1 className='text-2xl xl:font-bold'>Testimonials</h1>
       </div>
 

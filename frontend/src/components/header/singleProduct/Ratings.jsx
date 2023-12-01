@@ -9,7 +9,7 @@ const Ratings = () => {
 <>
 
     <div className='w-full flex items-center gap-2'>
-    <h1>Product rate</h1>
+    <h1>Star rate</h1>
     <Box
       sx={{
         '& > legend': { mt: 2 },

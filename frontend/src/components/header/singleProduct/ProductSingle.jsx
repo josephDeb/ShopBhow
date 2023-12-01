@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
 import axios from 'axios'
 import '../styles2.css'
+import QuantityBtn from './QuantityBtn'
 const ProductSingle = () => {
     const [singleProduct, setSingleProduct] = useState([])
     const {id} = useParams()
@@ -14,30 +15,32 @@ const ProductSingle = () => {
     }, [])
 
   return (
-    <div className='w-[90%] mx-auto text-black manjari'>
+    <div className='text-black manjari'>
 
          <div className='w-full   xl:flex xl:justify-center xl:items-center'>
              <div className='xl:w-[350px] w-full xl:h-[350px] h-[350px] centered'>
-           <img src={'../../../../images/'+singleProduct.image} className=' h-[260px] w- [260px]'/>
+              <img src={'../../../../images/'+singleProduct.image} className=' h-[260px] w- [260px]'/>
             </div>
 
-             <div className='w-[100%]'>
-            <div className='flex flex-col h-full gap-1'>
+             <div className='w-[90%] mx-auto'>
+               <div className='flex flex-col h-full gap-2 xl:w-[88%]'>
                  <h1 className='text-3xl'>{singleProduct.name}</h1>
                  <h1 className='text-xl'>TYPE: {singleProduct.category}</h1>
-                 <h1 className='text-[#838383] line-clamp  '>{singleProduct.description}</h1>
-                 <h1 className='font-extrabold man text-xl mt-2'>{singleProduct.price} <span>usd</span></h1>
+                 <h1 className='text-[#838383] elpstext w-[] '>{singleProduct.description}</h1>
+                 <h1 className='font-extrabold man text-xl mt-2'>${singleProduct.price}</h1>
 
-                 <div className='w-full flex gap-3 h-[35px] items-center'>
-                    <h1>Quantity: </h1>
-                    <div>+ 0 -</div>
+                 <div className='w-full flex flex-col gap-1'>
+                    <div>
+                      <QuantityBtn />
+                    </div>
+                    <div className='flex justify-start items-center gap-4 h-[53px]'>
+                     <button className='w-[134px] bg-green-600 text-white h-[35px] border-b border-r border-black rounded-xl'>Add to cart</button>
+                     <button className='w-[134px] bg-blue-600 text-white h-[35px] border-b border-r border-black rounded-xl'>Buy it now</button>
+                 </div>
                  </div>
 
-                 <div className='flex justify-start items-center gap-4 h-[53px]'>
-                     <button className='w-[134px] bg-green-600 text-white h-[35px]'>Add to cart</button>
-                     <button className='w-[134px] bg-blue-600 text-white h-[35px]'>Buy it now</button>
-                 </div>
-            </div>
+                 
+               </div>
              </div>
          </div>
     </div>

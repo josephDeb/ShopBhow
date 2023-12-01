@@ -30,8 +30,8 @@ const Homepage = () => {
     <>
     <div className='w-full xl:max-w-screen-lg xl:mx-auto relative'>
 
-        <div className='xl:h-[80px] h-[77px] flex justify-between items-center gap-2  relative w-[90%] mx-auto xl:w-[90%] '>
-            <div className='flex w-full'>
+        <div className='xl:h-[80px] h-[77px] flex justify-between items-center gap-2  relative w-[90%] mx-auto xl:w-[90%]'>
+            <div className='flex w-full xl:w-[90%]'>
             <SearchBar />
             </div>
             <button onClick={() => handleFilter()} className='bg-gray-500/70 w-[53px] h-[44px] rounded-lg centered'><img className='w-7' src={filter}/></button>
@@ -45,7 +45,7 @@ const Homepage = () => {
             </div>
             :
             <></>
-        }
+             }
         </div>
 
     </div>
