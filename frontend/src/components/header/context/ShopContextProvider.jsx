@@ -15,7 +15,7 @@ const ShopContextProvider = (props) => {
 
   const ls = typeof window !== "undefined" ? window.localStorage : null;
   const [cartProducts, setCartProducts] = useState([])
-
+  const [amount, setAmount] = useState()
   useEffect(() => {
       axios.get("/api/category/categories")
       .then(res => {
@@ -51,14 +51,34 @@ const ShopContextProvider = (props) => {
       setValue(e.target.value)
       setSearch(products.filter(f => f.name.toLowerCase().includes(e.target.value)))
   }
-
-
   const addCart = (data,id) => {
-    const itemId = parseInt(id)
-    const newItem = {data, amount: 1}
-    setCart(newItem)
+    const newItem = {...data, amount: 1}
+    setCart([...cart, newItem])
+
+    
+    const cartItem = cart.find((item) => {
+      return item._id === id
+    });
+    console.log(cartItem)
+
+    if(cartItem) {
+      const newCart = cart.map((item) => {
+        if(item._id === id) {
+          setAmount(cartItem.amount + 1);
+          return {...item, amount: cartItem.amount + 1};
+        } else {
+          return item
+        }
+      });
+      setCart(newCart)
+
+    } else {
+      setCart([...cart, newItem])
+    }
  }
+
  console.log(cart)
+
 
   const value = {
     setIsOpen,
@@ -75,7 +95,8 @@ const ShopContextProvider = (props) => {
     setValue,
     setCartProducts,
     cartProducts,
-    addCart
+    addCart,
+    cart
   }
 
 

@@ -27,6 +27,7 @@ import AllProducts from "./components/header/allproducts/AllProducts"
 import Footers from "./components/footer/Footer"
 import ForgetPassword from "./components/login/ForgetPassword"
 import SingleProduct from "./components/header/singleProduct/SingleProduct"
+import Cart from "./components/header/cart/Cart"
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
                       <Route path="/home" element={<Homepage />}/>
                       <Route path="/home/all-products" element={<AllProducts />}/>
                       <Route path="/home/:id" element={<SingleProduct />}/>
+                      <Route path="/home/cart" element={<Cart />}/>
                 </Route>
 
                 <Route element={<PrivateRouteAdmin />}>

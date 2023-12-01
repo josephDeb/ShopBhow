@@ -3,27 +3,17 @@ import { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../context/ShopContextProvider'
 import axios from 'axios'
 const CartDetails = ({cartProducts}) => {
-    const {products} = useContext(ShopContext)
-    const [data, setData] = useState([])
-
-    useEffect(() => {
-        axios.get('/api/products/'+cartProducts)
-        .then(res => {
-            console.log(res.data)
-        })
-    }, [])
+    const {cart} = useContext(ShopContext)
 
   return (
     <div className='w-full flex'>
         <div className='w-[71%] h-screen bg-blue-200 flex flex-col gap-4'>
             <h1 className='text-4xl'>Your cart</h1>
-            <div className='border-2 flex flex-col h-[170px]'>
-               {cartProducts.map((c, i) => {
+            {cart.map((ct, i) => {
                 return <div key={i}>
-                    {c}
+                    <h1>{ct.name}</h1>
                 </div>
-               })}
-            </div>
+            })}
         </div>
 
         <div className='w-[29%] h-full'>

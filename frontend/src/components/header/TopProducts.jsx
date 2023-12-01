@@ -12,9 +12,8 @@ import cart from '../../assets/shopping-cart.gif'
 import arrow from '../../assets/arrow-right.gif'
 import outofstock from '../../assets/out-of-stock.png'
 import './styles2.css'
-import { useContext, useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import axios from 'axios'
+import { useContext} from 'react'
+import { Link } from 'react-router-dom'
 
 
 // Import Swiper React components
@@ -27,17 +26,10 @@ import 'swiper/css/pagination';
 
 import { FreeMode, Pagination } from 'swiper/modules';
 import { ShopContext } from './context/ShopContextProvider'
-import { set } from 'mongoose'
+
 
 const TopProducts = () => {
    const {products} = useContext(ShopContext)
-
-   useEffect(() => {
-      axios.get("/api/products/"+id)
-      .then(res => {
-          setSingleProduct(res.data.single)
-      })
-  }, [])
 
    const topProducts = [
       {
@@ -91,15 +83,8 @@ const TopProducts = () => {
    ]
 
    
-   const [singleProduct, setSingleProduct] = useState([])
-   console.log(singleProduct)
    const {addCart} = useContext(ShopContext)
-    const {id} = useParams()
-  
 
-    const addFeaturedToCart = (id) => {
-         addCart(id + 1)
-    }
 
   return (
     <div className='w-full h-[980px] flex flex-col gap-2 xl:h-[400px]'>
@@ -208,7 +193,7 @@ const TopProducts = () => {
                       <img src={heart} className='w-[44px]'/>
                    </div>
 
-                   <div onClick={() => addFeaturedToCart(tp._id)} className='absolute right-3 bottom-2'>
+                   <div onClick={() => addCart(tp, tp._id)} className='absolute right-3 bottom-2'>
                       <img src={cart} className='w-[44px]'/>
                    </div>
                </div>
