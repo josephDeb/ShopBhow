@@ -2,19 +2,20 @@ import React, { useContext } from 'react'
 import { ShopContext } from '../context/ShopContextProvider'
 import CartDetails from './CartDetails'
 
+import emptyCart from '../../../assets/empty-cart.png'
+
 const Cart = () => {
-    const {cartProducts} = useContext(ShopContext)
+    const {cart} = useContext(ShopContext)
 
   return (
-    <div className='max-w-screen-lg h-screen mx-auto bg-red-200 '>
+    <div className='max-w-screen-lg  mx-auto'>
 
-           {!cartProducts.length ? <div className='w-full centered'>
-                <div className='h-[128px] centered'>
-                     <h1 className='text-4xl font-bold'>Your cart is empty</h1>
-                </div>
+           {!cart.length ? <div className='w-full centered flex flex-col centered h-[620px] xl:h-[710px]'>
+                <h1 className='text-4xl'>You cart is empty</h1>
+                <img src={emptyCart} className='object-cover'/>
             </div>
            :
-           <CartDetails cartProducts={cartProducts}/>
+           <CartDetails />
            }
 
     </div>

@@ -30,13 +30,13 @@ const ShopContextProvider = (props) => {
    }, [])
 
   useEffect(() => {
-      if (cartProducts?.length > 0) {
-        localStorage.setItem('cart', JSON.stringify(cartProducts))
+      if (cart?.length > 0) {
+        localStorage.setItem('cart', JSON.stringify(cart))
       }
-  }, [cartProducts])
+  }, [cart])
 
   useEffect(() => {
-    if (ls && ls.getItem('cart')) {
+    if (ls && localStorage.getItem('cart')) {
       setCartProducts(JSON.parse(ls.getItem("cart")))
     }
   }, [])
