@@ -36,11 +36,11 @@ const SuggestCategory = () => {
           }}
           freeMode={true}
           modules={[FreeMode, Pagination, Autoplay, Scrollbar]}
-        className='mySwiper w-[100%] xl:w-full h-[88px] pt-2'
+        className='mySwiper w-[100%] xl:w-full h-[88px] xl:pt-0 pt-2 xl:h-[71px]'
         >
             {category.map((ct, i) => {
 
-                return <SwiperSlide onClick={() => navigate("/home/all-products")} key={i} className=' text-center h-[53px] w-full mx-auto centered gap-2 rounded-lg hover:bg-[#F2C100] px-2 shadow-xl'>
+                return <SwiperSlide onClick={() => navigate("/home/all-products")} key={i} className=' text-center h-[53px] w-full mx-auto centered gap-2 rounded-lg hover:bg-[#F2C100] px-2 shadow-lg bg-[#f1f2eb] '>
                     <img src={'../../../../images/'+ct.image} className='w-10 h-10 rounded-xl object-cover'/>
                     <button key={i} onClick={() => filterItems(ct.title)} className=' h-full ht4 w-[100px] text-start'>{ct.title}</button>
                 </SwiperSlide>

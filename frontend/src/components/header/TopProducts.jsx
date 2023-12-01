@@ -87,7 +87,7 @@ const TopProducts = () => {
 
 
   return (
-    <div className='w-full h-[980px] flex flex-col gap-2 xl:h-[400px]'>
+    <div className='w-full h-[440px] flex flex-col gap-2 xl:h-[400px]'>
       <div className='w-[90%] mx-auto flex items-center justify-between xl:w-full'>
          <div className='flex items-center'>
              <img src={top} className='w-10'/>
@@ -99,61 +99,10 @@ const TopProducts = () => {
                <Link to={'/home/all-products'} className='font-bold '>View all</Link>
          </div>
       </div>
-         
-         {/*for Mobile Devices */}
-         <div className="w-[90%] grid grid-cols-2 gap-3 xl:w-full xl:grid-cols-5 xl:hidden mx-auto">
 
-             {topProducts.map((tp, i) => {
-
-               return <Link to={'/home'} key={i} className="h-[300px] bg-white shadow-xl rounded-lg relative flex flex-col justify-between">
-
-               {tp.stocks === 0 ? <div className='absolute h-full w-full bg-black/80 rounded-lg z-[20] centered'>
-                     <img src={outofstock} className='w-[71%]'/>
-                  </div>
-                  :
-                  <></>
-               }
-   
-               <div className='w-full h-[170px] end'>
-                  <img className='w-[160px] mx-auto h-[160px] ' src={tp.image}/>
-               </div>
-   
-               <div className=' w-full px-2 pb-4'>
-                   <h1 className='font-semibold elps text-[16px]'>{tp.name} </h1>
-                   <div className='flex gap-2'>
-                      <p className='text-[14px]'>${tp.latestPrice}</p> <p className='line-through text-[14px] text-red-500 '>${tp.oldPrice}</p>
-                   </div>
-                   <div className='flex items-center gap-1'>
-                       <h4 className='text-[14px]'>Stocks</h4> <span className='text-[14px]'>({tp.stocks})</span>
-                   </div>
-                   <div className={`h-2 ${tp.stocks === 0 && "w-[0%]"} ${tp.stocks >= 44 && `w-[${tp.stocks}%]`} bg-green-500 rounded-full border border-black`}></div>
-   
-                   <div className='flex items-end gap-2 mt-1'>
-                       <img src={rate} className='w-8'/>
-                     <h1 className=''>({tp.stocks})</h1>
-                   </div>
-   
-                   <div className='absolute top-1'>
-                      <img src={sale} className='w-[44px]'/>
-                   </div>
-   
-                   <div className='absolute right-1 top-1'>
-                      <img src={heart} className='w-[44px]'/>
-                   </div>
-   
-                   <div className='absolute right-3 bottom-2'>
-                      <img src={cart} className='w-[44px]'/>
-                   </div>
-               </div>
-            </Link>
-             })}
-
-         </div>
-         
-         {/*For XL LG devices */}
          <Swiper
          breakpoints={{
-            320: {slidesPerView: 3, spaceBetween: 8},
+            320: {slidesPerView: 2, spaceBetween: 8},
             640:{slidesPerView: 4, spaceBetween: 32},
             1260:{slidesPerView:5, spaceBetween: 32},
           }}
@@ -161,7 +110,7 @@ const TopProducts = () => {
           autoplay={true}
           freeMode={true}
           modules={[FreeMode, Pagination]}
-          className="mySwiper w-[90%] xl:w-full xl:h-[330px] hidden xl:block"
+          className="mySwiper w-[90%] xl:w-full xl:h-[330px] xl:block"
          >
 
             {products.map((tp, i) => {

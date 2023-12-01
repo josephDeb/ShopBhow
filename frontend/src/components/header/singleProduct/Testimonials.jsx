@@ -38,8 +38,8 @@ const Testimonials = () => {
   return (
     <div className='h-[350px] w-[90%] mx-auto manjari gap-8 '>
 
-      <div className='w-full h-[62px]'>
-          <h1 className='text-2xl '>Testimonials</h1>
+      <div className='w-full h-[62px] xl:text-center'>
+          <h1 className='text-2xl xl:font-bold'>Testimonials</h1>
       </div>
 
       <Swiper

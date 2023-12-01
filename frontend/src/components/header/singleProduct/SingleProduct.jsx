@@ -15,18 +15,18 @@ const SingleProduct = () => {
       const {category, products, search, values, filterItems, } = useContext(ShopContext)
 
   return (
-    <div className='max-w-screen-lg mx-auto bg-white manjari'>
+    <div className='max-w-screen-lg mx-auto manjari'>
         <div className=" flex flex-col justify-start xl:justify-center">
-            <div className="w-full h-[620px] xl:h-[350px]">
+            <div className="w-full h-[620px] xl:h-[350px] border-2 my-8 bg-white shadow-xl rounded-xl">
                <ProductSingle products={products}/>
             </div>
 
-            <div className="gap-8 w-[90%] mx-auto h-[140px] ">
-              <h1 className="mx-auto text-xl">Suggest Category</h1>
+            <div className="gap-8 xl:gap-4 xl:w-full w-[90%] mx-auto h-[140px] xl:h-[170px] border-2 xl:my-8 bg-white rounded-xl px-8 xl:flex xl:flex-col xl:justify-center">
+              <h1 className="mx-auto text-2xl ">Suggest Category</h1>
               <SuggestCategory />
             </div>
 
-            <div className="w-full h-[350px]">
+            <div className="w-full h-[350px] border-2 xl:my-8">
                <Testimonials />
             </div>
 

@@ -3,6 +3,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.elps1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .line-clamp {
     display: -webkit-box;
     -webkit-line-clamp: 3;

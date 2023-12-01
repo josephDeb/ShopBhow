@@ -3,6 +3,7 @@ import {BsChatLeftDotsFill, BsHeartFill} from 'react-icons/bs'
 import { HiHome, HiShoppingBag } from 'react-icons/hi'
 
 import {  MdSettings } from 'react-icons/md'
+import { Link } from 'react-router-dom'
 
 
 const FooterBar = () => {
@@ -14,9 +15,9 @@ const FooterBar = () => {
         <div className=' h-full w-[62px] flex flex-col centered cursor-pointer'>
             <BsChatLeftDotsFill className='text-white text-2xl'/>
         </div>
-        <div className=' h-full w-[62px] flex flex-col centered cursor-pointer'>
+        <Link to={'/home/cart'} className=' h-full w-[62px] flex flex-col centered cursor-pointer'>
             <HiShoppingBag className='text-white text-3xl'/>
-        </div>
+        </Link>
         <div className=' h-full w-[62px] flex flex-col centered cursor-pointer'>
         <MdSettings className='text-white text-3xl'/>
         </div>

@@ -17,7 +17,7 @@ const ProductSingle = () => {
     <div className='w-[90%] mx-auto text-black manjari'>
 
          <div className='w-full   xl:flex xl:justify-center xl:items-center'>
-             <div className='w-full xl:h-[350px] h-[350px] centered'>
+             <div className='xl:w-[350px] w-full xl:h-[350px] h-[350px] centered'>
            <img src={'../../../../images/'+singleProduct.image} className=' h-[260px] w- [260px]'/>
             </div>
 

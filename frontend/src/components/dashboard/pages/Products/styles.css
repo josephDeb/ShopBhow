@@ -5,3 +5,10 @@
     -webkit-box-orient: vertical;  
     overflow: hidden;
   }
+
+.elpstext1 {
+  display: -webkit-box;
+  width: 220px;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}

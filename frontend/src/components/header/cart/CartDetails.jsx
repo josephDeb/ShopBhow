@@ -19,14 +19,12 @@ const CartDetails = () => {
     const {cart} = useContext(ShopContext)
     console.log(cart.name)
   return (
-    <div className='w-full flex xl:flex-row flex-col manjari'>
-        <div className='xl:w-[730px] flex flex-col xl:h-[140vh] gap-2'>
+    <div className='w-full flex xl:flex-row flex-col manjari '>
+        <div className='xl:w-[730px] flex flex-col xl:h-[134vh] gap-2 '>
             <div className='w-full  h-[44px] px-8 flex items-end'>
                 <div className='w-full  uppercase flex items-end border-b'>
                    <h1 className='pl-1 w-[330px] '>Product</h1>
-                   <h2 className='w-[85px] '>Price</h2>
-                   <h3 className=' w-[160px]'>Quantity</h3>
-                   <h4>Total</h4>
+
                 </div>
             </div>
 
@@ -41,28 +39,31 @@ const CartDetails = () => {
                 clickable: true,
               }}
               modules={[Pagination]}
-              className="mySwiper w-full px-8 h-[88%]"
+              className="mySwiper w-[90%] xl:px-8 xl:h-[800px] h-[440px] mt-5 "
             >
              {cart.map((ct, i) => {
                 return <SwiperSlide key={i} className='h-[120px] w-full bg-white rounded-xl flex '>
-                    <div className='w-[134px] h-full centered'>
-                        <img src={'../../../../images/'+ct.image} className='w-[107px] h-[107px] '/>
+                    <div className='xl:w-[134px] h-full centered'>
+                        <img src={'../../../../images/'+ct.image} className='xl:w-[107px] xl:h-[107px] w-[88px] h-[88px]'/>
                     </div>
-                    <div className='w-[180px] h-[88%] flex flex-col my-auto  justify-center '>
-                        <h1 className='text-[17px]'>{ct.name}</h1>
-                        <h2>TYPE: {ct.category}</h2>
+                    <div className='xl:w-[260px] xl:h-[88%] flex flex-col my-auto  justify-center w-[141px] pl-2 '>
+                        <h1 className='xl:text-[22px] text-[11px] font-bold elps1'>{ct.name}</h1>
+                        <h2 className='xl:text-[17px] text-[10px]'>TYPE: {ct.category}</h2>
+                        <h4 className='xl:text-[17px] mt-2'>Price: ${ct.price}<span></span></h4>
                     </div>
-                    <div className='w-[88px]  h-[88%] my-auto centered '>
-                        <h4>{ct.price}</h4>
-                    </div>
-
-                    <div className='w-[150px] centered '>
-                        <QuantityBtn />
-                    </div>
-
-                    <div className=' w-[107px] centered'>
+                   
+                    <div className='xl:w-[180px] centered flex flex-col w-[120px]'>
+                        <div className='flex flex-col justify-center items-center'>
+                             <label htmlFor="quantity-input" className="block xl:mb-2 xl:text-sm font-medium text-gray-900 dark:text-black text-[11px]">Choose quantity:</label>
+                             <QuantityBtn />
+                        </div>
+                      <div className=' xl:w-[107px] centered text-[11px] xl:text-[18px] mt-4 gap-2'>
+                        <h2>Total: </h2>
                         <h1>$680.96</h1>
+                     </div>
                     </div>
+
+                    
                 </SwiperSlide>
             })}
             </Swiper>
