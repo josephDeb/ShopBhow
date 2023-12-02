@@ -16,12 +16,13 @@ import { Pagination } from 'swiper/modules';
 import QuantityBtn from './QuantityBtn';
 import { HiX } from 'react-icons/hi';
 import FooterBar from '../../../pages/FooterBar';
+import { BsArrowRight } from 'react-icons/bs';
 
 const CartDetails = () => {
-    const {cart, removeCart} = useContext(ShopContext)
+    const {cart, removeCart, total} = useContext(ShopContext)
   return (
     <>
-      <div className='w-full flex xl:flex-row flex-col manjari '>
+      <div className='w-full flex xl:flex-row flex-col manjari  gap-[88px]'>
         <div className='xl:w-[730px] flex flex-col xl:h-[134vh] gap-2 '>
             <div className='w-full  h-[44px] px-8 flex items-end'>
                 <div className='w-full  uppercase flex items-end border-b'>
@@ -51,7 +52,7 @@ const CartDetails = () => {
                         <img src={'../../../../images/'+ct.image} className='xl:w-[107px] xl:h-[107px] w-[88px] h-[88px]'/>
                        </div>
 
-                        <div className='flex flex-col w-[120px]'>
+                        <div className='flex flex-col w-[110px] xl:w-[240px]'>
                           <h1 className='xl:text-[22px] text-[14px] font-bold elpstext'>{ct.name}</h1>
                          <h2 className='xl:text-[17px] text-[12px]'>TYPE: {ct.category}</h2>
                            <h4 className='xl:text-[17px]  text-[12px]'>Price: ${ct.price}<span></span></h4>
@@ -76,15 +77,21 @@ const CartDetails = () => {
             </Swiper>
         </div>
 
-        <div className='xl:w-[260px] h-full bg-white rounded-xl w-[90%] mx-auto xl:mx-0'>
+        <div className='xl:w-[260px] h-full bg-white rounded-xl w-[90%] mx-auto xl:mx-0 xl:mt-12'>
             <div className='h-[220px] flex flex-col w-full items-center justify-center gap-4'>
-                <h1 className='text-2xl'>Order information</h1>
-                <button className='bg-black text-white px-8 py-2'>Continue payment</button>
+                <div className='w-[88%] flex flex-col'>
+                    <h1 className='text-[14px]'>Subtotal: <span>{total}</span></h1>
+                    <h1 className='text-2xl'>Total: <span>{total}</span></h1>
+                </div>
+              <div className='flex w-[88%] gap-4'>
+                  <button className='w-[170px] bg-yellow-600 text-white h-[44px]'>Clear cart</button>
+                  <button className='border-2 bg-green-600 text-white h-[44px] w-[260px] centered'>Check out</button>
+              </div>
             </div>
         </div>
       </div>
 
-      <div className='h-[108px] w-full'>
+      <div className='xl:hidden h-[108px] w-full'>
         {/*Just for space */}
       </div>
 

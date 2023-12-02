@@ -15,7 +15,7 @@ const ShopContextProvider = (props) => {
   const ls = typeof window !== "undefined" ? window.localStorage : null;
   const [cartProducts, setCartProducts] = useState([])
   const [amount, setAmount] = useState(0)
-  const [itemsAmount, setItemsAmount] = useState(0)
+  const [total, setTotal] = useState(0)
   useEffect(() => {
       axios.get("/api/category/categories")
       .then(res => {
@@ -41,6 +41,12 @@ const ShopContextProvider = (props) => {
     }
   }, [])
 
+  useEffect(() => {
+    const total = cart.reduce((a, c) => {
+      return a + c.price + c.amount;
+    }, 0)
+    setTotal(total)
+  }, [cart])
 
   const filterItems = (cat) => {
       const newItems = products.filter((newval) => newval.category === cat)
@@ -75,6 +81,8 @@ const ShopContextProvider = (props) => {
       setCart([...cart, newItem])
     }
  }
+
+
  const removeCart = (id) => {
   const newCart = cart.filter((item) => {
     return item._id !== id
@@ -82,8 +90,32 @@ const ShopContextProvider = (props) => {
   setCart(newCart)
 }
 
+const handleInput = (e, id) => {
+    const value = parseInt(e.target.value)
+    console.log(value)
 
- console.log(cart)
+    const cartItem = cart.find((item) => {
+      return item._id === id
+    })
+
+    if(cartItem) {
+      const newCart = cart.map((item) => {
+        if(item._id === id) {
+          if(isNaN(value)) {
+            setAmount(1)
+            return {...item, amount: 1}
+          } else {
+            setAmount(value)
+          }
+          return {...item, amount: value}
+        } else {
+            return item
+        }
+      });
+      setCart(newCart)
+    }
+ 
+}
 
 
   const value = {
@@ -104,8 +136,9 @@ const ShopContextProvider = (props) => {
     addCart,
     removeCart,
     cart,
-    itemsAmount,
-    amount
+    amount,
+    total,
+    handleInput
   }
 
 
