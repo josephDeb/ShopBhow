@@ -118,6 +118,10 @@ const handleInput = (e, id) => {
 }
 
 
+const clearCart = () => {
+  setCart([])
+}
+
   const value = {
     setIsOpen,
     isOpen,
@@ -138,7 +142,8 @@ const handleInput = (e, id) => {
     cart,
     amount,
     total,
-    handleInput
+    handleInput,
+    clearCart
   }
 
 

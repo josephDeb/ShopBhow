@@ -16,13 +16,13 @@ import { Pagination } from 'swiper/modules';
 import QuantityBtn from './QuantityBtn';
 import { HiX } from 'react-icons/hi';
 import FooterBar from '../../../pages/FooterBar';
-import { BsArrowRight } from 'react-icons/bs';
-
+import {useNavigate} from 'react-router-dom'
 const CartDetails = () => {
-    const {cart, removeCart, total} = useContext(ShopContext)
+    const {cart, removeCart, total, clearCart} = useContext(ShopContext)
+    const navigate = useNavigate()
   return (
     <>
-      <div className='w-full flex xl:flex-row flex-col manjari  gap-[88px]'>
+      <div className='w-full flex xl:flex-row flex-col manjari  gap-[88px] xl:gap-0'>
         <div className='xl:w-[730px] flex flex-col xl:h-[134vh] gap-2 '>
             <div className='w-full  h-[44px] px-8 flex items-end'>
                 <div className='w-full  uppercase flex items-end border-b'>
@@ -77,15 +77,15 @@ const CartDetails = () => {
             </Swiper>
         </div>
 
-        <div className='xl:w-[260px] h-full bg-white rounded-xl w-[90%] mx-auto xl:mx-0 xl:mt-12'>
+        <div className='xl:w-[260px] h-full bg-white rounded-xl w-[90%] mx-auto xl:mx-0 xl:mt-[71px] border-2'>
             <div className='h-[220px] flex flex-col w-full items-center justify-center gap-4'>
                 <div className='w-[88%] flex flex-col'>
                     <h1 className='text-[14px]'>Subtotal: <span>{total}</span></h1>
                     <h1 className='text-2xl'>Total: <span>{total}</span></h1>
                 </div>
               <div className='flex w-[88%] gap-4'>
-                  <button className='w-[170px] bg-yellow-600 text-white h-[44px]'>Clear cart</button>
-                  <button className='border-2 bg-green-600 text-white h-[44px] w-[260px] centered'>Check out</button>
+                  <button onClick={() => clearCart()} className='w-[170px] bg-yellow-600 text-white h-[44px]'>Clear cart</button>
+                  <button onClick={() => navigate("/home/payment")} className='border-2 bg-green-600 text-white h-[44px] w-[260px] centered'>Check out</button>
               </div>
             </div>
         </div>

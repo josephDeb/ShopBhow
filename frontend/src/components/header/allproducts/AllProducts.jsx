@@ -16,7 +16,8 @@ const AllProducts = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-      }, [AllProducts]);
+        filterItems({...category})
+      }, []);
     
   return (
     <div className=' xl:max-w-screen-lg mx-auto'>

@@ -1,9 +1,4 @@
-import bag from '../../assets/product7.jpg'
-import phone from '../../assets/1.png'
-import tshirt from '../../assets/123.png'
-import shoes from '../../assets/nike2.png'
-import cream from '../../assets/cream.webp'
-import lamp from '../../assets/6.png'
+
 import sale from '../../assets/premium.gif'
 import rate from '../../assets/rate.png'
 import heart from '../../assets/heart.gif'

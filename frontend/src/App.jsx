@@ -28,6 +28,7 @@ import Footers from "./components/footer/Footer"
 import ForgetPassword from "./components/login/ForgetPassword"
 import SingleProduct from "./components/header/singleProduct/SingleProduct"
 import Cart from "./components/header/cart/Cart"
+import PaymentInfo from "./components/header/PaymentInfo/PaymentInfo"
 
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
                       <Route path="/home/all-products" element={<AllProducts />}/>
                       <Route path="/home/:id" element={<SingleProduct />}/>
                       <Route path="/home/cart" element={<Cart />}/>
+                      
                 </Route>
 
                 <Route element={<PrivateRouteAdmin />}>

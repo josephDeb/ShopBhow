@@ -16,6 +16,8 @@ import 'swiper/css/pagination';
 // import required modules
 import { Pagination } from 'swiper/modules';
 
+import './styles.css'
+
 const Product = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
@@ -66,7 +68,7 @@ const Product = () => {
               clickable: true,
             }}
             modules={[Pagination]}
-            className="mySwiper h-[530px] w-[620px] "
+            className="mySwiper h-[650px] w-[710px] "
             >
 
                 {products.map((prd, i) => {
@@ -75,23 +77,26 @@ const Product = () => {
                     <img src={'../../../../../images/'+prd.image} className='h-[107px] mx-auto'/>
                </div>
 
-                  <div className='h-[100%] w-[88%] flex flex-col justify-centered  '>
-                      <div className="flex justify-between">
-                        <h5 className="text-xl font-semibold ">
+                    <div className='h-full my-auto w-[88%] flex flex-col justify-between  '>
+                      <div className='w-full flex flex-col'>
+                        <div className="flex justify-between ">
+                        <h5 className="text-xl font-semibold w-[350px] elpstext2">
                           {prd?.name}
                         </h5>
 
                         <p className="text-gray-400 text-xs">
                           {moment(prd.createdAt).format("MMMM Do YYYY")}
                         </p>
-                      </div>
-                          <div className='flex'>
+                        </div>
+                      
+                        <div className='flex'>
                            <p className="text-gray-400 xl:w-[30rem] lg:w-[100%] xl:h-[44px] md:w-[20rem] sm:w-[10rem] text-sm elpstext mb-2">
                           {prd?.description?.substring(0, 160)}...
                            </p>
-                          </div>
-                        
-                          <div className='flex justify-start items-center gap-3'>
+                         </div>
+                      </div>
+
+                          <div className='flex justify-start items-center gap-3  h-[52px]'>
                              <img onClick={() => handleDelete(prd._id)} src={dlt} className='w-6 cursor-pointer shadow-xl'/>
                              <Link
                           to={`/admin-dashboard/products/update/${prd._id}`}
@@ -115,7 +120,7 @@ const Product = () => {
                           </svg>
                              </Link>
                           </div>
-                        </div>
+                    </div>
                     </SwiperSlide>
                 })}
 

@@ -14,82 +14,40 @@ import outofstock from '../../assets/out-of-stock.png'
 import './styles2.css'
 import heart from '../../assets/heart.gif'
 import cart from '../../assets/shopping-cart.gif'
+import { useContext } from 'react'
+import { ShopContext } from './context/ShopContextProvider'
+import { Link, useNavigate } from 'react-router-dom'
 const WeeklySales = () => {
+   const {addCart, search} = useContext(ShopContext)
 
-   const weeklySales = [
-      {
-         image: chair,
-         name: "LYNN ACCENT CHAIR",
-         oldPrice: 32250.00,
-         latestPrice: 29950.00,
-         stocks: 0,
-         review: 71,
-      },
-      {
-         image: cabinet,
-         name: "FURNLITE - Nordic Cabinet SP081",
-         oldPrice: 3500.00,
-         latestPrice: 2900.00,
-         stocks: 44,
-         review: 215,
-      },
-      {
-         image: camera,
-         name: "Canon EOS M50 Mark II + EF-M 15-45mm IS STM KIT",
-         oldPrice: 44227.85,
-         latestPrice: 42198.02,
-         stocks: 88,
-         review: 10,
-      },
-      {
-         image: eyeglass,
-         name: "Gus -seal",
-         oldPrice: 842.95,
-         latestPrice: 465.44,
-         stocks: 98,
-         review: 28,
-      },
-      {
-         image: soap,
-         name: "AVON CARE MEN COOLING",
-         oldPrice: 2222.22,
-         latestPrice: 1111.11,
-         stocks: 114,
-         review: 8,
-      },
-      {
-         image: ryzen5,
-         name: "I Phone 14 Pro Max",
-         oldPrice: 1164.35,
-         latestPrice: 8079.93,
-         stocks: 28,
-         review: 8,
-      }
-   ]
+   const navigate = useNavigate()
+
+           
+
 
   return (
-    <div className='w-full h-[940px] centered flex-col gap-2 xl:h-[510px]'>
+    <>
+       <div className='w-[90%] mx-auto flex items-center justify-between xl:w-full'>
+   <div className='flex items-center'>
+       <img src={offer2} className='w-10'/>
+       <h1 className='font-bold '>Weekly Sales</h1>
+   </div>
 
-      <div className='w-[90%] mx-auto flex items-center justify-between xl:w-full'>
-         <div className='flex items-center'>
-             <img src={offer2} className='w-10'/>
-             <h1 className='font-bold '>Weekly Sales</h1>
-         </div>
+   <Link to={"/home/all-products"} className='flex items-center gap-1'>
+         <img src={arrow} className='w-10 h-10 '/>
+         <h1 className='font-bold '>View all</h1>
+   </Link>
+</div>
 
-         <div className='flex items-center gap-1'>
-               <img src={arrow} className='w-10 h-10 '/>
-               <h1 className='font-bold '>View all</h1>
-         </div>
-      </div>
+<div className='w-full h-[940px] flex-col gap-2 xl:h-[680px] xl:overscroll-none overflow-y-hidden'>
+      <div className="w-[90%] h-full grid grid-cols-1 gap-3 xl:grid-cols-2 xl:w-full mx-auto mt-2">
 
-<div className="w-[90%] grid grid-cols-1 gap-3 xl:grid-cols-2 xl:w-full">
-
-   {weeklySales.map((wk, i) => {
-      return <div key={i} className='h-[140px] w-full bg-white shadow-xl flex rounded-lg relative'>
+   {search.map((wk, i) => {
+      return <div key={i} className='h-[140px] w-full bg-white shadow-xl flex rounded-lg relative '>
          
          <div className='absolute flex flex-col justify-between right-2 h-full'>
            <img src={heart} className='w-12'/>
-            <img src={cart} className='w-12'/>
+            <img onClick={() => addCart(wk, wk._id)} src={cart} className='w-12'/>
          </div>
 
          {wk.stocks === 0 ? <div className='absolute h-full w-full bg-black/80 rounded-lg z-[20] centered'>
@@ -99,16 +57,16 @@ const WeeklySales = () => {
          <></>
          }
 
-      <div className='absolute'>
+      <div onClick={() => navigate(`/home/${wk._id}`)} className='absolute'>
          <img src={shining}/>
       </div>
 
-      <div className='h-[140px] w-[150px] centered '>
-         <img src={wk.image} className='h-[120px] w-[120px] '/>
+      <div className='h-[140px] w-[150px] centered cursor-pointer'>
+         <img src={'../../../../images/'+wk.image} className='h-[120px] w-[120px] '/>
       </div>
 
-      <div className='w-[190px] flex flex-col h-[120px] my-auto gap-1 '>
-            <h1 className='font-semibold text-[17px] ht4WK'>{wk.name}</h1>
+      <div className='xl:w-[190px] flex flex-col h-[120px] my-auto gap-1 '>
+            <h1 className='font-semibold text-[17px] ht4WK w-[161px]'>{wk.name}</h1>
             <div className='flex w-full gap-1 items-center'>
                <img src={dollar} className='w-5 h-5'/>
                <h4>${wk.latestPrice}</h4>
@@ -127,8 +85,9 @@ const WeeklySales = () => {
    </div>
    })}
 
+       </div>
 </div>
-    </div>
+    </>
   )
 }
 

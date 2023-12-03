@@ -3,7 +3,7 @@ import filter from '../../../../frontend/src/assets/filter.png'
 import galery from '../../assets/galery.gif'
 import microphone from '../../assets/microphone.gif'
 
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import FooterBar from '../../pages/FooterBar'
 import CycloneOffer from './CycloneOffer'
 
@@ -15,9 +15,9 @@ import TopProducts from './TopProducts'
 import Banner3 from './banner/Banner3'
 import WeeklySales from './WeeklySales'
 import Banner4 from './banner/Banner4'
-import Featured from './Featured'
 import Collections from './Collections'
 import SearchBar from './SearchBar'
+import { ShopContext } from './context/ShopContextProvider'
 
 
 const Homepage = () => {
@@ -25,6 +25,10 @@ const Homepage = () => {
     const handleFilter = () => {
         setIsOpen(!isOpen)
     }
+    const {filterItems} = useContext(ShopContext)
+    useEffect(() => {
+        filterItems("Weekly Sales")
+    }, [filterItems])
 
   return (
     <>
@@ -78,16 +82,12 @@ const Homepage = () => {
             <Banner3 />
         </div>
 
-        <div className='w-full xl:w-[90%]  xl:mx-auto h-[940px] xl:h-[520px]'>
+        <div className='w-full xl:w-[90%]  xl:mx-auto h-[940px] xl:h-[750px] mx-auto'>
             <WeeklySales />
         </div>
 
         <div className='w-full xl:w-[90%]  xl:mx-auto h-[240px] xl:h-[280px]'>
             <Banner4 />
-        </div>
-
-        <div className='w-full xl:w-[90%]  xl:mx-auto h-[440px] xl:h-[250px]'>
-            <Featured />
         </div>
 
         <div className='w-full xl:w-[90%]  xl:mx-auto h-[260px] xl:h-[280px]'>
