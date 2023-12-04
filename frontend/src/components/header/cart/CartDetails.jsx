@@ -17,9 +17,39 @@ import QuantityBtn from './QuantityBtn';
 import { HiX } from 'react-icons/hi';
 import FooterBar from '../../../pages/FooterBar';
 import {useNavigate} from 'react-router-dom'
+import axios from 'axios'
+import {loadStripe} from '@stripe/stripe-js';
 const CartDetails = () => {
     const {cart, removeCart, total, clearCart} = useContext(ShopContext)
-    const navigate = useNavigate()
+
+    // payment integration
+    const makePayment = async()=>{
+      const stripe = await loadStripe("pk_test_51OIcbWAnzSw6gdVPqzHWoNKatnk9wSk3U40MGHrK2OkUROa7P6uFYZGzjf9uOF6mDyvEYdwcMA0YFtxX4TNmdt9D00ZO9zXY8e");
+
+      
+      const body = {
+        products:cart
+    }
+    const headers = {
+        "Content-Type":"application/json"
+    }
+      const response = await fetch("/api/orders/checkout",{
+            method:"POST",
+            headers:headers,
+            body:JSON.stringify(body)
+        });
+
+      const session = await response.json();
+      console.log(session)
+      const result = stripe.redirectToCheckout({
+          sessionId:session.id
+      });
+      
+      if(result.error){
+          console.log(result.error);
+      }
+  }
+
   return (
     <>
       <div className='w-full flex xl:flex-row flex-col manjari  gap-[88px] xl:gap-0'>
@@ -58,7 +88,7 @@ const CartDetails = () => {
                            <h4 className='xl:text-[17px]  text-[12px]'>Price: ${ct.price}<span></span></h4>
                         </div>
                     </div>
-                   
+
                     <div className='xl:w-[180px] centered flex flex-col w-[180px]'>
                         <div className='flex flex-col justify-center items-center'>
                              <label htmlFor="quantity-input" className="block xl:mb-2 xl:text-sm font-medium text-gray-900 dark:text-black text-[11px]">Choose quantity:</label>
@@ -80,12 +110,12 @@ const CartDetails = () => {
         <div className='xl:w-[260px] h-full bg-white rounded-xl w-[90%] mx-auto xl:mx-0 xl:mt-[71px] border-2'>
             <div className='h-[220px] flex flex-col w-full items-center justify-center gap-4'>
                 <div className='w-[88%] flex flex-col'>
-                    <h1 className='text-[14px]'>Subtotal: <span>{total}</span></h1>
-                    <h1 className='text-2xl'>Total: <span>{total}</span></h1>
+                    <h1 className='text-[14px]'>Subtotal: <span>${total.toFixed(2)}</span></h1>
+                    <h1 className='text-2xl'>Total: <span>${total.toFixed(2)}</span></h1>
                 </div>
               <div className='flex w-[88%] gap-4'>
                   <button onClick={() => clearCart()} className='w-[170px] bg-yellow-600 text-white h-[44px]'>Clear cart</button>
-                  <button onClick={() => navigate("/home/payment")} className='border-2 bg-green-600 text-white h-[44px] w-[260px] centered'>Check out</button>
+                  <button onClick={makePayment} className='border-2 bg-green-600 text-white h-[44px] w-[260px] centered'>Check out</button>
               </div>
             </div>
         </div>

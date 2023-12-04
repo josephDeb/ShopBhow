@@ -22,12 +22,11 @@ const WeeklySales = () => {
 
    const navigate = useNavigate()
 
-           
 
 
   return (
     <>
-       <div className='w-[90%] mx-auto flex items-center justify-between xl:w-full'>
+<div className='w-[90%] mx-auto flex items-center justify-between xl:w-full'>
    <div className='flex items-center'>
        <img src={offer2} className='w-10'/>
        <h1 className='font-bold '>Weekly Sales</h1>
@@ -39,12 +38,12 @@ const WeeklySales = () => {
    </Link>
 </div>
 
-<div className='w-full h-[940px] flex-col gap-2 xl:h-[680px] xl:overscroll-none overflow-y-hidden'>
+<div className='w-full h-[1040px] flex-col gap-2 xl:h-[700px] overflow-hidden'>
       <div className="w-[90%] h-full grid grid-cols-1 gap-3 xl:grid-cols-2 xl:w-full mx-auto mt-2">
 
    {search.map((wk, i) => {
-      return <div key={i} className='h-[140px] w-full bg-white shadow-xl flex rounded-lg relative '>
-         
+      return <div key={i} className='h-[160px] w-full bg-white shadow-xl flex rounded-lg relative'>
+
          <div className='absolute flex flex-col justify-between right-2 h-full'>
            <img src={heart} className='w-12'/>
             <img onClick={() => addCart(wk, wk._id)} src={cart} className='w-12'/>
@@ -61,7 +60,7 @@ const WeeklySales = () => {
          <img src={shining}/>
       </div>
 
-      <div className='h-[140px] w-[150px] centered cursor-pointer'>
+      <div className='h-[160px] w-[150px] centered cursor-pointer'>
          <img src={'../../../../images/'+wk.image} className='h-[120px] w-[120px] '/>
       </div>
 

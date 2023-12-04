@@ -1,12 +1,11 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import arrow from '../../../assets/arrow-right.gif'
-import {AiOutlineSearch} from 'react-icons/ai'
 
 import FilterCategory from './FilterCategory';
 import CardProduct from './CardProduct';
 import FooterBar from '../../../pages/FooterBar';
 import { ShopContext } from '../context/ShopContextProvider';
-import { Link } from 'react-router-dom';
+import { Link, } from 'react-router-dom';
 import MbSearchBar from './MbSearchBar';
 
 const AllProducts = () => {
@@ -16,9 +15,8 @@ const AllProducts = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        filterItems({...category})
       }, []);
-    
+
   return (
     <div className=' xl:max-w-screen-lg mx-auto'>
     
@@ -26,7 +24,7 @@ const AllProducts = () => {
         <MbSearchBar />
     </div>
 
-    <div className='mx-auto'>
+    <div className='mx-auto my-5'>
      <FilterCategory category={category} filterItems={filterItems} products={products}/>
     </div>
 

@@ -22,9 +22,9 @@ const MbSearchBar = () => {
                     className=' ml-2 text-lg w-full focus:outline-none'
                 />
                 {values &&
-                    <div className='bg-white py-2 text-black w-full z-10 absolute top-10 rounded-md max-h-40 overflow-y-auto'>
+                    <div className='bg-white py-2 text-black w-full z-10 absolute top-10 rounded-md max-h-40 overflow-y-auto '>
                         {search.map((sr, index) => (
-                            <p key={index} className='pl-4 hover:bg-yellow-300 cursor-pointer'>
+                            <p key={index} className='pl-4 hover:bg-yellow-300 cursor-pointer underline z-[99]'>
                                 {sr.name}
                             </p>
                         ))}

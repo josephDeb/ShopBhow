@@ -11,16 +11,12 @@ import 'swiper/css/pagination';
 
 import {FreeMode, Pagination, Autoplay, Scrollbar} from 'swiper/modules';
 
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { ShopContext } from '../context/ShopContextProvider'
 import {useNavigate} from 'react-router-dom'
 const SuggestCategory = () => {
     const {category, filterItems, } = useContext(ShopContext)
     const navigate = useNavigate()
-
-    useEffect(() => {
-      filterItems("Weekly sales")
-    }, [])
   return (
     <>
         <Swiper

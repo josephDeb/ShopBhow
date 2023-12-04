@@ -6,14 +6,16 @@ import heart from '../../../assets/heart.gif'
 import cart from '../../../assets/shopping-cart.gif'
 import rate from '../../../assets/rate.png'
 import outofstock from '../../../assets/out-of-stock.png'
+import error from '../../../assets/error.png'
 
 const CardProduct = ({search}) => {
-   
+
   return (
     <>
    
           <div className="w-[90%] grid grid-cols-2 xl:grid-cols-6 gap-3 mx-auto mt-4  mb-[88px] manjari xl:w-full" >
-          {search.map((prd, i) => {
+
+          {search.length > 0 ? search.map((prd, i) => {
             return <div key={i} className="h-[300px] bg-white shadow-xl rounded-lg relative flex flex-col justify-between">
 
             {prd.stocks === 0 ? <div className='absolute h-full w-full bg-black/80 rounded-lg z-[20] centered'>
@@ -58,8 +60,14 @@ const CardProduct = ({search}) => {
                 </div>
             </div>
          </div>
-          })}
+          })
+         :
+         <div className='w-full centered '>
+            <img src={error} className='w-[100%]'/>
+         </div>
+         }
           </div>
+
 
     </>
   )
