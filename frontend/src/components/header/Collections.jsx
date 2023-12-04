@@ -10,8 +10,10 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 
 import { FreeMode, Pagination } from 'swiper/modules';
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
+import { ShopContext } from './context/ShopContextProvider';
+import { Link } from 'react-router-dom';
 
 
 const Collections = () => {
@@ -22,6 +24,7 @@ const Collections = () => {
           setDatas(res.data.Result)
       })
   }, [])
+  const {filterItems} = useContext(ShopContext)
   return (
     <div className='w-full h-[260px] centered flex flex-col gap-2 xl:h-[260px] xl:gap-3'>
 
@@ -50,13 +53,13 @@ const Collections = () => {
     className="mySwiper w-[90%] xl:w-full"
     >
         {datas.map((cl, i) => {
-          return <SwiperSlide key={i} className='w-[100px] h-[180px] bg-white flex flex-col shadow-xl relative rounded-lg'>
+          return <SwiperSlide key={i} className='w-[100px] h-[180px] bg-white flex flex-col shadow-xl relative rounded-lg cursor-pointer'>
 
           <img src={'../../../images/'+cl.image} className='h-full w-full rounded-lg object-cover'/>
 
-          <div className='absolute w-full h-[53px] bg-black/80 bottom-0 rounded-lg centered px-1'>
+          <Link to={'/home/all-products'} onClick={() => filterItems(cl.title)} className='absolute w-full h-[53px] bg-black/80 bottom-0 rounded-lg centered px-1'>
               <h1 className='text-white font-bold manjari'>{cl.title}</h1>
-          </div>
+          </Link>
          </SwiperSlide>
         })}
     </Swiper>

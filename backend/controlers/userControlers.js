@@ -118,16 +118,10 @@ const getCurrentUserProfile = asyncHandler(async (req, res) => {
 
 const updateCurrentUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
-
   if (user) {
     user.username = req.body.username || user.username;
     user.email = req.body.email || user.email;
 
-    if (req.body.password) {
-      const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(req.body.password, salt);
-      user.password = hashedPassword;
-    }
 
     const updatedUser = await user.save();
 

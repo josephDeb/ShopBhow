@@ -52,9 +52,11 @@ const AddProducts = () => {
 
 
   return (
-<div className='h-screen w-full'>
+<div className='h-screen max-w-screen-xl mx-auto max-h-screen-xl'>
 
 <form onSubmit={handleSubmit} className="max-w-sm mx-auto centered  h-full flex-col">
+
+<h1 className="w-full text-center text-5xl mb-5 font-bold">Add product</h1>
 
 <div className="mb-5 w-full">
     <label htmlFor="price" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>

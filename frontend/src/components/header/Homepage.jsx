@@ -28,7 +28,7 @@ const Homepage = () => {
     const {filterItems} = useContext(ShopContext)
     useEffect(() => {
         filterItems("Weekly Sales")
-    }, [filterItems])
+    }, [])
 
   return (
     <>
@@ -82,7 +82,7 @@ const Homepage = () => {
             <Banner3 />
         </div>
 
-        <div className='w-full xl:w-[90%]  xl:mx-auto h-[940px] xl:h-[750px] mx-auto'>
+        <div className='w-full xl:w-[90%]  xl:mx-auto h-[1070px] xl:h-[770px] mx-auto'>
             <WeeklySales />
         </div>
 

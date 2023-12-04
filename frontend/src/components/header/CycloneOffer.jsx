@@ -13,6 +13,7 @@ import offer from '../../assets/offer.gif'
 import sale from '../../assets/sale.gif'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 axios
 const CycloneOffer = () => {
 
@@ -53,12 +54,12 @@ const CycloneOffer = () => {
                 <img src={sale} className='w-[35px]'/>
             </div>
 
-          <div className='h-[100px] w-full end'>
+          <Link to={`/home/offer/${pr.id}`} className='h-[100px] w-full end'>
           <img src={pr.image} className='w-[80px] h-[80px] mx-auto '/>
-          </div>
+          </Link>
 
           <div className='w-full h-[71px] flex flex-col  justify-end px-2'>
-              <p className='text-[15px] ht4 font-semibold xl:w-[144px] w-[88px]'>{pr.title}</p>
+              <p className='text-[15px] ht4 font-semibold xl:w-[124px] w-[88px]'>{pr.title}</p>
               <h4 className='text-[13px]'>${pr.price}</h4>
               <div className='flex items-center text-[13px] gap-1 text-gray-500'>
                  <h3>Stocks</h3><span>({pr.rating.count})</span>

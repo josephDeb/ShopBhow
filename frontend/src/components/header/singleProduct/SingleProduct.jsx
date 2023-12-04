@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import './zigzag.css'
 
 import { ShopContext } from "../context/ShopContextProvider";
@@ -12,11 +12,13 @@ import AddTestimonial from "./AddTestimonial";
 const SingleProduct = () => {
 
       const {products,  } = useContext(ShopContext)
-
+      useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
   return (
     <div className='max-w-screen-lg mx-auto manjari'>
         <div className=" flex flex-col justify-start xl:justify-center">
-            <div className="xl:w-full w-[90%] mx-auto h-[620px] xl:h-[350px] border-2 my-8 bg-white shadow-xl rounded-xl">
+            <div className="xl:w-full w-[90%] mx-auto xl:py-8 py-8 xl:h-[100%] border-2 my-8 bg-white shadow-xl rounded-xl h-full">
                <ProductSingle products={products}/>
             </div>
 

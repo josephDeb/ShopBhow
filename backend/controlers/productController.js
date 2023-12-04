@@ -42,6 +42,7 @@ const updateProduct = asyncHandler(async (req, res) => {
     }
 })
 
+
 const allProducts = asyncHandler(async (req, res) => {
     const all = await Product.find({})
     return res.status(201).json({Status: true, Result: all})

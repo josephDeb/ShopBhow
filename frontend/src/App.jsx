@@ -29,6 +29,11 @@ import ForgetPassword from "./components/login/ForgetPassword"
 import SingleProduct from "./components/header/singleProduct/SingleProduct"
 import Cart from "./components/header/cart/Cart"
 import PaymentInfo from "./components/header/PaymentInfo/PaymentInfo"
+import Success from "./components/header/PaymentInfo/Success"
+import Cancel from "./components/header/PaymentInfo/Cancel"
+import SingleProductCyclone from "./components/header/singleCycloneProduct/SingleProductCyclone"
+import ManageUsers from "./components/dashboard/pages/users/ManageUsers"
+import UpdateUser from "./components/dashboard/pages/users/UpdateUser"
 
 
 function App() {
@@ -52,17 +57,18 @@ function App() {
                       <Route path="/home" element={<Homepage />}/>
                       <Route path="/home/all-products" element={<AllProducts />}/>
                       <Route path="/home/:id" element={<SingleProduct />}/>
-                      <Route path="/home/cart" element={<Cart />}/>
+                      <Route path="/home/offer/:id" element={<SingleProductCyclone />}/>
+                      <Route path="/home/cart" element={<Cart />}>
+                        <Route path="/home/cart/success" element={<Success />}/>
+                        <Route path="/home/cart/cancel" element={<Cancel />}/>
+                      </Route>
                       
                 </Route>
 
                 <Route element={<PrivateRouteAdmin />}>
                       <Route path="/admin-dashboard" element={<Dashboard />}>
                         <Route path="/admin-dashboard" element={<AdminDashboard />}/>
-
-
                          <Route path="/admin-dashboard/products" element={<ProductDashboard />}>
-
                               <Route path="/admin-dashboard/products" element={<Product />}/>
                               <Route path="/admin-dashboard/products/add" element={<AddProducts />}/>
                               <Route path="/admin-dashboard/products/update/:id" element={<UpdateProduct />}/>
@@ -74,6 +80,9 @@ function App() {
                               <Route path="/admin-dashboard/categories/update/:id" element={<UpdateCategory />}/>
                         </Route>
 
+                        <Route path="/admin-dashboard/users" element={<ManageUsers />}>
+                            <Route path="/admin-dashboard/users/:id" element={<UpdateUser />}/>
+                        </Route>
                       </Route>
 
                 </Route>

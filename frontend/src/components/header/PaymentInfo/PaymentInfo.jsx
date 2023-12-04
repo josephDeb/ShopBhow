@@ -2,7 +2,7 @@ import React from 'react'
 
 const PaymentInfo = () => {
   return (
-    <div>PaymeasdsntInfo</div>
+    <div className='w-full h-screen bg-red-200'>PaymeasdsntInfo</div>
   )
 }
 

@@ -44,8 +44,6 @@ const ProductSingle = () => {
                      <button className='w-[134px] bg-blue-600 text-white h-[35px] border-b border-r border-black rounded-xl'>Buy it now</button>
                  </div>
                  </div>
-
-                 
                </div>
              </div>
          </div>

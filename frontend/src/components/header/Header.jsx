@@ -26,7 +26,30 @@ const Header = () => {
               <Link to={'/home'} className='manjari text-[23px] mt-2 xl:mt-0 font-bold'>Shop<span className='text-[#ed1d24]'>Bow</span></Link>
           </div>
 
-        {currentUser ? <><div className='h-full flex justify-center items-center xl:hidden'>
+
+    <div className='hidden xl:flex w-full h-full'>
+      <div className='h-full w-full between '>
+            <div className='w-full h-full centered gap-8 '>
+              <h1 className='font-semibold'>Home</h1>
+              <h1 className='font-semibold'>Shop</h1>
+              <h1 className='font-semibold'>Blog</h1>
+              <h1 className='font-semibold'>Pages</h1>
+              <h1 className='font-semibold'>Contact</h1>
+            </div>
+
+            <div className='h-full flex justify-between items-center w-[17%]  gap-6'>
+                <div className='centered '>
+                  <div onClick={() => navigate("/home/cart")} className='flex items-center  w-[125px] gap-3'>
+                  <HiShoppingCart className='text-xl'/>
+                     <h1>Cart: <span>({cart.length})</span></h1>
+                  </div>
+                </div>
+            </div>
+        </div>
+        
+      </div>
+
+        {currentUser ? <><div className='h-full flex justify-center items-center xl:hidden hidden'>
            <button
       className="flex flex-col h-12 w-12   border-black rounded justify-center items-center group mr-6 border-2 "
       onClick={() => setIsOpen(!isOpen)}
@@ -57,30 +80,6 @@ const Header = () => {
         <Hamburger isOpen={isOpen} setIsOpen={setIsOpen}/></>
          : <></>}
 
-
-      <div className='hidden xl:flex w-full h-full'>
-      <div className='h-full w-full between '>
-            <div className='w-full h-full centered gap-8 '>
-              <h1 className='font-semibold'>Home</h1>
-              <h1 className='font-semibold'>Shop</h1>
-              <h1 className='font-semibold'>Blog</h1>
-              <h1 className='font-semibold'>Pages</h1>
-              <h1 className='font-semibold'>Contact</h1>
-            </div>
-
-            <div className='h-full flex justify-between items-center w-[44%]  gap-6 '>
-                <div className='centered '>
-                  <div onClick={() => navigate("/home/cart")} className='flex items-center  w-[125px] gap-3'>
-                  <HiShoppingCart className='text-xl'/>
-                     <h1>Cart: <span>({cart.length})</span></h1>
-                  </div>
-                  <MdPerson onClick={() => navigate('/login')} className='text-xl'/>
-                </div>
-                <button className='border-2 border-black/50 w-[170px] h-[62%] text-black font-bold spaceLetter rounded-sm'>Buy Now</button>
-            </div>
-        </div>
-        
-      </div>
         </div>
       </div>
 

@@ -18,13 +18,14 @@ import { Pagination } from 'swiper/modules';
 
 import './styles.css'
 
+import ecommerce from '../../../../assets/ecommerce.png'
+
 const Product = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
         axios.get("/api/products")
         .then(res => {
             setProducts(res.data.Result)
-            console.log(res.data)
         }).catch(err => console.log(err))
     }, [])
 
@@ -50,10 +51,10 @@ const Product = () => {
 
   return (
    <>
-          <div className="container w-full">
-        <div className="flex flex-col  md:flex-row">
+      <div className="container w-full manjari">
+        <div className="flex flex-col  md:flex-row ">
           <div className="p-3">
-            <div className="ml-[2rem] text-xl font-bold h-12">
+            <div className="ml-[2rem] text-xl font-bold h-12 text-white">
               All Products ({products.length})
             </div>
 
@@ -68,7 +69,7 @@ const Product = () => {
               clickable: true,
             }}
             modules={[Pagination]}
-            className="mySwiper h-[650px] w-[710px] "
+            className="mySwiper h-[600px] w-[710px]"
             >
 
                 {products.map((prd, i) => {
@@ -77,10 +78,10 @@ const Product = () => {
                     <img src={'../../../../../images/'+prd.image} className='h-[107px] mx-auto'/>
                </div>
 
-                    <div className='h-full my-auto w-[88%] flex flex-col justify-between  '>
-                      <div className='w-full flex flex-col'>
+                    <div className='h-[90%] my-auto w-[88%] flex flex-col justify-between '>
+                      <div className='w-full flex flex-col '>
                         <div className="flex justify-between ">
-                        <h5 className="text-xl font-semibold w-[350px] elpstext2">
+                        <h5 className="text-[15px] font-semibold w-[350px] elpstext2">
                           {prd?.name}
                         </h5>
 
@@ -89,18 +90,18 @@ const Product = () => {
                         </p>
                         </div>
                       
-                        <div className='flex'>
-                           <p className="text-gray-400 xl:w-[30rem] lg:w-[100%] xl:h-[44px] md:w-[20rem] sm:w-[10rem] text-sm elpstext mb-2">
+                        <div className='flex '>
+                           <p className="text-gray-400 xl:w-[30rem] lg:w-[100%] xl:h-[44px] md:w-[20rem] sm:w-[10rem] text-[11px] elpstext">
                           {prd?.description?.substring(0, 160)}...
                            </p>
                          </div>
                       </div>
 
-                          <div className='flex justify-start items-center gap-3  h-[52px]'>
+                          <div className='flex justify-start items-center gap-3  h-[36px] '>
                              <img onClick={() => handleDelete(prd._id)} src={dlt} className='w-6 cursor-pointer shadow-xl'/>
                              <Link
                           to={`/admin-dashboard/products/update/${prd._id}`}
-                          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-pink-700 rounded-lg hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800 w-[152px]"
+                          className="inline-flex items-center px-3  text-sm font-medium text-center text-white bg-pink-700 py-2 rounded-lg hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800 w-[172px]"
                         >
                           Update Product
                           <svg
@@ -132,6 +133,10 @@ const Product = () => {
           </div>
         </div>
       </div>
+
+      <div className='absolute right-[44px] top-[88px]'>
+         <img src={ecommerce} className='w-full'/>
+       </div>
    </>
   )
 }

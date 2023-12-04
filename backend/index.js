@@ -1,11 +1,12 @@
 import express from "express";
-import path from 'path';
 import dotenv from 'dotenv';
 import cookieParser from "cookie-parser";
 import cors from 'cors'
 import userRoute from '../backend/routes/userRoute.js'
 import categoryRoute from '../backend/routes/categoryRoute.js'
 import productRoute from '../backend/routes/productRoute.js'
+
+
  //utils
  import connectDB from './config/db.js'
 
@@ -32,11 +33,10 @@ import productRoute from '../backend/routes/productRoute.js'
    res.send("BACKEND RUNNING")
  })
 
-
- 
  app.use("/api/users", userRoute)
  app.use("/api/category", categoryRoute)
  app.use("/api/products", productRoute)
+
 
  app.listen(port, () => {
     console.log("SERVER RUNNING ON PORT")
