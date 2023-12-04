@@ -11,13 +11,11 @@ const ShopContextProvider = (props) => {
   const [products, setProducts] = useState([])
   const [category, setCategory] = useState([])
   const [search, setSearch] = useState(products)
+  const [cart, setCart] = useState([])
   const ls = typeof window !== "undefined" ? window.localStorage : null;
-  const defaultProduct = ls ? JSON.parse(ls.getItem('bag')) : []
-  const [cart, setCart] = useState(defaultProduct)
   const [cartProducts, setCartProducts] = useState([])
   const [amount, setAmount] = useState(0)
   const [total, setTotal] = useState(0)
-  const [weeklySales, setWeeklySales] = useState([])
   useEffect(() => {
       axios.get("/api/category/categories")
       .then(res => {
@@ -31,23 +29,21 @@ const ShopContextProvider = (props) => {
       }).catch(err => console.log(err))
    }, [])
 
-
-
+  useEffect(() => {
+      if (cart?.length > 0) {
+        localStorage.setItem('cart', JSON.stringify(cart))
+      }
+  }, [cart])
 
   useEffect(() => {
-    ls?.setItem('bag', JSON.stringify(cart));
-  })
-  useEffect(() => {
-    if (ls && ls.getItem('bag')) {
-      setCartProducts(JSON.parse(ls.getItem("bag")))
+    if (ls && localStorage.getItem('cart')) {
+      setCartProducts(JSON.parse(ls.getItem("cart")))
     }
   }, [])
 
-
-
   useEffect(() => {
     const total = cart.reduce((a, c) => {
-      return a + c.price * c.amount;
+      return a + c.price + c.amount;
     }, 0)
     setTotal(total)
   }, [cart])
@@ -56,7 +52,7 @@ const ShopContextProvider = (props) => {
       const newItems = products.filter((newval) => newval.category === cat)
       setSearch(newItems)
   }
-  
+
   const fillT = (e) => {
       setValue(e.target.value)
       setSearch(products.filter(f => f.name.toLowerCase().includes(e.target.value)))
@@ -147,7 +143,7 @@ const clearCart = () => {
     amount,
     total,
     handleInput,
-    clearCart,
+    clearCart
   }
 
 

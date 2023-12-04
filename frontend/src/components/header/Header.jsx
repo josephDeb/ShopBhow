@@ -1,6 +1,5 @@
 
 import { useContext, } from 'react';
-import {MdPerson} from 'react-icons/md'
 import {HiShoppingCart} from 'react-icons/hi'
 import Hamburger from './Hamburger';
 import { ShopContext } from './context/ShopContextProvider';
@@ -49,7 +48,7 @@ const Header = () => {
         
       </div>
 
-        {currentUser ? <><div className='h-full flex justify-center items-center xl:hidden hidden'>
+        {currentUser ? <><div className='h-full justify-center items-center xl:hidden hidden'>
            <button
       className="flex flex-col h-12 w-12   border-black rounded justify-center items-center group mr-6 border-2 "
       onClick={() => setIsOpen(!isOpen)}
