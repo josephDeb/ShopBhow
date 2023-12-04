@@ -1,13 +1,14 @@
 
-import React, { useEffect, useState } from 'react'
-import 
+import { useEffect, useState } from 'react'
+import
 { BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsFillBellFill}
  from 'react-icons/bs'
- import 
- { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } 
+ import
+ { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line }
  from 'recharts';
 import AdminMenu from '../AdminMenu';
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 function AdminDashboard() {
 
     const data = [
@@ -60,9 +61,18 @@ function AdminDashboard() {
       axios.get("/api/products")
       .then(res => {
         setProducts(res.data.Result)
-        console.log(res.data.Result.length)
       }).catch(err => console.log(err))
     },[])
+
+    const [customers, setCustomers] = useState([])
+
+    useEffect(() => {
+      axios.get('/api/users')
+      .then(res => {
+        setCustomers(res.data)
+        console.log(customers)
+      }).catch(err => console.log(err))
+    }, [])
 
   return (
     <>
@@ -75,27 +85,27 @@ function AdminDashboard() {
         </div>
 
         <div className='main-cards'>
-            <div className='card'>
+            <Link to={'/admin-dashboard/products'} className='card'>
                 <div className='card-inner'>
                     <h3>PRODUCTS</h3>
                     <BsFillArchiveFill className='card_icon'/>
                 </div>
                 <h1>{products.length}</h1>
-            </div>
-            <div className='card'>
+            </Link>
+            <Link to={'/admin-dashboard/categories'}  className='card'>
                 <div className='card-inner'>
                     <h3>CATEGORIES</h3>
                     <BsFillGrid3X3GapFill className='card_icon'/>
                 </div>
                 <h1>12</h1>
-            </div>
-            <div className='card'>
+            </Link>
+            <Link to={"/admin-dashboard/users"} className='card'>
                 <div className='card-inner'>
                     <h3>CUSTOMERS</h3>
                     <BsPeopleFill className='card_icon'/>
                 </div>
-                <h1>33</h1>
-            </div>
+                <h1>{customers.length}</h1>
+            </Link>
             <div className='card'>
                 <div className='card-inner'>
                     <h3>ALERTS</h3>

@@ -9,6 +9,8 @@ import { MdDelete } from 'react-icons/md'
 import UpdateUser from './UpdateUser'
 import {Link, useParams} from 'react-router-dom'
 import Swal from 'sweetalert2'
+import family from '../../../../assets/family.png'
+import AddUser from './AddUser'
 const ManageUsers = () => {
     const {id} = useParams()
     const [allUsers, setAllUsers] = useState([])
@@ -21,35 +23,34 @@ const ManageUsers = () => {
     }, [])
 
     const [on, setOn] = useState(false)
-
+    const [addOn, setAddOn] = useState(false)
 
     const handleDelete = async (id) => {
-        const result = await Swal.fire({
-            title: "Do you really want to delete?",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#ed1d24",
-            confirmButtonText: "Yes, delete it!",
-          })
-          if(result.isConfirmed) {
-            await axios.delete("/api/users/"+id)
-        .then(res => {
-            console.log(res)
-            window.location.reload()
-        }).catch(err => console.log(err))
-          }
-         
-    }
-  
+      const result = await Swal.fire({
+          title: "Do you really want to delete?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#ed1d24",
+          confirmButtonText: "Yes, delete it!",
+        })
+        if(result.isConfirmed) {
+          await axios.delete("/api/users/"+id)
+      .then(res => {
+          console.log(res)
+          window.location.reload()
+      }).catch(err => console.log(err))
+        }
+       
+  }
   return (
     <>
     <AdminMenu />
-    <div className='w-full p-8 border-2 manjari text-white'>
+    <div className='w-full p-8 manjari text-white'>
         <div className='grid2 h-full'>
-            <div className='border-2 p-6 flex flex-col'>
+            <div className='p-6 flex flex-col'>
                 <div className='w-full'>
-                   <button className='bg-orange-500 px-12 py-2 text-white '>Add user
+                   <button onClick={() => setAddOn(!addOn)} className='bg-orange-500 px-12 py-2 text-white '>Add user
                   </button>
                 </div>
 
@@ -78,13 +79,21 @@ const ManageUsers = () => {
                 })}
             </div>
 
-            <div className=''></div>
+            <div className=''>
             </div>
         </div>
 
         {on ? <div className='h-full fixed left-[35%] top-[20%]'>
              <UpdateUser setOn={setOn} on={on} id={id}/>
         </div> : <></>}
+
+        {addOn ? <div className='h-full fixed left-[35%] top-[20%]'>
+             <AddUser setAddOn={setAddOn} addOn={addOn} id={id}/>
+        </div> : <></>}
+    </div>
+
+    <div className='fixed top-[88px] right-8'>
+          <img src={family} className='w-[350px]'/>
     </div>
     </>
   )

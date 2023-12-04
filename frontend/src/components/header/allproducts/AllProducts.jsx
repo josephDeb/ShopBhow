@@ -10,7 +10,7 @@ import MbSearchBar from './MbSearchBar';
 
 const AllProducts = () => {
 
-    const {category, products, search, values, filterItems, } = useContext(ShopContext)
+    const {category, products, search, values, filterItems, addCart } = useContext(ShopContext)
     console.log(values)
 
     useEffect(() => {
@@ -36,7 +36,7 @@ const AllProducts = () => {
     </div>
 
     <div className='xl:max-w-screen-lg mx-auto'>
-         <CardProduct search={search} />
+         <CardProduct search={search} addCart={addCart}/>
     </div>
 
     <div className='h-[62px] w-full'>

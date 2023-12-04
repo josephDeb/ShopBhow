@@ -29,6 +29,7 @@ const UpdateUser = ({setOn, on, }) => {
         <button onClick={() => setOn(!on)} type='button' className='w-full my-3 mx-4'>
             <BsXCircle />
         </button>
+        <h1 className='w-full text-center text-2xl uppercase'>Edit user</h1>
         <form onSubmit={handleUpdate} className='h-[62%] p-8 flex flex-col gap-5'>
                 <div className='flex flex-col gap-2'>
                     <h4>Username:</h4>

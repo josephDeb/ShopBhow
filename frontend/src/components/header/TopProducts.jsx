@@ -5,7 +5,6 @@ import heart from '../../assets/heart.gif'
 import top from '../../assets/top.gif'
 import cart from '../../assets/shopping-cart.gif'
 import arrow from '../../assets/arrow-right.gif'
-import outofstock from '../../assets/out-of-stock.png'
 import './styles2.css'
 import { useContext} from 'react'
 import { Link } from 'react-router-dom'
@@ -46,8 +45,8 @@ const TopProducts = () => {
          <Swiper
          breakpoints={{
             320: {slidesPerView: 2, spaceBetween: 8},
-            640:{slidesPerView: 4, spaceBetween: 32},
-            1260:{slidesPerView:5, spaceBetween: 32},
+            640:{slidesPerView: 4, spaceBetween: 17},
+            1260:{slidesPerView:5, spaceBetween: 17},
           }}
           spaceBetween={8}
           autoplay={true}
@@ -85,7 +84,7 @@ const TopProducts = () => {
                       <img src={heart} className='w-[44px]'/>
                    </div>
 
-                   <div onClick={() => addCart(tp, tp._id)} className='absolute right-3 bottom-2'>
+                   <div onClick={() => addCart(tp, tp._id)} className='absolute right-3 bottom-2 cursor-pointer'>
                       <img src={cart} className='w-[44px]'/>
                    </div>
                </div>

@@ -4,6 +4,7 @@ import { createContext,useEffect,useState } from "react"
 const defaultVal = {}
 export const ShopContext = createContext(defaultVal)
 import axios from 'axios'
+import {toast} from 'react-toastify'
 
 const ShopContextProvider = (props) => {
   const [isOpen, setIsOpen] = useState(true);
@@ -11,11 +12,24 @@ const ShopContextProvider = (props) => {
   const [products, setProducts] = useState([])
   const [category, setCategory] = useState([])
   const [search, setSearch] = useState(products)
-  const [cart, setCart] = useState([])
+
   const ls = typeof window !== "undefined" ? window.localStorage : null;
-  const [cartProducts, setCartProducts] = useState([])
+  const defaultProducts = ls ? JSON.parse(ls.getItem("cart")) : [];
+  const [cart, setCart] = useState(defaultProducts || [])
+
+
   const [amount, setAmount] = useState(0)
   const [total, setTotal] = useState(0)
+
+  useEffect(() => {
+    ls?.setItem('cart', JSON.stringify(cart));
+  })
+  useEffect(() => {
+    if (ls && localStorage.getItem('cart')) {
+      setCart(JSON.parse(ls.getItem("cart")))
+    }
+  }, [])
+
   useEffect(() => {
       axios.get("/api/category/categories")
       .then(res => {
@@ -29,17 +43,8 @@ const ShopContextProvider = (props) => {
       }).catch(err => console.log(err))
    }, [])
 
-  useEffect(() => {
-      if (cart?.length > 0) {
-        localStorage.setItem('cart', JSON.stringify(cart))
-      }
-  }, [cart])
 
-  useEffect(() => {
-    if (ls && localStorage.getItem('cart')) {
-      setCartProducts(JSON.parse(ls.getItem("cart")))
-    }
-  }, [])
+
 
   useEffect(() => {
     const total = cart.reduce((a, c) => {
@@ -60,12 +65,12 @@ const ShopContextProvider = (props) => {
   const addCart = (data,id) => {
     const newItem = {...data, amount: 1}
     setCart([...cart, newItem])
-    
     const cartItem = cart.find((item) => {
       return item._id === id
     });
-
-
+    toast.success("Successfuly increament +1", {
+      theme: "colored"
+    })
     if(cartItem) {
       const newCart = cart.map((item) => {
         if(item._id === id) {
@@ -135,8 +140,7 @@ const clearCart = () => {
     setSearch,
     values,
     setValue,
-    setCartProducts,
-    cartProducts,
+
     addCart,
     removeCart,
     cart,

@@ -2,14 +2,14 @@ import { useContext, useEffect, useState } from 'react'
 
 import {AiOutlineSearch} from 'react-icons/ai'
 
-import FilterCategory from './FilterCategory';
-
 
 import { ShopContext } from '../context/ShopContextProvider';
 
+import {useNavigate} from 'react-router-dom'
 const MbSearchBar = () => {
-    const {category, products, search, values, filterItems, fillT} = useContext(ShopContext)
-    console.log(values)
+    const {search, values,fillT} = useContext(ShopContext)
+
+    const navigate = useNavigate()
   return (
     <div className='manjari w-[90%] xl:w-full mx-auto'>
         <div className='w-[62%] flex justify-start items-center h-[62px] relative'>
@@ -24,7 +24,7 @@ const MbSearchBar = () => {
                 {values &&
                     <div className='bg-white py-2 text-black w-full z-10 absolute top-10 rounded-md max-h-40 overflow-y-auto '>
                         {search.map((sr, index) => (
-                            <p key={index} className='pl-4 hover:bg-yellow-300 cursor-pointer underline z-[99]'>
+                            <p onClick={() => navigate("/home/")} key={index} className='pl-4 hover:bg-yellow-300 cursor-pointer underline z-[99]'>
                                 {sr.name}
                             </p>
                         ))}

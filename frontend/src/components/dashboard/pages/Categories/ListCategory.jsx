@@ -15,6 +15,9 @@ import {FreeMode, Pagination, Autoplay} from 'swiper/modules';
 import { Link} from 'react-router-dom';
 import Swal from 'sweetalert2';
 
+import monkey from '../../../../assets/monkey.png'
+import AdminMenu from '../../AdminMenu';
+
 const ListCategory = () => {
 
     const [listCt, setListCt] =  useState([])
@@ -48,6 +51,9 @@ const ListCategory = () => {
     }
 
   return (
+  <>
+  <AdminMenu />
+
   <div className='max-w-screen-xl flex flex-col text-[#F1EBFF] manjari'>
       <div className='w-full centered flex-col'>
       <div className='w-[800px] h-[130px] centered '>
@@ -94,6 +100,11 @@ const ListCategory = () => {
 
       </div>
   </div>
+
+  <div className='fixed top-[44px] right-0'>
+      <img src={monkey} className='w-[260px]'/>
+  </div>
+  </>
 
   )
 }

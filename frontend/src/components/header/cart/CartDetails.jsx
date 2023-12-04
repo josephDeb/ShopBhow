@@ -16,8 +16,7 @@ import { Pagination } from 'swiper/modules';
 import QuantityBtn from './QuantityBtn';
 import { HiX } from 'react-icons/hi';
 import FooterBar from '../../../pages/FooterBar';
-import {useNavigate} from 'react-router-dom'
-import axios from 'axios'
+
 import {loadStripe} from '@stripe/stripe-js';
 const CartDetails = () => {
     const {cart, removeCart, total, clearCart} = useContext(ShopContext)

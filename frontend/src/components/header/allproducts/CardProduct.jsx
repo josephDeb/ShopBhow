@@ -8,7 +8,7 @@ import rate from '../../../assets/rate.png'
 import outofstock from '../../../assets/out-of-stock.png'
 import error from '../../../assets/error.png'
 
-const CardProduct = ({search}) => {
+const CardProduct = ({search, addCart}) => {
 
   return (
     <>
@@ -55,7 +55,7 @@ const CardProduct = ({search}) => {
                    <img src={heart} className='w-[44px]'/>
                 </div>
 
-                <div className='absolute right-3 bottom-2'>
+                <div onClick={() => addCart(prd, prd._id)}  className='absolute right-3 bottom-2 cursor-pointer'>
                    <img src={cart} className='w-[28px]'/>
                 </div>
             </div>

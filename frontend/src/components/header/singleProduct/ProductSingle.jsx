@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useContext, useEffect, useState } from 'react'
-import {useParams} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import axios from 'axios'
 import '../styles2.css'
 import QuantityBtn from './QuantityBtn'
@@ -41,7 +41,7 @@ const ProductSingle = () => {
                     </div>
                     <div className='flex justify-start items-center gap-4 h-[53px]'>
                      <button onClick={() => addCart(singleProduct, id)} className='w-[134px] bg-green-600 text-white h-[35px] border-b border-r border-black rounded-xl'>Add to cart</button>
-                     <button className='w-[134px] bg-blue-600 text-white h-[35px] border-b border-r border-black rounded-xl'>Buy it now</button>
+                     <Link to={'/home/cart'} onClick={() => addCart(singleProduct, id)}  className='w-[134px] bg-blue-600 text-white h-[35px] border-b border-r border-black rounded-xl centered'>Buy it now</Link>
                  </div>
                  </div>
                </div>

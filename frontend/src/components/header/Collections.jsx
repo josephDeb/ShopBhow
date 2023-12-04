@@ -53,7 +53,7 @@ const Collections = () => {
     className="mySwiper w-[90%] xl:w-full"
     >
         {datas.map((cl, i) => {
-          return <SwiperSlide key={i} className='w-[100px] h-[180px] bg-white flex flex-col shadow-xl relative rounded-lg cursor-pointer'>
+          return <SwiperSlide key={i} className='w-[100px] h-[180px] bg-white flex flex-col shadow-xl relative rounded-lg'>
 
           <img src={'../../../images/'+cl.image} className='h-full w-full rounded-lg object-cover'/>
 

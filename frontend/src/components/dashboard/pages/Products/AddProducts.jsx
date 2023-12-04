@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react"
 import axios from 'axios'
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
+
+import dragon from '../../../../assets/dragon.png'
+import cat from '../../../../assets/cat.png'
+import AdminMenu from "../../AdminMenu"
+
 const inputStyle = "shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
 
 
@@ -52,11 +57,15 @@ const AddProducts = () => {
 
 
   return (
-<div className='h-screen max-w-screen-xl mx-auto max-h-screen-xl'>
+    <>
+
+    <AdminMenu />
+
+        <div className='h-screen max-w-screen-xl mx-auto max-h-screen-xl'>  
 
 <form onSubmit={handleSubmit} className="max-w-sm mx-auto centered  h-full flex-col">
 
-<h1 className="w-full text-center text-5xl mb-5 font-bold">Add product</h1>
+<h1 className="w-full text-center text-5xl mb-5 font-bold text-white">Add product</h1>
 
 <div className="mb-5 w-full">
     <label htmlFor="price" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
@@ -95,7 +104,17 @@ const AddProducts = () => {
   <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
 </form>
 
-    </div>
+       </div>
+       
+       <div className="fixed left-0 top-5">
+            <img src={dragon} className="w-[350px] relative"/>
+            <Link to={"/admin-dashboard/products"} className="absolute bottom-16 right-8 bg-violet-500 text-white px-5">Go back</Link>
+       </div>
+
+       <div className="fixed bottom-0 right-5">
+            <img src={cat} className="w-[350px] relative"/>
+       </div>
+    </>
   )
 }
 

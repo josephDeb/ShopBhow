@@ -1,11 +1,5 @@
 
 import offer2 from '../../assets/offer2.gif'
-import camera from '../../assets/3.png'
-import chair from '../../assets/chair2.jpg'
-import soap from '../../assets/soap.jpg'
-import ryzen5 from '../../assets/ryzen5.png'
-import cabinet from '../../assets/cabinet.png'
-import eyeglass from '../../assets/eyeglass.png'
 import dollar from '../../assets/dollar-symbol.png'
 import rate from '../../assets/rate.png'
 import shining from '../../assets/shning.gif'
@@ -46,7 +40,7 @@ const WeeklySales = () => {
 
          <div className='absolute flex flex-col justify-between right-2 h-full'>
            <img src={heart} className='w-12'/>
-            <img onClick={() => addCart(wk, wk._id)} src={cart} className='w-12'/>
+            <img onClick={() => addCart(wk, wk._id)} src={cart} className='w-12 cursor-pointer'/>
          </div>
 
          {wk.stocks === 0 ? <div className='absolute h-full w-full bg-black/80 rounded-lg z-[20] centered'>
@@ -68,8 +62,7 @@ const WeeklySales = () => {
             <h1 className='font-semibold text-[17px] ht4WK w-[161px]'>{wk.name}</h1>
             <div className='flex w-full gap-1 items-center'>
                <img src={dollar} className='w-5 h-5'/>
-               <h4>${wk.latestPrice}</h4>
-               <span className='line-through text-red-500'>${wk.oldPrice}</span>
+               <h4>${wk.price}</h4>
             </div>
             <div className='flex w-full gap-1 items-center'>
                <img src={rate} className='w-5 h-5'/>
