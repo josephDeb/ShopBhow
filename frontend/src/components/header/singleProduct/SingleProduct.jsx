@@ -6,9 +6,10 @@ import { ShopContext } from "../context/ShopContextProvider";
 import ProductSingle from "./ProductSingle";
 import Testimonials from "./Testimonials";
 import SuggestCategory from "./SuggestCategory";
-import FooterBar from "../../../pages/FooterBar";
+
 
 import AddTestimonial from "./AddTestimonial";
+import FooterBar from "../../footer/FooterBar";
 const SingleProduct = () => {
 
       const {products,  } = useContext(ShopContext)

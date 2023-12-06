@@ -11,7 +11,7 @@ const Cart = () => {
     <div className='max-w-screen-lg  mx-auto'>
 
            {!cart.length ? <div className='w-full centered flex flex-col centered h-[620px] xl:h-[710px]'>
-                <h1 className='text-4xl'>You cart is empty</h1>
+                <h1 className='text-4xl text-red-500 font-bold manjari'>You cart is empty</h1>
                 <img src={emptyCart} className='object-cover'/>
             </div>
            :

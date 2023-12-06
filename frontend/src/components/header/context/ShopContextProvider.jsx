@@ -48,10 +48,12 @@ const ShopContextProvider = (props) => {
 
   useEffect(() => {
     const total = cart.reduce((a, c) => {
-      return a + c.price + c.amount;
+      return a + c.price * c.amount;
     }, 0)
     setTotal(total)
   }, [cart])
+
+
 
   const filterItems = (cat) => {
       const newItems = products.filter((newval) => newval.category === cat)
@@ -88,12 +90,15 @@ const ShopContextProvider = (props) => {
  }
 
 
+
  const removeCart = (id) => {
   const newCart = cart.filter((item) => {
     return item._id !== id
   })
   setCart(newCart)
 }
+
+
 
 const handleInput = (e, id) => {
     const value = parseInt(e.target.value)
@@ -127,6 +132,12 @@ const clearCart = () => {
   setCart([])
 }
 
+
+const logout = () => {
+  window.localStorage.clear()
+  window.location.href = '/login'
+}
+
   const value = {
     setIsOpen,
     isOpen,
@@ -140,14 +151,14 @@ const clearCart = () => {
     setSearch,
     values,
     setValue,
-
     addCart,
     removeCart,
     cart,
     amount,
     total,
     handleInput,
-    clearCart
+    clearCart,
+    logout
   }
 
 

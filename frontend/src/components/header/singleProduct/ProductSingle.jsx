@@ -16,7 +16,7 @@ const ProductSingle = () => {
     }, [])
 
     const {addCart} = useContext(ShopContext)
-
+    console.log(singleProduct)
   return (
     <div className='text-black manjari '>
 
@@ -37,7 +37,7 @@ const ProductSingle = () => {
 
                  <div className='w-full flex flex-col gap-1'>
                     <div>
-                      <QuantityBtn />
+                      <QuantityBtn id={id} singleProduct={singleProduct} amount={singleProduct.amount} addCart={addCart}/>
                     </div>
                     <div className='flex justify-start items-center gap-4 h-[53px]'>
                      <button onClick={() => addCart(singleProduct, id)} className='w-[134px] bg-green-600 text-white h-[35px] border-b border-r border-black rounded-xl'>Add to cart</button>

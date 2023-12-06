@@ -1,14 +1,15 @@
 import { useContext, useEffect } from "react";
-import './zigzag.css'
 
 import { ShopContext } from "../context/ShopContextProvider";
 
 import ProductSingle from "./ProductSingle";
 import Testimonials from "./Testimonials";
 import SuggestCategory from "./SuggestCategory";
-import FooterBar from "../../../pages/FooterBar";
+
 
 import AddTestimonial from "./AddTestimonial";
+import FooterBar from "../../footer/FooterBar";
+
 const SingleProductCyclone = () => {
 
       const {products,  } = useContext(ShopContext)

@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react'
-import AdminMenu from '../../AdminMenu'
+import AdminMenu from '../../components/AdminMenu'
 
 import axios from 'axios'
 import './grid.css'

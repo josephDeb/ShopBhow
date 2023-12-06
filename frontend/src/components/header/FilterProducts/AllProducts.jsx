@@ -3,12 +3,13 @@ import arrow from '../../../assets/arrow-right.gif'
 
 import FilterCategory from './FilterCategory';
 import CardProduct from './CardProduct';
-import FooterBar from '../../../pages/FooterBar';
+
 import { ShopContext } from '../context/ShopContextProvider';
 import { Link, } from 'react-router-dom';
 import MbSearchBar from './MbSearchBar';
+import FooterBar from '../../footer/FooterBar';
 
-const AllProducts = () => {
+const FilterProducts = () => {
 
     const {category, products, search, values, filterItems, addCart } = useContext(ShopContext)
     console.log(values)
@@ -43,7 +44,6 @@ const AllProducts = () => {
 
     </div>
 
-    
     <div className='fixed z-[88] w-full -bottom-1 h-[62px] shadow-2xl '>
              <FooterBar />
         </div>
@@ -51,4 +51,4 @@ const AllProducts = () => {
   )
 }
 
-export default AllProducts
+export default FilterProducts

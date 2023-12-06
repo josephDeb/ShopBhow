@@ -182,7 +182,7 @@ const updateUserById = asyncHandler(async (req, res) => {
   }
 });
 
-export const signout = (req, res) => {
+const signout = (req, res) => {
   res.clearCookie('jwt').status(200).json('Signout success!');
 };
 
@@ -196,4 +196,5 @@ export {
   deleteUserById,
   getUserById,
   updateUserById,
+  signout
 };

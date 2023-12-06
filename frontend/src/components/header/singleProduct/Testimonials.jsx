@@ -4,29 +4,29 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
-import profile from '../../../assets/josephpogi.jpg'
-import profile2 from '../../../assets/ehpaanokung8.png'
-import profile3 from '../../../assets/joseph.png'
+import profile from '../../../assets/mimiyah.jfif'
+import profile2 from '../../../assets/rendon.jfif'
+import profile3 from '../../../assets/kwen.jpg'
 import {FreeMode, Pagination, Autoplay} from 'swiper/modules';
 import {FaQuoteLeft} from 'react-icons/fa'
 const Testimonials = () => {
   const testimonialData = [
     {
-      message: 'My expectations ahhhhhm ok lang',
+      message: 'Wala akong masabi sa item na to yuhhhh!',
       avatar: profile,
-      name: 'Joseph De leon',
-      job: 'Front end Developer & Cute',
+      name: 'Mimiyuuuh',
+      job: 'Vlogger & Youtuber',
       star: 4
     },
     {
-      message: 'Abay grabe sulit talaga mag rent sa CARENTALS kasyang kasya yung mga chix ko dito',
+      message: 'Focus sa goal bili kalang ng bili! Iwan mo kahit pamilya mo pa!',
       avatar: profile2,
       name: 'Jerome Apduhan',
       job: 'Photographer & Manyak ',
       star: 5
     },
     {
-      message: 'No Comment',
+      message: 'OMG! The item was delivered in a timely manner, and the packaging ensured that it arrived in perfect condition.',
       avatar: profile3,
       name: 'Jan Patrick Abayon',
       job: 'Guitarist & Pogiii',
@@ -68,7 +68,7 @@ const Testimonials = () => {
             </div>
 
               <div className='w-full centered flex flex-col gap-2 '>
-                <img src={ts.avatar} className='w-[88px] rounded-full bg-red-500 h-[88px]'/>
+                <img src={ts.avatar} className='w-[88px] rounded-full bg-red-500 h-[88px] object-cover'/>
                 <div className='w-full centered'>
                 <div className='h-[17px] w-[17px] rounded-full bg-red-500'></div>
                 </div>

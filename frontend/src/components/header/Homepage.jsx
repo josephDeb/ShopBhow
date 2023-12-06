@@ -4,12 +4,12 @@ import galery from '../../assets/galery.gif'
 import microphone from '../../assets/microphone.gif'
 
 import { useContext, useEffect, useState } from 'react'
-import FooterBar from '../../pages/FooterBar'
+
 import CycloneOffer from './CycloneOffer'
 
 import Category from './Category'
 
-import Banner from './Banner'
+
 import Darkmode from './darkmode/Darkmode'
 import TopProducts from './TopProducts'
 import Banner3 from './banner/Banner3'
@@ -18,6 +18,8 @@ import Banner4 from './banner/Banner4'
 import Collections from './Collections'
 import SearchBar from './SearchBar'
 import { ShopContext } from './context/ShopContextProvider'
+import Banner from './banner/Banner'
+import FooterBar from '../footer/FooterBar'
 
 
 const Homepage = () => {

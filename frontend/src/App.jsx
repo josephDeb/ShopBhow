@@ -23,14 +23,11 @@ import Product from "./components/dashboard/pages/Products/Product"
 import AddProducts from "./components/dashboard/pages/Products/AddProducts"
 import AdminDashboard from "./components/dashboard/components/AdminDashboard"
 import UpdateProduct from "./components/dashboard/pages/Products/UpdateProduct"
-import AllProducts from "./components/header/allproducts/AllProducts"
+
 import Footers from "./components/footer/Footer"
 import ForgetPassword from "./components/login/ForgetPassword"
 import SingleProduct from "./components/header/singleProduct/SingleProduct"
 import Cart from "./components/header/cart/Cart"
-import PaymentInfo from "./components/header/PaymentInfo/PaymentInfo"
-import Success from "./components/header/PaymentInfo/Success"
-import Cancel from "./components/header/PaymentInfo/Cancel"
 import SingleProductCyclone from "./components/header/singleCycloneProduct/SingleProductCyclone"
 import ManageUsers from "./components/dashboard/pages/users/ManageUsers"
 import UpdateUser from "./components/dashboard/pages/users/UpdateUser"
@@ -38,6 +35,7 @@ import UpdateUser from "./components/dashboard/pages/users/UpdateUser"
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import FilterProducts from "./components/header/FilterProducts/AllProducts"
 function App() {
 
   return (
@@ -57,12 +55,10 @@ function App() {
 
                 <Route path="/home" element={<Header />}>
                       <Route path="/home" element={<Homepage />}/>
-                      <Route path="/home/all-products" element={<AllProducts />}/>
+                      <Route path="/home/all-products" element={<FilterProducts />}/>
                       <Route path="/home/:id" element={<SingleProduct />}/>
                       <Route path="/home/offer/:id" element={<SingleProductCyclone />}/>
                       <Route path="/home/cart" element={<Cart />}>
-                        <Route path="/home/cart/success" element={<Success />}/>
-                        <Route path="/home/cart/cancel" element={<Cancel />}/>
                       </Route>
                       
                 </Route>

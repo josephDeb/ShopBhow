@@ -12,24 +12,24 @@ import {FaQuoteLeft} from 'react-icons/fa'
 const Testimonials = () => {
   const testimonialData = [
     {
-      message: 'My expectations ahhhhhm ok langs',
+      message: 'Ah, I am oh so lonely because I do not have a mama.',
       avatar: profile,
-      name: 'Joseph De leons',
-      job: 'Front end Developer & Cute',
+      name: 'Anya Forger',
+      job: 'SPY x FAMILY',
       star: 4
     },
     {
-      message: 'Abay grabe sulit talaga mag rent sa CARENTALS kasyang kasya yung mga chix ko dito',
+      message: 'おならしたいのにうんちが出てしまう',
       avatar: profile2,
-      name: 'Jerome Apduhan',
-      job: 'Photographer & Manyak ',
+      name: 'Vanitas',
+      job: 'Kin of the Blue Moon',
       star: 5
     },
     {
-      message: 'No Comment',
+      message: 'Ano nasaktan moko diba ayos ayos',
       avatar: profile3,
-      name: 'Jan Patrick Abayon',
-      job: 'Guitarist & Pogiii',
+      name: 'Unidentified',
+      job: 'Unknown',
       star: 1
     }
   ]

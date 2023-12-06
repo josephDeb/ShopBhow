@@ -6,7 +6,7 @@ import './style.css'
 import {  signInSuccess} from "../../../../user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-
+import note from '../../assets/stickyNote.png'
 
 const UserLoginForm = () => {
 
@@ -61,6 +61,9 @@ const UserLoginForm = () => {
 
   return (
     <div className="relative flex flex-col justify-center max-w-screen-xl mx-auto min-h-screen overflow-hidden manjari">
+
+        <img src={note} className="absolute top-0 xl:w-[350px] w-[170px]"/>
+
             <div className="w-[88%] p-6 m-auto bg-white/80 rounded-md shadow-xl lg:max-w-sm">
                 <h1 className="text-3xl font-semibold text-center text-red-700 uppercase">
                     Sign in

@@ -15,9 +15,10 @@ import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import QuantityBtn from './QuantityBtn';
 import { HiX } from 'react-icons/hi';
-import FooterBar from '../../../pages/FooterBar';
+
 
 import {loadStripe} from '@stripe/stripe-js';
+import FooterBar from '../../footer/FooterBar';
 const CartDetails = () => {
     const {cart, removeCart, total, clearCart} = useContext(ShopContext)
 

@@ -1,5 +1,5 @@
 import express from "express";
-import { createUser, loginUser, logoutCurrentUser, getAllUsers,deleteUserById, getUserById, updateUserById, getCurrentUserProfile, updateCurrentUserProfile } from '../controlers/userControlers.js'
+import { createUser, loginUser, logoutCurrentUser, getAllUsers,deleteUserById, getUserById, updateUserById, getCurrentUserProfile, updateCurrentUserProfile,signout } from '../controlers/userControlers.js'
 
 const router = express.Router();
 
@@ -20,6 +20,7 @@ router.route("/").get(protect, authorizedAdmin, getAllUsers)
 router.route("/").get(protect, getCurrentUserProfile)
 router.route("/profile:id").put(protect, updateCurrentUserProfile)
 router.route("/:id").delete(protect, authorizedAdmin, deleteUserById).get(protect, authorizedAdmin, getUserById).put(protect, authorizedAdmin, updateUserById)
+router.route("/signout").post(signout)
 
 
 

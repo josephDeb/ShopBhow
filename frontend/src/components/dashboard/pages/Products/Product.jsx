@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import {Link } from 'react-router-dom'
 import axios from 'axios'
 import moment from 'moment'
-import AdminMenu from '../../AdminMenu'
+
 import './styles.css'
 import dlt from '../../../../assets/trash.png'
 import Swal from 'sweetalert2';
@@ -19,6 +19,8 @@ import { Pagination } from 'swiper/modules';
 import './styles.css'
 
 import ecommerce from '../../../../assets/ecommerce.png'
+import AdminMenu from '../../components/AdminMenu'
+
 
 const Product = () => {
     const [products, setProducts] = useState([])

@@ -16,7 +16,9 @@ import { Link} from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 import monkey from '../../../../assets/monkey.png'
-import AdminMenu from '../../AdminMenu';
+import AdminMenu from '../../components/AdminMenu';
+
+
 
 const ListCategory = () => {
 

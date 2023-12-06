@@ -6,9 +6,11 @@ import
  import
  { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line }
  from 'recharts';
-import AdminMenu from '../AdminMenu';
+
 import axios from 'axios'
 import { Link } from 'react-router-dom';
+import AdminMenu from './AdminMenu';
+
 function AdminDashboard() {
 
     const data = [

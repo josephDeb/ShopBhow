@@ -1,7 +1,7 @@
-import { BsArrowRightShort } from 'react-icons/bs'
-import img from '../../assets/5.png'
-import btnshopnow from '../../assets/btnshopnow.png'
-import '../Styles/btn.css'
+
+import img from '../../../assets/5.png'
+
+import '../../Styles/btn.css'
 
 const Banner = () => {
 
