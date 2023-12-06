@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://shopbhow.vercel.app/",
+        target: "http://localhost:8088/",
         secure: false,
       }
     }
