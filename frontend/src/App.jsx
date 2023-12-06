@@ -9,7 +9,7 @@ import Private from "./components/priveRoute/Private"
 
 import PrivateRouteAdmin from "./components/priveRoute/PrivateRouteAdmin"
 import Header from "./components/header/Header"
-import AdminLogin from "./components/dashboard/adminLogin/adminLogin"
+
 import Dashboard from "./components/dashboard/components/Dashboard"
 
 import HomeP from "./components/shop/HomeP"
@@ -36,6 +36,7 @@ import UpdateUser from "./components/dashboard/pages/users/UpdateUser"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import FilterProducts from "./components/header/FilterProducts/AllProducts"
+import AdminLogin from "./components/dashboard/adminLogin/AdminLogin"
 function App() {
 
   return (
