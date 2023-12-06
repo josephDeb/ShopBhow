@@ -3,7 +3,7 @@ import { useState,} from "react";
 import { useNavigate } from "react-router";
 
 import './style.css'
-import {  signInSuccess} from "../../../../user/userSlice";
+import {  signInSuccess} from "../../../user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 import note from '../../assets/stickyNote.png'

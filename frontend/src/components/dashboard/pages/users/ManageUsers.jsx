@@ -24,7 +24,7 @@ const ManageUsers = () => {
 
     const [on, setOn] = useState(false)
     const [addOn, setAddOn] = useState(false)
-
+    axios.defaults.withCredentials = true;
     const handleDelete = async (id) => {
       const result = await Swal.fire({
           title: "Do you really want to delete?",

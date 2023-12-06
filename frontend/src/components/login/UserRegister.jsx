@@ -1,15 +1,13 @@
 
 import {  useState} from 'react';
 import {  useNavigate} from 'react-router-dom';
-import { toast } from 'react-toastify';
-import {useDispatch, useSelector} from 'react-redux'
-import { signInSuccess } from '../../../../user/userSlice';
+import {useDispatch, } from 'react-redux'
+import { signInSuccess } from '../../../user/userSlice';
 import Swal from 'sweetalert2'
 
 const UserRegister = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const {currentUser} = useSelector(state => state.user)
     const [values, setValues] = useState({
       username: "",
       email: "",

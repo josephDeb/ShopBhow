@@ -11,6 +11,7 @@ const AddUser = ({setAddOn, addOn, }) => {
         email: "",
         password: ""
     })
+    axios.defaults.withCredentials = true;
     const handleAdd = async (e) => {
         e.preventDefault()
         await axios.post("/api/users/create", values)

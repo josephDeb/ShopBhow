@@ -17,6 +17,7 @@ import { Link } from 'react-router-dom';
 
 
 const Collections = () => {
+  axios.defaults.withCredentials = true;
   const [datas, setDatas] = useState([])
   useEffect(() => {
       axios.get("/api/category/categories")

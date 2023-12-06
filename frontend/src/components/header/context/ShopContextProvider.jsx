@@ -29,7 +29,7 @@ const ShopContextProvider = (props) => {
       setCart(JSON.parse(ls.getItem("cart")))
     }
   }, [])
-
+  axios.defaults.withCredentials = true;
   useEffect(() => {
       axios.get("/api/category/categories")
       .then(res => {

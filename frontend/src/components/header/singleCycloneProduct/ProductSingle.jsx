@@ -5,6 +5,7 @@ import axios from 'axios'
 import '../styles2.css'
 import QuantityBtn from './QuantityBtn'
 const ProductSingle = () => {
+  axios.defaults.withCredentials = true;
     const [singleProduct, setSingleProduct] = useState([])
     const {id} = useParams()
     useEffect(() => {

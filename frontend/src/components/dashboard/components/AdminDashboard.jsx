@@ -59,6 +59,7 @@ function AdminDashboard() {
       ];
      
       const [products, setProducts] = useState([])
+      axios.defaults.withCredentials = true;
     useEffect(() => {
       axios.get("/api/products")
       .then(res => {

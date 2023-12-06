@@ -17,6 +17,8 @@ const UpdateProduct = () => {
     category: "",
  })
 
+ axios.defaults.withCredentials = true;
+
   useEffect(() => {
       axios.get("/api/category/categories")
       .then(res => {

@@ -12,6 +12,7 @@ const inputStyle = "shadow-sm bg-gray-50 border border-gray-300 text-gray-900 te
 
 
 const AddProducts = () => {
+  axios.defaults.withCredentials = true;
 
   const [categories, setCategories] = useState([])
 

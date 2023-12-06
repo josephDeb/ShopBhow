@@ -1,10 +1,7 @@
-import { useEffect, useState } from 'react'
+
 
 import axios from 'axios'
 
-import AddCategories from './AddCategories'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import {MdEditNote, MdDelete} from 'react-icons/md'
 
 // Import Swiper styles
 import 'swiper/css';
@@ -12,11 +9,11 @@ import 'swiper/css/pagination';
 // import required modules
 import { Pagination } from 'swiper/modules';
 import { Link, Outlet } from 'react-router-dom';
-import UpdateCategory from './UpdateCategory';
+
 
 const HomeCategories =  () => {
 
- 
+  axios.defaults.withCredentials = true;
 
   return (
 

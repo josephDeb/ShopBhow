@@ -10,6 +10,7 @@ import Swal from 'sweetalert2'
   //  request.resource.contentType.matches('image/.*')
 
 const UpdateCategory =  () => {
+  axios.defaults.withCredentials = true;
   const {id} = useParams()
   const navigate = useNavigate()
   const [title, setTitle] = useState(String)

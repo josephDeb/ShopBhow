@@ -16,7 +16,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 axios
 const CycloneOffer = () => {
-
+  axios.defaults.withCredentials = true;
   const [products, setProducts] = useState([])
 
   useEffect(() => {

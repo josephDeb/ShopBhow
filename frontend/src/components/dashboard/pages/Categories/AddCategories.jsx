@@ -26,6 +26,7 @@ const handleAdd = async (e) => {
   if(!title) {
     alert("Please fill up the field")
   }
+  axios.defaults.withCredentials = true;
    await axios.post("/api/category", formdata)
    .then(res => {
     alert("Successfully added")

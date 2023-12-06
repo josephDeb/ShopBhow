@@ -23,6 +23,7 @@ import AdminMenu from '../../components/AdminMenu'
 
 
 const Product = () => {
+  axios.defaults.withCredentials = true;
     const [products, setProducts] = useState([])
     useEffect(() => {
         axios.get("/api/products")

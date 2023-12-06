@@ -6,6 +6,7 @@ import '../styles2.css'
 import QuantityBtn from './QuantityBtn'
 import { ShopContext } from '../context/ShopContextProvider'
 const ProductSingle = () => {
+  axios.defaults.withCredentials = true;
     const [singleProduct, setSingleProduct] = useState([])
     const {id} = useParams()
     useEffect(( ) => {

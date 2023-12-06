@@ -21,7 +21,7 @@ import AdminMenu from '../../components/AdminMenu';
 
 
 const ListCategory = () => {
-
+  axios.defaults.withCredentials = true;
     const [listCt, setListCt] =  useState([])
     useEffect(() => {
     axios.get("/api/category/categories")

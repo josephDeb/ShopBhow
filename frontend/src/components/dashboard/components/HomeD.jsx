@@ -7,6 +7,7 @@ import
  from 'recharts';
 import axios from 'axios'
 function HomeD() {
+  axios.defaults.withCredentials = true;
   const [categories, setCategories] = useState([])
   useEffect(() => {
       axios.get("/api/category/categories")

@@ -6,7 +6,7 @@ import {useParams} from 'react-router-dom'
 import Swal from 'sweetalert2'
 const UpdateUser = ({setOn, on, }) => {
     const {id} = useParams()
-
+    axios.defaults.withCredentials = true;
     const [values, setValues] = useState({
         username: "",
         email: ""
