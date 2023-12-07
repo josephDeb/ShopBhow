@@ -19,11 +19,11 @@ const upload = multer({
 // end i
 
 
-router.post("/",protect, authorizedAdmin, upload.single("file"), createCategory)
+router.post("/", upload.single("file"), createCategory)
 
-router.put('/:id',protect, authorizedAdmin, updateCategory)
-router.route("/:categoryId").delete(protect, authorizedAdmin,removeCategory)
-router.route("/categories").get(protect, authorizedAdmin,allCategories)
-router.route("/:id").get(protect, authorizedAdmin, singleCategory)
+router.put('/:id', updateCategory)
+router.route("/:categoryId").delete(removeCategory)
+router.route("/categories").get(allCategories)
+router.route("/:id").get( singleCategory)
 export default router
 
