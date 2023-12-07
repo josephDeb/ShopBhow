@@ -7,9 +7,9 @@ import {  signInSuccess} from "../../../user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 import note from '../../assets/stickyNote.png'
-
+import axios from 'axios'
 const UserLoginForm = () => {
-
+    axios.defaults.withCredentials= true
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const {currentUser} = useSelector(state => state.user)
@@ -21,7 +21,7 @@ const UserLoginForm = () => {
 
     const [error, setError] = useState(false)
     const [irror, setIrror] = useState("")
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault()
         
