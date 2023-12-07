@@ -34,6 +34,7 @@ const AddProducts = () => {
  })
  const navigate = useNavigate()
  const handleSubmit = async (e) => {
+  axios.defaults.withCredentials = true;
   e.preventDefault();
   const formdata = new FormData()
   formdata.append("name", product.name)

@@ -17,9 +17,10 @@ const UpdateProduct = () => {
     category: "",
  })
 
- axios.defaults.withCredentials = true;
+
 
   useEffect(() => {
+    axios.defaults.withCredentials = true;
       axios.get("https://shopbhow-backend.onrender.com/api/category/categories")
       .then(res => {
         setCategories(res.data.Result)

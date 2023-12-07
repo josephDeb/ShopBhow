@@ -6,10 +6,11 @@ import '../styles2.css'
 import QuantityBtn from './QuantityBtn'
 import { ShopContext } from '../context/ShopContextProvider'
 const ProductSingle = () => {
-  axios.defaults.withCredentials = true;
+
     const [singleProduct, setSingleProduct] = useState([])
     const {id} = useParams()
     useEffect(( ) => {
+      axios.defaults.withCredentials = true;
         axios.get("https://shopbhow-backend.onrender.com/api/products/"+id)
         .then(res => {
             setSingleProduct(res.data.single)

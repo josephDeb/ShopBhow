@@ -23,9 +23,10 @@ import AdminMenu from '../../components/AdminMenu'
 
 
 const Product = () => {
-  axios.defaults.withCredentials = true;
+  
     const [products, setProducts] = useState([])
     useEffect(() => {
+      axios.defaults.withCredentials = true;
         axios.get("https://shopbhow-backend.onrender.com/api/products")
         .then(res => {
             setProducts(res.data.Result)

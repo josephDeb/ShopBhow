@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import note from '../../assets/stickyNote.png'
 import axios from 'axios'
 const UserLoginForm = () => {
-    axios.defaults.withCredentials= true
+    
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const {currentUser} = useSelector(state => state.user)
@@ -34,7 +34,8 @@ const UserLoginForm = () => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(values)
+            body: JSON.stringify(values),
+            credentials: true
         });
         try {
             setError(false)

@@ -59,8 +59,9 @@ function AdminDashboard() {
       ];
      
       const [products, setProducts] = useState([])
-      axios.defaults.withCredentials = true;
+    
     useEffect(() => {
+      axios.defaults.withCredentials = true;
       axios.get("https://shopbhow-backend.onrender.com/api/products")
       .then(res => {
         setProducts(res.data.Result)
