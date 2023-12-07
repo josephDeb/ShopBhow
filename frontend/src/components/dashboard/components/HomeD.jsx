@@ -10,7 +10,7 @@ function HomeD() {
   axios.defaults.withCredentials = true;
   const [categories, setCategories] = useState([])
   useEffect(() => {
-      axios.get("https://shopbhow-backend.onrender.com/api/category/categories")
+      axios.get("api/category/categories")
       .then(res => {
         setCategories(res.data.Result.length)
       })

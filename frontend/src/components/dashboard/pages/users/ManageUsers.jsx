@@ -15,7 +15,7 @@ const ManageUsers = () => {
     const {id} = useParams()
     const [allUsers, setAllUsers] = useState([])
     useEffect(() => {
-        axios.get("https://shopbhow-backend.onrender.com/api/users")
+        axios.get("api/users")
         .then(res => {
             setAllUsers(res.data)
             console.log(allUsers)

@@ -25,7 +25,7 @@ const AdminLogin = () => {
         if(!values.email ||  !values.password) {
             alert("PLease fill up all fields")
         }
-        const res = await fetch("https://shopbhow-backend.onrender.com/api/users/auth", {
+        const res = await fetch("api/users/auth", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
