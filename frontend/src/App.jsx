@@ -37,6 +37,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import FilterProducts from "./components/header/FilterProducts/AllProducts"
 import AdminLogin from "./components/dashboard/adminLogin/AdminLogin"
+import NotFound from "../NotFound"
 function App() {
 
   return (
@@ -87,6 +88,8 @@ function App() {
                 </Route>
               </Route>
 
+
+              <Route path="*" element={<NotFound />}/>
             </Routes>
             <Footers />
         </Router>
