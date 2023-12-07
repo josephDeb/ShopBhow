@@ -24,7 +24,7 @@ const UserRegister = () => {
             setIrror("Please fill out the fields")
         }
         setError(true)
-        const res = await fetch("/api/users/create", {
+        const res = await fetch("https://shopbhow-backend.onrender.com/api/users/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

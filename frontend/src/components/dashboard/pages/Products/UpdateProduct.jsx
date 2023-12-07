@@ -20,7 +20,7 @@ const UpdateProduct = () => {
  axios.defaults.withCredentials = true;
 
   useEffect(() => {
-      axios.get("/api/category/categories")
+      axios.get("https://shopbhow-backend.onrender.com/api/category/categories")
       .then(res => {
         setCategories(res.data.Result)
         console.log(res.data.Result)
@@ -28,7 +28,7 @@ const UpdateProduct = () => {
   }, [])
 
   useEffect(() => {
-        axios.get("/api/products/"+id)
+        axios.get("https://shopbhow-backend.onrender.com/api/products/"+id)
         .then(res => {
             setProduct(res.data.single)
             console.log(res.data.single)
@@ -37,7 +37,7 @@ const UpdateProduct = () => {
 
  const handleSubmit = async (e) => {
   e.preventDefault();
-  await axios.put("/api/products/"+id, product)
+  await axios.put("https://shopbhow-backend.onrender.com/api/products/"+id, product)
   .then(result => {
     if(result.data.Status) {
       alert("updated")

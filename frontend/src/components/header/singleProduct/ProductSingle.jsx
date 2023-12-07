@@ -10,7 +10,7 @@ const ProductSingle = () => {
     const [singleProduct, setSingleProduct] = useState([])
     const {id} = useParams()
     useEffect(( ) => {
-        axios.get("/api/products/"+id)
+        axios.get("https://shopbhow-backend.onrender.com/api/products/"+id)
         .then(res => {
             setSingleProduct(res.data.single)
         })

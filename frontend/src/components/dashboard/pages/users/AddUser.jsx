@@ -14,7 +14,7 @@ const AddUser = ({setAddOn, addOn, }) => {
     axios.defaults.withCredentials = true;
     const handleAdd = async (e) => {
         e.preventDefault()
-        await axios.post("/api/users/create", values)
+        await axios.post("https://shopbhow-backend.onrender.com/api/users/create", values)
         .then(res => {
             alert('Successfully created');
         }).catch(err => console.log(err))

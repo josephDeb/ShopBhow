@@ -29,7 +29,7 @@ const ForgetPassword = () => {
             setIrror("Please fill out the fields")
         }
         setError(true)
-        const res = await fetch("/api/users/auth", {
+        const res = await fetch("https://shopbhow-backend.onrender.com/api/users/auth", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

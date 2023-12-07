@@ -31,12 +31,12 @@ const ShopContextProvider = (props) => {
   }, [])
   axios.defaults.withCredentials = true;
   useEffect(() => {
-      axios.get("/api/category/categories")
+      axios.get("https://shopbhow-backend.onrender.com/api/category/categories")
       .then(res => {
           setCategory(res.data.Result)
       }).catch(err => console.log(err))
 
-      axios.get("/api/products")
+      axios.get("https://shopbhow-backend.onrender.com/api/products")
       .then(res => {
           setProducts(res.data.Result)
           setSearch(res.data.Result)

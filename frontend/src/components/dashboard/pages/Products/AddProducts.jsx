@@ -17,7 +17,7 @@ const AddProducts = () => {
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
-      axios.get("/api/category/categories")
+      axios.get("https://shopbhow-backend.onrender.com/api/category/categories")
       .then(res => {
         setCategories(res.data.Result)
         console.log(res.data.Result)
@@ -42,7 +42,7 @@ const AddProducts = () => {
   formdata.append("stocks", product.stocks)
   formdata.append("price", product.price)
   formdata.append("file", product.image)
-  await axios.post("/api/products/create", formdata)
+  await axios.post("https://shopbhow-backend.onrender.com/api/products/create", formdata)
   .then(result => {
     if(result.data.Status) {
       alert("create")
