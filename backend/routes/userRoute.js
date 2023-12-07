@@ -16,7 +16,7 @@ router.post("/auth", loginUser)
 router.post("/logout", logoutCurrentUser)
 
 // admin route
-router.route("/").get(protect, authorizedAdmin, getAllUsers)
+router.route("/users").get(protect, authorizedAdmin, getAllUsers)
 router.route("/").get(protect, getCurrentUserProfile)
 router.route("/profile:id").put(protect, updateCurrentUserProfile)
 router.route("/:id").delete(protect, authorizedAdmin, deleteUserById).get(protect, authorizedAdmin, getUserById).put(protect, authorizedAdmin, updateUserById)
