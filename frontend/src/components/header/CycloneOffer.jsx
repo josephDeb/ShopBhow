@@ -17,8 +17,8 @@ import { Link } from 'react-router-dom';
 const CycloneOffer = () => {
 
   const [products, setProducts] = useState([])
+  axios.defaults.withCredentials = true
 
-  
   return (
     <div className='xl:max-w-screen-lg w-full h-[280px] xl:h-[260px]   rounded-lg'>
    <div className='xl:w-full w-[90%] mx-auto flex justify-start items-center h-[53px] '>

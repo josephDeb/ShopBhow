@@ -24,7 +24,7 @@ const ListCategory = () => {
   axios.defaults.withCredentials = true;
     const [listCt, setListCt] =  useState([])
     useEffect(() => {
-    axios.get("https://shopbhow-backend.onrender.com/category/categories")
+    axios.get("https://shopbhow-backend.onrender.com/api/category/categories")
     .then(res => {
         setListCt(res.data.Result)
     
