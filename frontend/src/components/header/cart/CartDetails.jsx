@@ -33,7 +33,7 @@ const CartDetails = () => {
     const headers = {
         "Content-Type":"application/json"
     }
-      const response = await fetch("api/orders/checkout",{
+      const response = await fetch("https://shopbhow-backend.onrender.com/api/orders/checkout",{
             method:"POST",
             headers:headers,
             body:JSON.stringify(body)

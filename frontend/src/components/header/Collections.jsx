@@ -20,7 +20,7 @@ const Collections = () => {
   axios.defaults.withCredentials = true;
   const [datas, setDatas] = useState([])
   useEffect(() => {
-      axios.get("api/category/categories")
+      axios.get("https://shopbhow-backend.onrender.com/api/category/categories")
       .then(res => {
           setDatas(res.data.Result)
       })

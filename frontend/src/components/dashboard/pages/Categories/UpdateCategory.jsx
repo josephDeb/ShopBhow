@@ -15,7 +15,7 @@ const UpdateCategory =  () => {
   const navigate = useNavigate()
   const [title, setTitle] = useState(String)
   useEffect(() => {
-      axios.get("api/category/"+id)
+      axios.get("https://shopbhow-backend.onrender.com/api/category/"+id)
       .then(res => {
           setTitle(res.data.single.title)
           console.log(res.data.single.title)
@@ -24,7 +24,7 @@ const UpdateCategory =  () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.put("api/category/"+id, title)
+    await axios.put("https://shopbhow-backend.onrender.com/api/category/"+id, title)
     .then(result => {
       if(result.data.Status) {
         alert("updated")
