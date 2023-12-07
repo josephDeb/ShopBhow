@@ -23,7 +23,7 @@ import productRoute from '../backend/routes/productRoute.js'
  app.use(express.static("public"))
  app.use(cors(
   {
-  origin: ["http://localhost:5173", "https://shop-bhow.vercel.app/"],
+  origin: ["https://shop-bhow.vercel.app/"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
   }
