@@ -20,6 +20,9 @@ const UpdateUser = ({setOn, on, }) => {
                 text: "You clicked the button!",
                 icon: "success"
               })
+            setTimeout(() => {
+                window.location.reload()
+            }, 1000)
               console.log(res)
         })
     }
