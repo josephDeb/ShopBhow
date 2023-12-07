@@ -27,8 +27,6 @@ const ListCategory = () => {
     axios.get("https://shopbhow-backend.onrender.com/api/category/categories")
     .then(res => {
         setListCt(res.data.Result)
-    
-        console.log(res)
     })
     .catch(err => console.log(err))
     }, [])

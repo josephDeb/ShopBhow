@@ -8,7 +8,7 @@ const createCategory = asyncHandler(async (req, res) => {
       const { title } = req.body;
   
       if (!title) {
-        return res.json({ error: "Name is required" });
+        return res.json({ error: "title is required" });
       }
   
       const existingCategory = await Category.findOne({ title });
