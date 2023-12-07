@@ -70,7 +70,7 @@ function AdminDashboard() {
     const [customers, setCustomers] = useState([])
 
     useEffect(() => {
-      axios.get('https://shopbhow-backend.onrender.com/api/users')
+      axios.get('https://shopbhow-backend.onrender.com/api/users/users')
       .then(res => {
         setCustomers(res.data)
         console.log(customers)
