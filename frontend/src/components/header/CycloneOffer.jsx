@@ -11,13 +11,23 @@ import { FreeMode, Pagination } from 'swiper/modules';
 
 import offer from '../../assets/offer.gif'
 import sale from '../../assets/sale.gif'
-import { useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { ShopContext } from './context/ShopContextProvider';
 const CycloneOffer = () => {
 
-  const [products, setProducts] = useState([])
   axios.defaults.withCredentials = true
+
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products')
+    .then(res=>res.json())
+    .then(json=>setProducts(json))
+    console.log(products)
+  }, [])
+
 
   return (
     <div className='xl:max-w-screen-lg w-full h-[280px] xl:h-[260px]   rounded-lg'>

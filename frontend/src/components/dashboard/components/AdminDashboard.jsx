@@ -62,7 +62,7 @@ function AdminDashboard() {
     
     useEffect(() => {
       axios.defaults.withCredentials = true;
-      axios.get("https://shopbhow-backend.onrender.com/api/products")
+      axios.get("api/products")
       .then(res => {
         setProducts(res.data.Result)
       }).catch(err => console.log(err))
@@ -71,7 +71,8 @@ function AdminDashboard() {
     const [customers, setCustomers] = useState([])
 
     useEffect(() => {
-      axios.get('https://shopbhow-backend.onrender.com/api/users/users')
+      axios.defaults.withCredentials = true;
+      axios.get('api/users/users')
       .then(res => {
         setCustomers(res.data)
         console.log(customers)

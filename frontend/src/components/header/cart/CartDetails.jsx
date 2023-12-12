@@ -17,38 +17,11 @@ import QuantityBtn from './QuantityBtn';
 import { HiX } from 'react-icons/hi';
 
 
-import {loadStripe} from '@stripe/stripe-js';
+
 import FooterBar from '../../footer/FooterBar';
 const CartDetails = () => {
     const {cart, removeCart, total, clearCart} = useContext(ShopContext)
 
-    // payment integration
-    const makePayment = async()=>{
-      const stripe = await loadStripe("pk_test_51OIcbWAnzSw6gdVPqzHWoNKatnk9wSk3U40MGHrK2OkUROa7P6uFYZGzjf9uOF6mDyvEYdwcMA0YFtxX4TNmdt9D00ZO9zXY8e");
-
-      
-      const body = {
-        products:cart
-    }
-    const headers = {
-        "Content-Type":"application/json"
-    }
-      const response = await fetch("https://shopbhow-backend.onrender.com/api/orders/checkout",{
-            method:"POST",
-            headers:headers,
-            body:JSON.stringify(body)
-        });
-
-      const session = await response.json();
-      console.log(session)
-      const result = stripe.redirectToCheckout({
-          sessionId:session.id
-      });
-      
-      if(result.error){
-          console.log(result.error);
-      }
-  }
 
   return (
     <>
@@ -115,7 +88,7 @@ const CartDetails = () => {
                 </div>
               <div className='flex w-[88%] gap-4'>
                   <button onClick={() => clearCart()} className='w-[170px] bg-yellow-600 text-white h-[44px]'>Clear cart</button>
-                  <button onClick={makePayment} className='border-2 bg-green-600 text-white h-[44px] w-[260px] centered'>Check out</button>
+                  <button className='border-2 bg-green-600 text-white h-[44px] w-[260px] centered'>Check out</button>
               </div>
             </div>
         </div>

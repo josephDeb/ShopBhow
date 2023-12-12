@@ -9,11 +9,9 @@ const ProductSingle = () => {
     const [singleProduct, setSingleProduct] = useState([])
     const {id} = useParams()
     useEffect(() => {
-      axios.get('https://fakestoreapi.com/products/'+id)
-      .then(res=> {
-        setSingleProduct(res.data)
-      })
-      .catch(error => console.log(error))
+      fetch('https://fakestoreapi.com/products/'+id)
+      .then(res=>res.json())
+      .then(json=>setSingleProduct(json))
     }, [singleProduct])
   return (
     <div className='text-black manjari'>

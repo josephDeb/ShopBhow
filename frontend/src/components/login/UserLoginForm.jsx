@@ -18,43 +18,39 @@ const UserLoginForm = () => {
       email: "",
       password: "",
     });
-
+    
     const [error, setError] = useState(false)
     const [irror, setIrror] = useState("")
     
+   
     const handleSubmit = async (e) => {
         e.preventDefault()
-        
         if(!values.email ||  !values.password) {
-            setIrror("Please fill out the fields")
+            alert("PLease fill up all fields")
         }
         setError(true)
-        const res = await fetch("https://shopbhow-backend.onrender.com/api/users/auth", {
+        const res = await fetch("/api/users/auth", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(values),
-            credentials: true
+            body: JSON.stringify(values)
         });
         try {
-            setError(false)
             const data = await res.json()
-            dispatch(signInSuccess(data))
+            setError(false)
             if(data.Status) {
-                if(currentUser) {
-                    setError(false)
-                    navigate("/home")
-                }
+                navigate("/home")
+                console.log(data)
             } else {
-                setError(false)
                 setIrror(data.Error)
+                setError(false)
             }
         } catch (err) {
             console.log(err)
-            setError(false)
         }
     }
+
 
 
 

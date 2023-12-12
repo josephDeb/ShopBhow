@@ -4,7 +4,7 @@ import {  useNavigate} from 'react-router-dom';
 import {useDispatch, } from 'react-redux'
 import { signInSuccess } from '../../../user/userSlice';
 import Swal from 'sweetalert2'
-
+import axios from 'axios'
 const UserRegister = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -13,7 +13,7 @@ const UserRegister = () => {
       email: "",
       password: "",
     });
-
+    axios.defaults.withCredentials = true
     const [error, setError] = useState(false)
     const [irror, setIrror] = useState("")
 
@@ -24,7 +24,7 @@ const UserRegister = () => {
             setIrror("Please fill out the fields")
         }
         setError(true)
-        const res = await fetch("https://shopbhow-backend.onrender.com/api/users/create", {
+        const res = await fetch("api/users/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

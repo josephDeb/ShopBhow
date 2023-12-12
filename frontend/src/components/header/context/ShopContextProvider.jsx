@@ -31,12 +31,12 @@ const ShopContextProvider = (props) => {
   }, [])
   axios.defaults.withCredentials = true;
   useEffect(() => {
-      axios.get("https://shopbhow-backend.onrender.com/api/category/categories")
+      axios.get("/api/category/categories")
       .then(res => {
           setCategory(res.data.Result)
       }).catch(err => console.log(err))
 
-      axios.get("https://shopbhow-backend.onrender.com/api/products")
+      axios.get("/api/products")
       .then(res => {
           setProducts(res.data.Result)
           setSearch(res.data.Result)
@@ -64,6 +64,37 @@ const ShopContextProvider = (props) => {
       setValue(e.target.value)
       setSearch(products.filter(f => f.name.toLowerCase().includes(e.target.value)))
   }
+
+
+  const decreaseCart = (data, id) => {
+    const cartItem = cart.find((item) => {
+      return item._id === id
+    })
+
+    
+    if(cartItem) {
+
+      const newCart = cart.map((item) => {
+        if(item._id === id) {
+  
+          if(cartItem.amount === 0) {
+            
+            return {...item, amount: cartItem.amount};
+          } else {
+            setAmount(cartItem.amount - 1);
+            return {...item, amount: cartItem.amount - 1};
+          }
+        } else {
+          return item
+        }
+      });
+      setCart(newCart)
+
+    } else {
+      setCart([...cart])
+    }
+  }
+
   const addCart = (data,id) => {
     const newItem = {...data, amount: 1}
     setCart([...cart, newItem])
@@ -87,6 +118,7 @@ const ShopContextProvider = (props) => {
     } else {
       setCart([...cart, newItem])
     }
+
  }
 
 
@@ -151,6 +183,7 @@ const logout = () => {
     setSearch,
     values,
     setValue,
+    decreaseCart,
     addCart,
     removeCart,
     cart,

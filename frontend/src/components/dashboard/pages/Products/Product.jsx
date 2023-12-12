@@ -27,7 +27,7 @@ const Product = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
       axios.defaults.withCredentials = true;
-        axios.get("https://shopbhow-backend.onrender.com/api/products")
+        axios.get("api/products")
         .then(res => {
             setProducts(res.data.Result)
         }).catch(err => console.log(err))
@@ -44,7 +44,7 @@ const Product = () => {
           confirmButtonText: "Yes, delete it!",
         })
         if(result.isConfirmed) {
-          await axios.delete("https://shopbhow-backend.onrender.com/api/products/"+id)
+          await axios.delete("api/products/"+id)
           .then(res => {
            window.location.reload()
            console.log(res)

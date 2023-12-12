@@ -1,15 +1,24 @@
 /* eslint-disable react/prop-types */
 
+import { set } from "mongoose"
 import { useState } from "react"
 
 const QuantityBtn = ({amount, singleProduct, id, addCart}) => {
 
+    const [count, setCount] = useState(0)
 
+    const decreaseCount = () => {
+        if(count === 0) {
+            return setCount(0)
+        } else {
+            return setCount(count -1)
+        }
+    } 
     return (
   <form className="mx-auto manjari ">
   
       <div className="relative flex items-center max-w-[8rem]">
-          <button  type="button" id="decrement-button" data-input-counter-decrement="quantity-input" className="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg xl:p-3 p-2 xl:h-11 h-8 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+          <button onClick={() => decreaseCount()}  type="button" id="decrement-button" data-input-counter-decrement="quantity-input" className="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg xl:p-3 p-2 xl:h-11 h-8 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
               <svg className="xl:w-3 xl:h-3 w-2 h-2 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                   <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h16"/>
               </svg>

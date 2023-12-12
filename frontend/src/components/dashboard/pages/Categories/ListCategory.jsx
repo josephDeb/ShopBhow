@@ -24,7 +24,7 @@ const ListCategory = () => {
   axios.defaults.withCredentials = true;
     const [listCt, setListCt] =  useState([])
     useEffect(() => {
-    axios.get("https://shopbhow-backend.onrender.com/api/category/categories")
+    axios.get("api/category/categories")
     .then(res => {
         setListCt(res.data.Result)
     })
@@ -41,7 +41,7 @@ const ListCategory = () => {
             confirmButtonText: "Yes, delete it!",
             
           })
-         await axios.delete("https://shopbhow-backend.onrender.com/api/category/"+id)
+         await axios.delete("api/category/"+id)
         .then(res => {
             if(result.isConfirmed) {
                 window.location.reload()

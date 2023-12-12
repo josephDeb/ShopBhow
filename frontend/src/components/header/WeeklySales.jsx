@@ -33,7 +33,7 @@ const WeeklySales = () => {
 </div>
 
 <div className='w-full h-[1040px] flex-col gap-2 xl:h-[700px] overflow-hidden'>
-      <div className="w-[90%] h-full grid grid-cols-1 gap-3 xl:grid-cols-2 xl:w-full mx-auto mt-2">
+      <div className="w-[90%] h-full grid grid-cols-1 gap-3 xl:grid-cols-2 xl:w-full mx-auto mt-2 overflow-hidden py-2">
 
    {search.map((wk, i) => {
       return <div key={i} className='h-[160px] w-full bg-white shadow-xl flex rounded-lg relative'>

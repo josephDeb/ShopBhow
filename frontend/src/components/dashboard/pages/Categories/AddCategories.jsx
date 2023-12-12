@@ -27,7 +27,7 @@ const handleAdd = async (e) => {
     alert("Please fill up the field")
   }
   axios.defaults.withCredentials = true;
-   await axios.post("https://shopbhow-backend.onrender.com/api/category", formdata)
+   await axios.post("api/category", formdata)
    .then(res => {
     alert("Successfully added")
     navigate("/admin-dashboard/categories")
