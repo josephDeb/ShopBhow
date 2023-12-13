@@ -2,13 +2,7 @@
 
 import axios from 'axios'
 
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-// import required modules
-import { Pagination } from 'swiper/modules';
-import { Link, Outlet } from 'react-router-dom';
+import {  Outlet } from 'react-router-dom';
 
 
 const HomeCategories =  () => {

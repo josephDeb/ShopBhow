@@ -62,7 +62,7 @@ function AdminDashboard() {
     
     useEffect(() => {
       axios.defaults.withCredentials = true;
-      axios.get("api/products")
+      axios.get("/api/products")
       .then(res => {
         setProducts(res.data.Result)
       }).catch(err => console.log(err))
@@ -72,7 +72,7 @@ function AdminDashboard() {
 
     useEffect(() => {
       axios.defaults.withCredentials = true;
-      axios.get('api/users/users')
+      axios.get('/api/users/users')
       .then(res => {
         setCustomers(res.data)
         console.log(customers)

@@ -13,7 +13,7 @@ const UpdateUser = ({setOn, on, }) => {
     })
     const handleUpdate = async (e) => {
         e.preventDefault()
-        await axios.put("api/users/"+id, values)
+        await axios.put("/api/users/"+id, values)
         .then(res => {
            Swal.fire({
                 title: "Good job!",

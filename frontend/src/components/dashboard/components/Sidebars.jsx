@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import './App.css'
 import 
-{BsCart3, BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, 
-  BsListCheck, BsMenuButtonWideFill, BsFillGearFill, BsArchiveFill}
+{BsCart3, BsGrid1X2Fill, BsFillGrid3X3GapFill, BsPeopleFill, 
+ BsArchiveFill}
  from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 

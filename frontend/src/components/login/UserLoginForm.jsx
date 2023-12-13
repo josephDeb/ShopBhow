@@ -11,9 +11,6 @@ import axios from 'axios'
 const UserLoginForm = () => {
     
     const navigate = useNavigate()
-    const dispatch = useDispatch()
-    const {currentUser} = useSelector(state => state.user)
-   
     const [values, setValues] = useState({
       email: "",
       password: "",

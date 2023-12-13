@@ -15,7 +15,7 @@ const ManageUsers = () => {
     const {id} = useParams()
     const [allUsers, setAllUsers] = useState([])
     useEffect(() => {
-        axios.get("api/users/users")
+        axios.get("/api/users/users")
         .then(res => {
             setAllUsers(res.data)
             console.log(allUsers)
@@ -35,7 +35,7 @@ const ManageUsers = () => {
           confirmButtonText: "Yes, delete it!",
         })
         if(result.isConfirmed) {
-          await axios.delete("api/users/"+id)
+          await axios.delete("/api/users/"+id)
       .then(res => {
           console.log(res)
           window.location.reload()

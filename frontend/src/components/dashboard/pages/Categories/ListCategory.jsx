@@ -24,7 +24,7 @@ const ListCategory = () => {
   axios.defaults.withCredentials = true;
     const [listCt, setListCt] =  useState([])
     useEffect(() => {
-    axios.get("api/category/categories")
+    axios.get("/api/category/categories")
     .then(res => {
         setListCt(res.data.Result)
     })

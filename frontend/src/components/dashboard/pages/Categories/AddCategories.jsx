@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import axios from 'axios'
-import { BsBoxArrowLeft } from 'react-icons/bs'
 import { HiArrowLeft } from 'react-icons/hi'
 
 
@@ -27,7 +26,7 @@ const handleAdd = async (e) => {
     alert("Please fill up the field")
   }
   axios.defaults.withCredentials = true;
-   await axios.post("api/category", formdata)
+   await axios.post("/api/category", formdata)
    .then(res => {
     alert("Successfully added")
     navigate("/admin-dashboard/categories")
