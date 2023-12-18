@@ -2,7 +2,7 @@
 import {  useState} from 'react';
 import {  useNavigate} from 'react-router-dom';
 import {useDispatch, } from 'react-redux'
-import { signInSuccess } from '../../../user/userSlice';
+import { signInSuccess } from '../../redux/user/userSlice';
 import Swal from 'sweetalert2'
 import axios from 'axios'
 const UserRegister = () => {

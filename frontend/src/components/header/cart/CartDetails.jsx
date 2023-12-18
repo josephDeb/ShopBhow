@@ -19,6 +19,7 @@ import { HiX } from 'react-icons/hi';
 
 
 import FooterBar from '../../footer/FooterBar';
+import { Link } from 'react-router-dom';
 const CartDetails = () => {
     const {cart, removeCart, total, clearCart} = useContext(ShopContext)
 
@@ -29,7 +30,7 @@ const CartDetails = () => {
         <div className='xl:w-[730px] flex flex-col xl:h-[134vh] gap-2 '>
             <div className='w-full  h-[44px] px-8 flex items-end'>
                 <div className='w-full  uppercase flex items-end border-b'>
-                   <h1 className='pl-1 w-[330px] '>Product</h1>
+                   <h1 className='pl-1 w-[330px] text-white'>Product</h1>
 
                 </div>
             </div>
@@ -52,7 +53,7 @@ const CartDetails = () => {
                 return <SwiperSlide key={i} className='h-[140px] w-full bg-white rounded-xl flex relative border-2 justify-between items-center'>
                     <div className='flex justify-center items-center'>
                       <div className='xl:w-[134px] h-full centered w-[88px]'>
-                        <img src={'../../../../images/'+ct.image} className='xl:w-[107px] xl:h-[107px] w-[88px] h-[88px]'/>
+                          <img src={'../../../../images/'+ct.image} className='xl:w-[107px] xl:h-[107px] w-[88px] h-[88px]'/>
                        </div>
 
                         <div className='flex flex-col w-[110px] xl:w-[240px]'>

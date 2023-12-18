@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
+import { ShopContext } from "../../header/context/ShopContextProvider";
 
 const AdminMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,7 +9,7 @@ const AdminMenu = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
+  const {logout} = useContext(ShopContext)
   return (
     <>
       <button
@@ -84,6 +85,18 @@ const AdminMenu = () => {
                 })}
               >
                 Manage Users
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+              onClick={() => logout()}
+                className="list-item py-2 px-3 block mb-5 hover:bg-[#2E2D2D] rounded-sm"
+                to="/admin-dashboard/users"
+                style={({ isActive }) => ({
+                  color: isActive ? "greenyellow" : "white",
+                })}
+              >
+                Sign out
               </NavLink>
             </li>
           </ul>

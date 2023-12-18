@@ -5,7 +5,7 @@ import {AiOutlineSearch} from 'react-icons/ai'
 
 import { ShopContext } from '../context/ShopContextProvider';
 
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 const MbSearchBar = () => {
     const {search, values,fillT} = useContext(ShopContext)
 
@@ -24,9 +24,11 @@ const MbSearchBar = () => {
                 {values &&
                     <div className='bg-white py-2 text-black w-full z-10 absolute top-10 rounded-md max-h-40 overflow-y-auto '>
                         {search.map((sr, index) => (
-                            <p onClick={() => navigate("/home/")} key={index} className='pl-4 hover:bg-yellow-300 cursor-pointer underline z-[99]'>
+                            <Link to={'/home/'+sr._id} key={index}>
+                                <p onClick={() => navigate("/home/")}  className='pl-4 hover:bg-yellow-300 cursor-pointer underline z-[99]'>
                                 {sr.name}
                             </p>
+                            </Link>
                         ))}
                     </div>
                 }

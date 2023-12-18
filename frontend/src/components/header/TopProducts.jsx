@@ -25,7 +25,7 @@ import { ShopContext } from './context/ShopContextProvider'
 const TopProducts = () => {
    const {products} = useContext(ShopContext)
    
-   const {addCart} = useContext(ShopContext)
+   const {addCart, on} = useContext(ShopContext)
 
 
   return (
@@ -33,12 +33,12 @@ const TopProducts = () => {
       <div className='w-[90%] mx-auto flex items-center justify-between xl:w-full'>
          <div className='flex items-center'>
              <img src={top} className='w-10'/>
-             <h1 className='font-bold '>Top products</h1>
+             <h1 className={`${on ? "text-white" : "text-black"} font-bold `}>Top products</h1>
          </div>
 
          <div className='flex items-center gap-1'>
                <img src={arrow} className='w-10 h-10 '/>
-               <Link to={'/home/all-products'} className='font-bold '>View all</Link>
+               <Link to={'/home/all-products '} className={`${on ? "text-white" : "text-black"} font-bold `}>View all</Link>
          </div>
       </div>
 

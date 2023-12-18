@@ -12,7 +12,7 @@ import { useContext } from 'react'
 import { ShopContext } from './context/ShopContextProvider'
 import { Link, useNavigate } from 'react-router-dom'
 const WeeklySales = () => {
-   const {addCart, search} = useContext(ShopContext)
+   const {addCart, search, on} = useContext(ShopContext)
 
    const navigate = useNavigate()
 
@@ -23,12 +23,12 @@ const WeeklySales = () => {
 <div className='w-[90%] mx-auto flex items-center justify-between xl:w-full'>
    <div className='flex items-center'>
        <img src={offer2} className='w-10'/>
-       <h1 className='font-bold '>Weekly Sales</h1>
+       <h1 className={`${on ? "text-white" : "text-black"} font-bold ` }>Weekly Sales</h1>
    </div>
 
    <Link to={"/home/all-products"} className='flex items-center gap-1'>
          <img src={arrow} className='w-10 h-10 '/>
-         <h1 className='font-bold '>View all</h1>
+         <h1 className={`${on ? "text-white" : "text-black"} font-bold `}>View all</h1>
    </Link>
 </div>
 

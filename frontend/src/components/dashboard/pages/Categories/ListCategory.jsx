@@ -41,7 +41,7 @@ const ListCategory = () => {
             confirmButtonText: "Yes, delete it!",
             
           })
-         await axios.delete("api/category/"+id)
+         await axios.delete("/api/category/"+id)
         .then(res => {
             if(result.isConfirmed) {
                 window.location.reload()

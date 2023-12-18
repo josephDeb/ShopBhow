@@ -3,13 +3,13 @@ import { useState,} from "react";
 import { useNavigate } from "react-router";
 
 import './style.css'
-import {  signInSuccess} from "../../../user/userSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { signInFailure, signInStart, signInSuccess } from "../../redux/user/userSlice";
+import { useDispatch } from "react-redux";
 
 import note from '../../assets/stickyNote.png'
 import axios from 'axios'
 const UserLoginForm = () => {
-    
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const [values, setValues] = useState({
       email: "",
@@ -26,6 +26,7 @@ const UserLoginForm = () => {
             alert("PLease fill up all fields")
         }
         setError(true)
+        dispatch(signInStart())
         const res = await fetch("/api/users/auth", {
             method: "POST",
             headers: {
@@ -38,9 +39,10 @@ const UserLoginForm = () => {
             setError(false)
             if(data.Status) {
                 navigate("/home")
-                console.log(data)
+                dispatch(signInSuccess(data))
             } else {
                 setIrror(data.Error)
+                dispatch(signInFailure(data))
                 setError(false)
             }
         } catch (err) {

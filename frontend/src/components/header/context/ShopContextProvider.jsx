@@ -4,9 +4,14 @@ import { createContext,useEffect,useState } from "react"
 const defaultVal = {}
 export const ShopContext = createContext(defaultVal)
 import axios from 'axios'
+import { useDispatch } from 'react-redux';
 import {toast} from 'react-toastify'
+import { signOut } from "../../../redux/user/userSlice";
 
 const ShopContextProvider = (props) => {
+
+  const dispatch = useDispatch()
+
   const [isOpen, setIsOpen] = useState(true);
   const [values, setValue] = useState()
   const [products, setProducts] = useState([])
@@ -31,6 +36,7 @@ const ShopContextProvider = (props) => {
   }, [])
   axios.defaults.withCredentials = true;
   useEffect(() => {
+    axios.defaults.withCredentials = true;
       axios.get("/api/category/categories")
       .then(res => {
           setCategory(res.data.Result)
@@ -168,7 +174,11 @@ const clearCart = () => {
 const logout = () => {
   window.localStorage.clear()
   window.location.href = '/login'
+  dispatch(signOut())
 }
+
+const [on, setOn] =useState(false)
+
 
   const value = {
     setIsOpen,
@@ -191,7 +201,9 @@ const logout = () => {
     total,
     handleInput,
     clearCart,
-    logout
+    logout,
+    setOn,
+    on
   }
 
 

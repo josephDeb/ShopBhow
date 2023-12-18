@@ -21,15 +21,15 @@ const Testimonials = () => {
     {
       message: 'Focus sa goal bili kalang ng bili! Iwan mo kahit pamilya mo pa!',
       avatar: profile2,
-      name: 'Jerome Apduhan',
-      job: 'Photographer & Manyak ',
+      name: 'Rendon Labador',
+      job: 'Motivational Speaker ',
       star: 5
     },
     {
       message: 'OMG! The item was delivered in a timely manner, and the packaging ensured that it arrived in perfect condition.',
       avatar: profile3,
-      name: 'Jan Patrick Abayon',
-      job: 'Guitarist & Pogiii',
+      name: 'Kwen Neneg',
+      job: 'Video creator',
       star: 1
     }
   ]
@@ -58,7 +58,7 @@ const Testimonials = () => {
       className="mySwiper w-[100%] xl:w-full"
       >
         {testimonialData.map((ts, i) => {
-          return <SwiperSlide className='w-full h-[280px] flex flex-col justify-between gap-6 manjari ' key={i}>
+          return <SwiperSlide className='w-full h-[280px] flex flex-col justify-between gap-8 manjari xl:h-[350px]' key={i}>
             <div className='w-full  centered flex flex-col gap-4'>
                   <FaQuoteLeft className='text-4xl text-red-500'/>
             </div>

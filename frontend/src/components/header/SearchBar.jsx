@@ -4,11 +4,11 @@ import { Link, useNavigate, useParams } from "react-router-dom"
 
 
 const SearchBar = () => {
-    const {fillT, values, search} = useContext(ShopContext)
+    const {fillT, values, search, on} = useContext(ShopContext)
     const navigate = useNavigate()
   return (
     <>
-<div className="w-full relative">
+<div className={`w-full relative ${on ? "bg-[#171717]" : ""} `}>
     <div className="flex flex-col">
         <div className="w-full ">
             <input onChange={fillT} value={values} type="search" id="search-dropdown" className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg " placeholder="Search something..." required></input>

@@ -27,14 +27,14 @@ const Homepage = () => {
     const handleFilter = () => {
         setIsOpen(!isOpen)
     }
-    const {filterItems} = useContext(ShopContext)
+    const {filterItems, on} = useContext(ShopContext)
     useEffect(() => {
         filterItems("Weekly Sales")
     }, [])
 
   return (
     <>
-    <div className='w-full xl:max-w-screen-lg xl:mx-auto relative'>
+    <div className={`w-full xl:max-w-screen-lg xl:mx-auto relative ${on ? "bg-black xl:hidden" : ""}`}>
 
         <div className='xl:h-[80px] h-[77px] flex justify-between items-center gap-2  relative w-[90%] mx-auto xl:w-[90%]'>
             <div className='flex w-full xl:w-[90%]'>
@@ -58,7 +58,7 @@ const Homepage = () => {
 
     <div className='xl:max-w-screen-lg mx-auto '>
         
-        <div className=''>
+        <div className={`${on ? "bg-black xl:hidden" : ""}`}>
           <div className='w-full xl:w-[90%] xl:mx-auto xl:flex-col xl:h-[140px] xl:pt-2 '>
             <Category />
           </div>
@@ -68,39 +68,39 @@ const Homepage = () => {
           </div>
         </div>
 
-        <div className='rounded-lg w-full xl:w-[90%]  xl:mx-auto h-[260px] xl:h-[260px]'>
+        <div className={` w-full xl:w-[90%]  xl:mx-auto h-[260px] xl:h-[260px] ${on ? "bg-black xl:hidden " : ""}`}>
             <CycloneOffer />
         </div>
 
-        <div className='w-full xl:max-w-screen-lg xl:mx-auto h-[230px] xl:hidden'>
+        <div className={`${on ? " bg-black xl:hidden" : ""} w-full xl:max-w-screen-lg xl:mx-auto h-[230px] xl:hidden `}>
             <Darkmode />
         </div>
 
-        <div className='w-full xl:w-[90%]  xl:mx-auto h-[380px] xl:h-[400px] '>
+        <div className={` ${on ? " bg-black xl:hidden border-2 border-black" : ""}  w-full xl:w-[90%]  xl:mx-auto h-[380px] xl:h-[400px] `}>
             <TopProducts />
         </div>
 
-        <div className='w-full xl:w-[90%]  xl:mx-auto h-[220px] xl:h-[280px] '>
+        <div className={`${on ? " bg-black xl:hidden border-2 border-black" : ""} w-full xl:w-[90%]  xl:mx-auto h-[220px] xl:h-[280px] `}>
             <Banner3 />
         </div>
 
-        <div className='w-full xl:w-[90%]  xl:mx-auto h-[1070px] xl:h-[770px] mx-auto'>
+        <div className={`${on ? "bg-black xl:hidden  border-2 border-black" : ""} w-full xl:w-[90%]  xl:mx-auto h-[1070px] xl:h-[770px] mx-auto`}>
             <WeeklySales />
         </div>
 
-        <div className='w-full xl:w-[90%]  xl:mx-auto h-[240px] xl:h-[280px]'>
+        <div className={`${on ? "bg-black xl:hidden border-2 border-black" : ""} w-full xl:w-[90%]  xl:mx-auto h-[240px] xl:h-[280px]`}>
             <Banner4 />
         </div>
 
-        <div className='w-full xl:w-[90%]  xl:mx-auto h-[260px] xl:h-[280px]'>
+        <div className={`${on ? "bg-black xl:hidden border-2 border-black " : ""} w-full xl:w-[90%]  xl:mx-auto h-[260px] xl:h-[280px]`}>
             <Collections />
         </div>
 
-        <div className='h-[88px] w-full xl:h-[44px]'>
+        <div className={` ${on ? "bg-black xl:hidden border-2 border-black " : ""} h-[88px] w-full xl:h-[44px]`}>
             {/*space */}
         </div>
 
-        <div className='fixed z-[88] w-full -bottom-1 h-[62px] shadow-2xl '>
+        <div className={` fixed z-[88] w-full -bottom-1 h-[62px] shadow-2xl `}>
              <FooterBar />
         </div>
     </div>

@@ -25,19 +25,19 @@ const Collections = () => {
           setDatas(res.data.Result)
       })
   }, [])
-  const {filterItems} = useContext(ShopContext)
+  const {filterItems, on} = useContext(ShopContext)
   return (
     <div className='w-full h-[260px] centered flex flex-col gap-2 xl:h-[260px] xl:gap-3'>
 
 <div className='w-[90%] mx-auto flex items-center justify-between xl:w-full'>
          <div className='flex items-center'>
              <img src={check} className='w-10'/>
-             <h1 className='font-bold '>Collections</h1>
+             <h1 className={`${on ? "text-white" : "text-black"} font-bold `}>Collections</h1>
          </div>
 
          <div className='flex items-center gap-1'>
                <img src={arrow} className='w-10 h-10 '/>
-               <h1 className='font-bold '>View all</h1>
+               <h1 className={`${on ? "text-white" : "text-black"} font-bold `}>View all</h1>
          </div>
       </div>
 

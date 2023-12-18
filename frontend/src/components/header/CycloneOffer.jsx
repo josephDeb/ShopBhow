@@ -17,6 +17,8 @@ import { Link } from 'react-router-dom';
 import { ShopContext } from './context/ShopContextProvider';
 const CycloneOffer = () => {
 
+  const {on} = useContext(ShopContext)
+
   axios.defaults.withCredentials = true
 
   const [products, setProducts] = useState([])
@@ -24,16 +26,16 @@ const CycloneOffer = () => {
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
     .then(res=>res.json())
-    .then(json=>setProducts(json))
-    console.log(products)
+    .then(json => setProducts(json))
   }, [])
+
 
 
   return (
     <div className='xl:max-w-screen-lg w-full h-[280px] xl:h-[260px]   rounded-lg'>
    <div className='xl:w-full w-[90%] mx-auto flex justify-start items-center h-[53px] '>
                <img src={offer} className='w-10'/>
-            <h1 className='font-semibold'>Cyclone offer</h1>
+            <h1 className={`${on ? "text-white" : "text-black"} font-semibold`}>Cyclone offer</h1>
         </div>
 
         <Swiper

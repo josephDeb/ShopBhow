@@ -15,7 +15,7 @@ import {  useState } from 'react'
 import CircleLoader	 from "react-spinners/CircleLoader";
 
 const FooterBar = () => {
-    const {logout} = useContext(ShopContext)
+    const {logout, on} = useContext(ShopContext)
 
     const [loading, setLoading] = useState(false)
   
@@ -42,7 +42,7 @@ const FooterBar = () => {
      
     :
 
-    <div className='w-full h-full bg-gradient-to-br from-amber-500 to-yellow-600 flex justify-between items-center px-4 xl:hidden'>
+    <div className={`w-full h-full ${on ? "bg-black" : "bg-gradient-to-br from-amber-500 to-yellow-600"} flex justify-between items-center px-2 xl:hidden`}>
     <div className=' h-full w-[62px] flex flex-col centered cursor-pointer text-white'>
         <HiHome className=' text-3xl'/>
         <h4>Home</h4>
@@ -59,7 +59,7 @@ const FooterBar = () => {
         <BsHeartFill className='text-2xl'/>
         <h4>Wishlist</h4>
     </div>
-    <div onClick={logout} className='text-white h-full w-[62px] flex flex-col centered cursor-pointer justify-start'>
+    <div onClick={logout} className='text-white h-full xl:w-[62px] flex flex-col centered cursor-pointer justify-start'>
     <FaSignOutAlt className='text-3xl'/>
     <h4>Sign out</h4>
     </div>

@@ -7,6 +7,7 @@ import cart from '../../../assets/shopping-cart.gif'
 import rate from '../../../assets/rate.png'
 import outofstock from '../../../assets/out-of-stock.png'
 import error from '../../../assets/error.png'
+import { Link } from 'react-router-dom'
 
 const CardProduct = ({search, addCart}) => {
 
@@ -26,7 +27,9 @@ const CardProduct = ({search, addCart}) => {
             }
 
             <div className='w-full h-[170px] end'>
+               <Link to={'/home/'+prd._id} className='w-full'>
                <img className='w-[130px] mx-auto h-[130px] ' src={'../../../../images/'+prd.image}/>
+               </Link>
             </div>
 
             <div className=' w-full px-2 pb-4'>
