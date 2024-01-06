@@ -7,7 +7,7 @@ import { signInFailure, signInStart, signInSuccess } from "../../redux/user/user
 import { useDispatch } from "react-redux";
 
 import note from '../../assets/stickyNote.png'
-import axios from 'axios'
+
 const UserLoginForm = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()

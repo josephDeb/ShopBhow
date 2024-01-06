@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 
 import { createContext,useEffect,useState } from "react"
@@ -180,6 +181,8 @@ const logout = () => {
 const [on, setOn] =useState(false)
 
 
+
+
   const value = {
     setIsOpen,
     isOpen,
@@ -203,7 +206,8 @@ const [on, setOn] =useState(false)
     clearCart,
     logout,
     setOn,
-    on
+    on,
+
   }
 
 

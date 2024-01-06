@@ -38,6 +38,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import FilterProducts from "./components/header/FilterProducts/AllProducts"
 import AdminLogin from "./components/dashboard/adminLogin/AdminLogin"
 import NotFound from "../NotFound"
+
 function App() {
 
   return (
@@ -62,7 +63,7 @@ function App() {
                       <Route path="/home/offer/:id" element={<SingleProductCyclone />}/>
                       <Route path="/home/cart" element={<Cart />}>
                       </Route>
-                      
+
                 </Route>
 
                 <Route element={<PrivateRouteAdmin />}>

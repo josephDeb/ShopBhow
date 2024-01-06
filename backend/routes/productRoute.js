@@ -20,9 +20,9 @@ const upload = multer({
 // end i
 
 
-router.post('/create',  upload.single("file"), createProduct)
-router.put('/:id',  updateProduct)
-router.get('/',  allProducts)
-router.get('/:id',  singleProduct)
-router.delete('/:id', deleteProduct)
+router.post('/create',  upload.single("file"), protect,authorizedAdmin, createProduct)
+router.put('/:id',protect,authorizedAdmin,  updateProduct)
+router.get('/',protect,authorizedAdmin,  allProducts)
+router.get('/:id',protect,authorizedAdmin,  singleProduct)
+router.delete('/:id',protect,authorizedAdmin, deleteProduct)
 export default router

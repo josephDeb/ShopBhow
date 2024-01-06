@@ -1,4 +1,4 @@
-import express from "express";
+import express from 'express'
 import dotenv from 'dotenv';
 import cookieParser from "cookie-parser";
 import cors from 'cors'
@@ -8,7 +8,7 @@ import productRoute from '../backend/routes/productRoute.js'
 
 
  //utils
- import connectDB from './config/db.js'
+import connectDB from './config/db.js' 
 
  dotenv.config();
  const port = process.env.PORT || 8088;

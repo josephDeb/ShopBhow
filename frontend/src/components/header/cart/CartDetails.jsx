@@ -19,7 +19,7 @@ import { HiX } from 'react-icons/hi';
 
 
 import FooterBar from '../../footer/FooterBar';
-import { Link } from 'react-router-dom';
+
 const CartDetails = () => {
     const {cart, removeCart, total, clearCart} = useContext(ShopContext)
 
@@ -89,7 +89,7 @@ const CartDetails = () => {
                 </div>
               <div className='flex w-[88%] gap-4'>
                   <button onClick={() => clearCart()} className='w-[170px] bg-yellow-600 text-white h-[44px]'>Clear cart</button>
-                  <button className='border-2 bg-green-600 text-white h-[44px] w-[260px] centered'>Check out</button>
+                  <button  className='border-2 bg-green-600 text-white h-[44px] w-[260px] centered'>Check out</button>
               </div>
             </div>
         </div>
